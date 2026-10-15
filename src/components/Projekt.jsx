@@ -14,9 +14,10 @@ function Projekt() {
           titel="Min portfoliosida"
           text="Sidan du tittar på nu. Byggd med React och CSS."
           bild={bild1}
+          lank="https://www.google.se"
         />
-        <ProjektKort titel="Projekt 2" text="Kommer snart." bild={bild2} />
-        <ProjektKort titel="Projekt 3" text="Kommer snart." bild={bild3} />
+        <ProjektKort titel="Projekt 2" text="Kommer snart." bild={bild2} lank="https://www.google.se"/>
+        <ProjektKort titel="Projekt 3" text="Kommer snart." bild={bild3} lank="https://www.google.se"/>
       </div>
     </section>
   );
