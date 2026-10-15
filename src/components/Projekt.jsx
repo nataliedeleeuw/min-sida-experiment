@@ -1,5 +1,5 @@
 import "./Projekt.css";
-import ProjektKort from "../ProjektKort";
+import ProjektKort from "./ProjektKort";
 import bild1 from "../assets/Hero1.jpg";
 import bild2 from "../assets/Hero2.jpg";
 import bild3 from "../assets/Hero3.jpg";

@@ -2,7 +2,6 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import Projekt from "./components/Projekt";
-import ProjektKort from "./components/Projektkort";
 
 function App() {
   return (
@@ -14,7 +13,6 @@ function App() {
         stad="Helsingborg"
       />
       <Projekt />
-      <ProjektKort />
       <Footer />
     </>
   );
