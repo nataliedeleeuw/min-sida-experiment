@@ -24,7 +24,7 @@
 
 .projekt-info h3 {
   margin: 0 0 8px;
-  color: #261f3a;
+  color: #1C2027;
   font-size: 20px;
 }
 .projekt-knapp {
@@ -32,21 +32,22 @@
   margin-top: auto;
   align-self: flex-start;
   padding: 10px 20px;
-  border-radius: 10px;
-  background-color: #7e2b60;
-  color: #fcf6fa;
+  border-radius: 6px;
+  background-color: #365F87;
+  color: #FFFAF5;
   font-weight: 600;
   text-decoration: none;
 }
 
 .projekt-knapp:hover {
-  background-color: #320120;
+  background-color: #4C78A5;
 }
 
 .projekt-knapp:focus-visible {
-  outline: 3px solid #7e2b60;
+  outline: 3px solid #4C78A5;
   outline-offset: 4px;
 }
 .projekt-info p {
+  color: #4E5059;
   margin-bottom: 16px;
 }

@@ -1,10 +1,13 @@
 .projekt {
   padding: 64px 32px;
-  background-color: #ede9f6;
+  background-color: #F5F0F4;;
 }
 
 .projekt h2 {
+  font-family: 'Outfit', sans-serif;
   font-size: 32px;
+  font-weight: 700;
+  color: #1C2027;
   margin: 0 0 32px;
 }
 
