@@ -1,0 +1,24 @@
+.projekt-kort {
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;                      
+  text-align: left;
+  box-shadow: 0 2px 8px rgba(74, 46, 81, 0.12);
+}
+
+.projekt-bild {
+  display: block;
+  width: 100%;
+  height: 160px;
+  object-fit: cover;                     
+}
+
+.projekt-info {
+  padding: 20px;
+}
+
+.projekt-info h3 {
+  margin: 0 0 8px;
+  color: #261f3a;
+  font-size: 20px;
+}
