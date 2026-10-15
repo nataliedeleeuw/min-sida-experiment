@@ -9,8 +9,7 @@ function App() {
       <Navbar />
       <Hero
         namn="Natalie de Leeuw"
-        titel="Frontend Developer"
-        stad="Helsingborg"
+        titel="Tech Trainee"
       />
       <Projekt />
       <Footer />
