@@ -1,0 +1,30 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #FFFAF5;
+  border-bottom: 1px solid #E7DFD9;
+}
+
+.logo {
+  color: #1C2027;
+  font-size: 22px;
+  font-weight: bold;
+  font-family: 'Outfit', sans-serif;
+}
+
+.lankar {
+  display: flex;
+  gap: 24px;
+}
+
+.lankar a {
+  color: #1C2027;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.lankar a:hover {
+  color: #4C78A5;
+}
