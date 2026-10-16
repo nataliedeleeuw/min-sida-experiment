@@ -19,6 +19,14 @@ function OmMig() {
           varför något som fungerade för fem minuter sedan plötsligt
           inte fungerar alls.
         </p>
+        <h3>Det här lär jag mig i kursen</h3>
+
+        <ul className="om-mig-lista">
+        <li>React</li>
+        <li>JavaScript</li>
+        <li>CSS</li>
+        <li>Git & GitHub</li>
+        </ul>
       </div>
     </section>
   );

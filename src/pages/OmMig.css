@@ -1,6 +1,10 @@
 .om-mig {
-  background-color: #FCF5F6;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
   padding: 80px 32px;
+  background-color: #FCF5F6;
 }
 
 .om-mig-card {
@@ -8,17 +12,12 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 32px 56px;
-
   background-color: #FFFAF5;
   border-radius: 18px;
-
   box-shadow: 0 12px 32px rgba(28, 32, 39, 0.07);
-
   text-align: left;
   overflow: hidden;
 }
-
-/* Decorative blue accent */
 .om-mig-card::before {
   content: "";
   position: absolute;
@@ -31,8 +30,6 @@
 
   background-color: #4C78A5;
 }
-
-/* Soft pink circle in the corner */
 .om-mig-card::after {
   content: "";
   position: absolute;
@@ -64,7 +61,41 @@
   line-height: 1.8;
   margin: 0;
 }
+.om-mig-bild {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+}
+.om-mig h3 {
+  margin: 28px 0 16px;
+  color: #261f3a;
+  font-size: 20px;
+}
 
+.om-mig-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.om-mig-lista li {
+  padding: 8px 16px;
+  border-radius: 999px;
+  background-color: #ede9f6;
+  color: #7e2b60;
+  font-weight: 600;
+}
+
+@media (max-width: 800px) {
+  .om-mig {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
 @media (max-width: 600px) {
   .om-mig {
     padding: 48px 20px;
