@@ -1,16 +1,13 @@
-# React + Vite
+# Work in Progress
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+En personlig portfoliosida som jag bygger under min utbildning till Tech Trainee.
 
-Currently, two official plugins are available:
+Projektet är byggt med React, JavaScript och CSS. Jag använder React Router för att skapa flera sidor och Git för att spara ändringar i projektet.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Om projektet
 
-## React Compiler
+Sidan innehåller en startsida med projektkort och en separat Om mig-sida. Jag kommer att fortsätta utveckla sidan allt eftersom jag lär mig mer.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Skapad av
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Natalie de Leeuw
