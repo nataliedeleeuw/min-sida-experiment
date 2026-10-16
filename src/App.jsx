@@ -1,19 +1,19 @@
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import Hero from "./components/Hero";
-import Projekt from "./components/Projekt";
-import OmMig from "./components/OmMig";
+import Hem from "./pages/Hem";
+import OmMig from "./pages/OmMig";
 
 function App() {
   return (
     <>
       <Navbar />
-      <Hero
-        namn="Natalie de Leeuw"
-        titel="Tech Trainee"
-      />
-      <OmMig />
-      <Projekt />
+
+      <Routes>
+        <Route path="/" element={<Hem />} />
+        <Route path="/om-mig" element={<OmMig />} />
+      </Routes>
+
       <Footer />
     </>
   );

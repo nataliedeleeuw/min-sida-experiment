@@ -13,11 +13,10 @@
 
 .projekt-lista {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;   /* tre kort bredvid varandra */
+  grid-template-columns: 1fr 1fr 1fr;  
   gap: 24px;
 }
 
-/* På mobil hamnar korten under varandra */
 @media (max-width: 800px) {
   .projekt-lista {
     grid-template-columns: 1fr;
