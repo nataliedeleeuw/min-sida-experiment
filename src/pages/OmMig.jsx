@@ -1,11 +1,15 @@
 import "./OmMig.css";
-
+import portrait from "../assets/Portrait.png";
 function OmMig() {
   return (
     <section className="om-mig" id="om-mig">
+        <img
+        className="om-mig-bild"
+        src={portrait}
+        alt="Illustrerat porträtt av Natalie"
+       />
       <div className="om-mig-card">
         <h2>Om mig</h2>
-
         <p>
           Jag heter Natalie och tycker om att lära mig nya saker.
           Mina intressen är ganska blandade, men psykologi, skrivande
