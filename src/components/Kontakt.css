@@ -107,7 +107,7 @@
 .kontakt-text::after {
   content: "";
   display: block;
-  width: 336px;
+  width: 64px;
   height: 3px;
   margin-top: 24px;
   background-color: #4C78A5;

@@ -1,5 +1,6 @@
-import "./Kontakt.css";
+import  "./Kontakt.css";
 import KontaktBild from "../assets/Envelope.png";
+
 
 function Kontakt() {
   return (
