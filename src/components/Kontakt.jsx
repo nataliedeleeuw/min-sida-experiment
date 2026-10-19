@@ -1,4 +1,5 @@
 import "./Kontakt.css";
+import KontaktBild from "../assets/Envelope.png";
 
 function Kontakt() {
   return (
@@ -6,6 +7,11 @@ function Kontakt() {
       <div className="kontakt-info">
         <h2>Kontakta mig</h2>
         <p className="kontakt-text">Har du en fråga? Skriv ett meddelande!</p>
+          <img
+              className="kontakt-bild"
+                src={KontaktBild}
+              alt="Illustration av ett kuvert med ett meddelande"
+  />
       </div>
 
       <form className="kontakt-form">

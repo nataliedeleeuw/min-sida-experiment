@@ -1,19 +1,17 @@
-/* The entire contact section */
+
 .kontakt {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   align-items: center;
   gap: 48px;
-
   padding: 80px 48px;
   background-color: #FCF5F6;
 }
 
-/* Left side: heading and introduction */
 .kontakt-info {
   text-align: left;
-  align-self: start;
-  padding-top: 36px;
+  align-self: center;
+  padding-top: 0;
 }
 
 .kontakt-info h2 {
@@ -31,24 +29,18 @@
   max-width: 30ch;
 }
 
-/* Right side: the form card */
 .kontakt-form {
   display: flex;
   flex-direction: column;
   gap: 12px;
-
   padding: 36px;
   background-color: #FFFAF5;
-
   border-radius: 18px;
   border-top: 6px solid #E3B7B3;
-
   box-shadow: 0 12px 32px rgba(28, 32, 39, 0.07);
-
   text-align: left;
 }
 
-/* Form labels */
 .kontakt-form label {
   color: #1C2027;
   font-size: 15px;
@@ -56,33 +48,25 @@
   margin-top: 8px;
 }
 
-/* Text fields and message box */
 .kontakt-form input,
 .kontakt-form textarea {
   width: 100%;
   box-sizing: border-box;
-
   padding: 13px 16px;
-
   background-color: #FFFFFF;
   color: #1C2027;
-
   border: 1px solid #DDD7DC;
   border-radius: 8px;
-
   font-family: 'Outfit', sans-serif;
   font-size: 16px;
-
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Make the placeholder text softer */
 .kontakt-form input::placeholder,
 .kontakt-form textarea::placeholder {
   color: #8B8991;
 }
 
-/* Highlight the field currently being used */
 .kontakt-form input:focus,
 .kontakt-form textarea:focus {
   outline: none;
@@ -90,29 +74,23 @@
   box-shadow: 0 0 0 3px rgba(76, 120, 165, 0.15);
 }
 
-/* Message box */
 .kontakt-form textarea {
   resize: vertical;
   min-height: 140px;
 }
 
-/* Submit button */
 .kontakt-form button {
   align-self: flex-start;
 
   margin-top: 12px;
   padding: 12px 30px;
-
   background-color: #365F87;
   color: #FFFAF5;
-
   border: none;
   border-radius: 6px;
-
   font-family: 'Outfit', sans-serif;
   font-size: 16px;
   font-weight: 700;
-
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
@@ -126,7 +104,16 @@
   outline-offset: 4px;
 }
 
-/* Tablet and mobile layout */
+.kontakt-text::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 3px;
+  margin-top: 24px;
+  background-color: #4C78A5;
+  border-radius: 999px;
+}
+
 @media (max-width: 800px) {
   .kontakt {
     grid-template-columns: 1fr;
@@ -142,6 +129,16 @@
     font-size: 32px;
   }
 }
+.kontakt-bild {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+
+  margin: 36px auto 0;
+  border-radius: 18px;
+}
+
 
 @media (max-width: 600px) {
   .kontakt-form {
