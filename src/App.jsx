@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Hem from "./pages/Hem";
 import OmMig from "./pages/OmMig";
+import Kontakt from "./components/Kontakt";
 
 function App() {
   return (
