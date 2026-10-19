@@ -12,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Hem />} />
         <Route path="/om-mig" element={<OmMig />} />
+        <Route path="/kontakt" element={<Kontakt />} />
       </Routes>
 
       <Footer />

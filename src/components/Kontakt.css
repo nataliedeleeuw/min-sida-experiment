@@ -1,0 +1,15 @@
+.kontakt {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* text till vänster, formulär till höger */
+  gap: 48px;
+}
+.kontakt-form {
+  display: flex;
+  flex-direction: column; /* fälten under varandra */
+  gap: 8px;
+}
+@media (max-width: 800px) {
+  .kontakt {
+    grid-template-columns: 1fr; /* bara en kolumn */
+  }
+}
