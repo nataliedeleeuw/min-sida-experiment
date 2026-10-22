@@ -113,6 +113,13 @@
   background-color: #4C78A5;
   border-radius: 999px;
 }
+.form-fel {
+  color: #b42318;
+}
+
+.form-tack {
+  color: #237a35;
+}
 
 @media (max-width: 800px) {
   .kontakt {
