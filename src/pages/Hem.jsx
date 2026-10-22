@@ -1,5 +1,6 @@
 import Hero from "../components/Hero";
 import Projekt from "../components/Projekt";
+import Raknare from "../components/Raknare";
 
 function Hem() {
   return (
@@ -9,6 +10,7 @@ function Hem() {
         titel="Tech Trainee"
       />
       <Projekt />
+      <Raknare />
     </>
   );
 }
