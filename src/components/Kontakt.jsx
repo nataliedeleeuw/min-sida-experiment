@@ -41,7 +41,11 @@ function Kontakt() {
               alt="Illustration av ett kuvert med ett meddelande"
           />
       </div>
-
+          {skickat ? (
+          <p className="form-tack">
+            Tack {namn}! Formuläret har testats, men inget mejl har skickats.
+          </p>
+) : (
       <form
             className="kontakt-form"
             onSubmit={handleSubmit}
@@ -77,13 +81,8 @@ function Kontakt() {
         <button type="submit">Skicka</button>
 
         {fel && <p className="form-fel">{fel}</p>}
-
-        {skickat && (
-          <p className="form-tack">
-            Tack {namn}! Formuläret har testats, men inget mejl har skickats.
-          </p>
-        )}
       </form>
+      )}
     </section>
   );
 }
