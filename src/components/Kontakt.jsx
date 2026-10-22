@@ -9,7 +9,6 @@ function Kontakt() {
   const [meddelande, setMeddelande] = useState("");
   const [skickat, setSkickat] = useState(false);
   const [fel, setFel] = useState("");
-  console.log({ namn, email, meddelande });
   function handleSubmit(e) {
   e.preventDefault();
   setFel("");
@@ -58,7 +57,6 @@ function Kontakt() {
             onChange={(e) => setNamn(e.target.value)}
             
         />
-        <p>Du skriver: {namn}</p>
         <label htmlFor="epost">E-post</label>
         <input
             type="email"
