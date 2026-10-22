@@ -16,11 +16,16 @@ function Raknare() {
      −
     </button>
 
-      <span>{antal}</span>
+      <span style={{ color: antal > 0 ? "green" : "red" }}>
+      {antal}
+        </span>
 
       <button onClick={() => setAntal(antal + 1)}>
         +
       </button>
+      <button onClick={() => setAntal(0)}>
+  Nollställ
+</button>
     </section>
   );
 }

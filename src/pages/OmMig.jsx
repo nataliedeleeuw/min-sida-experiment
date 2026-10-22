@@ -1,5 +1,7 @@
 import "./OmMig.css";
 import portrait from "../assets/Portrait.png";
+import LasMer from "../components/LasMer";
+
 function OmMig() {
   return (
     <section className="om-mig" id="om-mig">
@@ -19,8 +21,8 @@ function OmMig() {
           varför något som fungerade för fem minuter sedan plötsligt
           inte fungerar alls.
         </p>
+        <LasMer />
         <h3>Det här lär jag mig i kursen</h3>
-
         <ul className="om-mig-lista">
         <li>React</li>
         <li>JavaScript</li>
