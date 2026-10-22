@@ -6,10 +6,15 @@ function Raknare() {
   return (
     <section>
       <h2>Min räknare</h2>
-
-      <button onClick={() => setAntal(antal - 1)}>
-        −
-      </button>
+      <button
+     onClick={() => {
+      if (antal > 0) {
+         setAntal(antal - 1);
+       }
+     }}
+>
+     −
+    </button>
 
       <span>{antal}</span>
 
