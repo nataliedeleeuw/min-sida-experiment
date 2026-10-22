@@ -43,7 +43,11 @@ function Kontakt() {
           />
       </div>
 
-      <form className="kontakt-form" onSubmit={handleSubmit}>
+      <form
+            className="kontakt-form"
+            onSubmit={handleSubmit}
+            noValidate
+      >
         <label htmlFor="namn">Namn</label>
         <input
             type="text"
@@ -73,18 +77,14 @@ function Kontakt() {
             onChange={(e) => setMeddelande(e.target.value)}
         />
         <button type="submit">Skicka</button>
+
         {fel && <p className="form-fel">{fel}</p>}
+
         {skickat && (
-        <p>
+          <p className="form-tack">
             Tack {namn}! Formuläret har testats, men inget mejl har skickats.
-        </p>
-)}
-        <form
-          className="kontakt-form"
-          onSubmit={handleSubmit}
-          noValidate
-        >       
-        </form>
+          </p>
+        )}
       </form>
     </section>
   );
