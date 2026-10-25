@@ -56,3 +56,14 @@
   color: #4E5059;
   margin-bottom: 16px;
 }
+.projekt-teknik {
+  align-self: flex-start;
+  padding: 5px 12px;
+  margin-bottom: 16px;
+  border-radius: 999px;
+  background-color: #ede9f6;
+  color: #49345c;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid #ddd7dc;
+}
