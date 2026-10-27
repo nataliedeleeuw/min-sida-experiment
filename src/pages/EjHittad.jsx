@@ -1,16 +1,24 @@
 import { Link, useNavigate } from "react-router-dom";
+import "./EjHittad.css";
 
 function EjHittad() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    return (
-    <section>
-      <h1>404 – Sidan finns inte</h1>
-      <p>Adressen verkar inte stämma.</p>
-      <button onClick={() => navigate(-1)}>
-            Gå tillbaka
+  return (
+    <section className="ej-hittad">
+      <p className="ej-hittad-kod">404</p>
+      <h1>Sidan finns inte</h1>
+      <p>Adressen kan vara felstavad, eller så har sidan flyttats.</p>
+
+      <div className="ej-hittad-knappar">
+        <Link className="hero-button" to="/">
+          Till startsidan
+        </Link>
+
+        <button type="button" onClick={() => navigate(-1)}>
+          Gå tillbaka
         </button>
-      <Link to="/">Till startsidan</Link>
+      </div>
     </section>
   );
 }
