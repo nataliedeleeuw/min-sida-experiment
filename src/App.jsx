@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import Hem from "./pages/Hem";
 import OmMig from "./pages/OmMig";
 import Kontakt from "./components/Kontakt";
+import ProjektSida from "../pages/ProjektSida";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Hem />} />
         <Route path="/om-mig" element={<OmMig />} />
+        <Route path="/Projekt" element={<ProjektSida />} />
         <Route path="/kontakt" element={<Kontakt />} />
       </Routes>
 
