@@ -9,7 +9,7 @@ function Navbar() {
     <Link to="/">Hem</Link>
     <Link to="/om-mig">Om mig</Link>
     <Link to="/kontakt">Kontakt</Link>
-    <a href="/#projekt">Projekt</a>
+    <Link to="/projekt">Projekt</Link>
   </div>
     </nav>
   );

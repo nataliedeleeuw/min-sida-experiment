@@ -14,7 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Hem />} />
         <Route path="/om-mig" element={<OmMig />} />
-        <Route path="/Projekt" element={<ProjektSida />} />
+        <Route path="/projekt" element={<ProjektSida />} />
         <Route path="/kontakt" element={<Kontakt />} />
       </Routes>
 
