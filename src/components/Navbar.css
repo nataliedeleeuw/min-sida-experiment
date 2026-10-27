@@ -33,3 +33,40 @@
   font-weight: 700;
   border-bottom: 2px solid currentColor;
 }
+
+/* Dölj menyknappen på bred skärm. */
+.meny-knapp {
+  display: none;
+}
+
+/* Dessa regler gäller när fönstret är högst 700 pixlar brett. */
+@media (max-width: 700px) {
+  .navbar {
+    flex-wrap: wrap;
+    padding: 16px 20px;
+  }
+
+  .meny-knapp {
+    display: block;
+    background: transparent;
+    border: 1px solid currentColor;
+    border-radius: 6px;
+    padding: 8px 12px;
+    color: #1C2027;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .lankar {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding-top: 16px;
+  }
+
+  .lankar.oppen {
+    display: flex;
+  }
+}
