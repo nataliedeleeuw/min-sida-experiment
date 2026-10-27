@@ -22,10 +22,21 @@ function Navbar() {
   id="huvudmeny"
   className={oppen ? "lankar oppen" : "lankar"}
 >
-    <NavLink to="/" end>Hem</NavLink>
-    <NavLink to="/om-mig">Om mig</NavLink>
-    <NavLink to="/kontakt">Kontakt</NavLink>
-    <NavLink to="/projekt">Projekt</NavLink>
+<NavLink to="/" end onClick={() => setOppen(false)}>
+  Hem
+</NavLink>
+
+<NavLink to="/om-mig" onClick={() => setOppen(false)}>
+  Om mig
+</NavLink>
+
+<NavLink to="/kontakt" onClick={() => setOppen(false)}>
+  Kontakt
+</NavLink>
+
+<NavLink to="/projekt" onClick={() => setOppen(false)}>
+  Projekt
+</NavLink>
   </div>
     </nav>
   );
