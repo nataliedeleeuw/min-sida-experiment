@@ -4,7 +4,7 @@ import Footer from "./components/Footer";
 import Hem from "./pages/Hem";
 import OmMig from "./pages/OmMig";
 import Kontakt from "./components/Kontakt";
-import ProjektSida from "../pages/ProjektSida";
+import ProjektSida from "./pages/ProjektSida";
 
 function App() {
   return (
