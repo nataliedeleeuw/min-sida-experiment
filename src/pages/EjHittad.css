@@ -1,0 +1,32 @@
+.ej-hittad {
+  padding: 96px 32px;
+  text-align: center;
+}
+
+.ej-hittad-kod {
+  margin: 0 0 24px;
+  font-size: 96px;
+  font-weight: 800;
+  color: #365F87;
+  line-height: 1;
+}
+
+.ej-hittad-knappar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.ej-hittad-knappar button {
+  padding: 12px 24px;
+  border: 2px solid #365F87;
+  border-radius: 6px;
+  background: transparent;
+  color: #365F87;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
