@@ -28,3 +28,8 @@
 .lankar a:hover {
   color: #4C78A5;
 }
+
+.lankar a.active {
+  font-weight: 700;
+  border-bottom: 2px solid currentColor;
+}
