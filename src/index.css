@@ -95,3 +95,7 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+img {
+  max-width: 100%;
+  height: auto;
+}
