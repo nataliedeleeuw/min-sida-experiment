@@ -9,10 +9,15 @@ function Kontakt() {
   const [meddelande, setMeddelande] = useState("");
   const [skickat, setSkickat] = useState(false);
   const [fel, setFel] = useState("");
-  function handleSubmit(e) {
+  const [skickar, setSkickar] = useState(false);
+  async function handleSubmit(e) {
   e.preventDefault();
+
+  if (skickar) return;
+
   setFel("");
   setSkickat(false);
+
   if (
     namn.trim() === "" ||
     email.trim() === "" ||
@@ -21,14 +26,36 @@ function Kontakt() {
     setFel("Fyll i alla fält.");
     return;
   }
+
   if (!email.includes("@")) {
     setFel("Skriv en e-postadress som innehåller @.");
     return;
   }
-  console.log({ namn, email, meddelande });
-  setSkickat(true);
-  setEmail("");
-  setMeddelande("");
+
+  setSkickar(true);
+
+  try {
+    const svar = await fetch("https://formspree.io/f/xzeeggbe", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({ namn, email, meddelande }),
+    });
+
+    if (svar.ok) {
+      setSkickat(true);
+      setEmail("");
+      setMeddelande("");
+    } else {
+      setFel("Något gick fel. Försök igen om en stund.");
+    }
+  } catch {
+    setFel("Kunde inte skicka. Kontrollera anslutningen och försök igen.");
+  } finally {
+    setSkickar(false);
+  }
 }
   return (
     <section className="kontakt">
@@ -43,7 +70,7 @@ function Kontakt() {
       </div>
           {skickat ? (
           <p className="form-tack">
-            Tack {namn}! Formuläret har testats, men inget mejl har skickats.
+            Tack {namn}! Ditt meddelande har skickats.
           </p>
 ) : (
       <form
@@ -78,7 +105,9 @@ function Kontakt() {
             value={meddelande}
             onChange={(e) => setMeddelande(e.target.value)}
         />
-        <button type="submit">Skicka</button>
+        <button type="submit" disabled={skickar}>
+        {skickar ? "Skickar..." : "Skicka"}
+        </button>
 
         {fel && <p className="form-fel">{fel}</p>}
       </form>
