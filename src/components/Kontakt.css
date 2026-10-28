@@ -1,14 +1,14 @@
-
 .kontakt {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
+  grid-template-columns: 1fr;
   align-items: center;
-  gap: 48px;
-  padding: 80px 48px;
+  gap: 32px;
+  padding: 48px 24px;
   background-color: #FCF5F6;
 }
 
 .kontakt-info {
+  min-width: 0;
   text-align: left;
   align-self: center;
   padding-top: 0;
@@ -17,7 +17,7 @@
 .kontakt-info h2 {
   color: #1C2027;
   font-family: 'Outfit', sans-serif;
-  font-size: 38px;
+  font-size: 32px;
   font-weight: 700;
   margin: 0 0 20px;
 }
@@ -29,11 +29,31 @@
   max-width: 30ch;
 }
 
+.kontakt-text::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 3px;
+  margin-top: 24px;
+  background-color: #4C78A5;
+  border-radius: 999px;
+}
+
+.kontakt-bild {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  margin: 36px auto 0;
+  border-radius: 18px;
+}
+
 .kontakt-form {
   display: flex;
   flex-direction: column;
+  min-width: 0;
   gap: 12px;
-  padding: 36px;
+  padding: 24px;
   background-color: #FFFAF5;
   border-radius: 18px;
   border-top: 6px solid #E3B7B3;
@@ -51,6 +71,7 @@
 .kontakt-form input,
 .kontakt-form textarea {
   width: 100%;
+  min-width: 0;
   box-sizing: border-box;
   padding: 13px 16px;
   background-color: #FFFFFF;
@@ -81,7 +102,7 @@
 
 .kontakt-form button {
   align-self: flex-start;
-
+  min-height: 44px;
   margin-top: 12px;
   padding: 12px 30px;
   background-color: #365F87;
@@ -104,15 +125,11 @@
   outline-offset: 4px;
 }
 
-.kontakt-text::after {
-  content: "";
-  display: block;
-  width: 64px;
-  height: 3px;
-  margin-top: 24px;
-  background-color: #4C78A5;
-  border-radius: 999px;
+.kontakt-form button:disabled {
+  opacity: 0.6;
+  cursor: wait;
 }
+
 .form-fel {
   color: #b42318;
 }
@@ -121,39 +138,20 @@
   color: #237a35;
 }
 
-@media (max-width: 800px) {
-  .kontakt {
-    grid-template-columns: 1fr;
-    gap: 32px;
-    padding: 48px 24px;
+@media (min-width: 601px) {
+  .kontakt-form {
+    padding: 36px;
   }
+}
 
-  .kontakt-info {
-    padding-top: 0;
+@media (min-width: 801px) {
+  .kontakt {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 48px;
+    padding: 80px 48px;
   }
 
   .kontakt-info h2 {
-    font-size: 32px;
+    font-size: 38px;
   }
-}
-.kontakt-bild {
-  display: block;
-  width: 100%;
-  max-width: 320px;
-  height: auto;
-
-  margin: 36px auto 0;
-  border-radius: 18px;
-}
-
-
-@media (max-width: 600px) {
-  .kontakt-form {
-    padding: 24px;
-  }
-}
-
-.kontakt-form button:disabled {
-  opacity: 0.6;
-  cursor: wait;
 }
