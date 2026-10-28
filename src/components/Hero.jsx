@@ -13,7 +13,7 @@ function Hero({ namn, titel, stad }) {
 </div>
 
   <Header namn={namn} titel={titel} stad={stad} />
-            <h2 id="hero-title">Välkommen till min webbplats!</h2>
+            <h2 id="hero-title">Välkommen till min portfolio!</h2>
             <p className="hero-text"> Hej! Jag heter Natalie och har precis börjat plugga programmering. Den här sidan är ett av våra första projekt på utbildningen, så just nu testar jag mig fram och försöker undvika att vara allt för besatt. Tanken är att fylla på med fler saker allt eftersom vi lär oss mer.</p>
             <Link className="hero-button" to="/projekt">
                 Se mina projekt
