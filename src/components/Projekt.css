@@ -1,6 +1,6 @@
 .projekt {
-  padding: 64px 32px;
-  background-color: #F5F0F4;;
+  padding: 40px 20px;
+  background-color: #F5F0F4;
 }
 
 .projekt h2 {
@@ -13,18 +13,12 @@
 
 .projekt-lista {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;  
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 24px;
 }
 
-@media (max-width: 800px) {
-  .projekt-lista {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 600px) {
+@media (min-width: 600px) {
   .projekt {
-    padding: 40px 20px;
+    padding: 64px 32px;
   }
 }
