@@ -1,8 +1,8 @@
 import "./Projekt.css";
 import ProjektKort from "./ProjektKort";
-import bild1 from "../assets/Hero 2.png";
-import bild2 from "../assets/Hero 3.png";
-import bild3 from "../assets/Hero 4.png";
+import bild1 from "../assets/Hero 2.webp";
+import bild2 from "../assets/Hero 3.webp";
+import bild3 from "../assets/Hero 4.webp";
 
 const projekt = [
   {

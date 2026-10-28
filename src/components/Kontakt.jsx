@@ -1,5 +1,5 @@
 import  "./Kontakt.css";
-import KontaktBild from "../assets/Envelope.png";
+import KontaktBild from "../assets/Envelope.webp";
 import { useState } from "react";
 
 

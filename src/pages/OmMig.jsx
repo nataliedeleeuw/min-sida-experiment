@@ -1,5 +1,5 @@
 import "./OmMig.css";
-import portrait from "../assets/Portrait.png";
+import portrait from "../assets/Portrait.webp";
 import LasMer from "../components/LasMer";
 
 function OmMig() {
