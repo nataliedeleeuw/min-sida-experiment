@@ -1,12 +1,13 @@
 .hero {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     align-items: center;
-    gap: 20px;
-    padding: 32px 16px;
+    gap: 40px;
+    padding: 40px 24px 48px;
     background-color: #FFFAF5;
     color: #131314;
 }
+
 .hero-content {
     min-width: 0;
     text-align: left;
@@ -39,6 +40,7 @@
     box-shadow: 0 14px 32px rgba(28, 32, 39, 0.12);
     transform: rotate(2deg);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
 }
 .hero img:hover {
     transform: rotate(0deg) translateY(-6px);
@@ -96,4 +98,12 @@
   right: 4%;
 
   z-index: 0;
+}
+
+@media (min-width: 800px) {
+    .hero {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        padding: 64px 32px 72px;
+    }
 }
