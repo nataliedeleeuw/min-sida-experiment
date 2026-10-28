@@ -42,9 +42,11 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-sizing: border-box;
 }
-.hero img:hover {
+@media (hover: hover) {
+  .hero img:hover {
     transform: rotate(0deg) translateY(-6px);
     box-shadow: 0 20px 36px rgba(28, 32, 39, 0.17);
+  }
 }
 .hero-accent {
   display: flex;
