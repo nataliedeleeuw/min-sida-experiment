@@ -16,8 +16,7 @@
 .projekt-bild {
   display: block;
   width: 100%;
-  height: 160px;
-  object-fit: cover;                     
+  height: auto;
 }
 
 .projekt-info {
