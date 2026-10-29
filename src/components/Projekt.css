@@ -17,6 +17,76 @@
   gap: 24px;
 }
 
+.projekt-filter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.filter-knapp {
+  min-height: 44px;
+  padding: 8px 16px;
+  border: 2px solid #365F87;
+  border-radius: 999px;
+  background-color: #FFFFFF;
+  color: #365F87;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.filter-knapp:hover {
+  background-color: #E8EFF5;
+}
+
+.filter-knapp.aktiv {
+  background-color: #365F87;
+  color: #FFFAF5;
+}
+
+.filter-knapp:focus-visible,
+.projekt-sok input:focus-visible {
+  outline: 3px solid #4C78A5;
+  outline-offset: 3px;
+}
+
+.projekt-sok {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 320px;
+  margin: 0 auto 12px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.projekt-sok input {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #DDD7DC;
+  border-radius: 8px;
+  background-color: #FFFFFF;
+  color: #1C2027;
+  font: inherit;
+}
+
+.projekt-antal {
+  margin-bottom: 24px;
+  color: #4E5059;
+  font-size: 14px;
+}
+
+.projekt-tom {
+  padding: 32px;
+  border-radius: 8px;
+  background-color: #FFFFFF;
+}
+
 @media (min-width: 600px) {
   .projekt {
     padding: 64px 32px;
