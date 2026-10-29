@@ -1,18 +1,12 @@
 import "./Projekt.css";
 import ProjektKort from "./ProjektKort";
+import projektLista from "../data/projekt.json";
 import bild1 from "../assets/Hero 2.webp";
 import bild2 from "../assets/Hero 3.webp";
 import bild3 from "../assets/Hero 4.webp";
 
 const projekt = [
-  {
-    id: 1,
-    titel: "Min portfoliosida",
-    text: "Sidan du tittar på nu. Byggd med React och CSS.",
-    bild: bild1,
-    lank: "https://www.google.se",
-    teknik: "React / CSS",
-  },
+
   {
     id: 2,
     titel: "Projekt 2",
