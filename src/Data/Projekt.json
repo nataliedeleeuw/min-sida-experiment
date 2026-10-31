@@ -15,12 +15,20 @@
     "lank": "https://www.google.se",
     "teknik": ["Under planering"]
   },
-  {
+    {
     "id": 3,
     "titel": "Projekt 3",
     "text": "Kommer snart.",
     "bild": "Hero 4.webp",
     "lank": "https://www.google.se",
     "teknik": ["Under planering"]
+  },
+  {
+    "id": 4,
+    "titel": "Min räknare",
+    "text": "En räknare med plus, minus och nollställning.",
+    "bild": "Hero 4.webp",
+    "lank": "/",
+    "teknik": ["React", "useState"]
   }
 ]
