@@ -18,7 +18,7 @@
 }
 
 .lankar {
-  display: flex;
+  display: none;
   gap: 24px;
 }
 
@@ -87,5 +87,8 @@
   }
   .meny-knapp {
   display: none;
+}
+.lankar {
+  display: flex;
 }
 }
