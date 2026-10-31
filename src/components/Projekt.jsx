@@ -64,14 +64,15 @@ function Projekt() {
       ) : (
         <div className="projekt-lista">
           {synligaProjekt.map((p) => (
-            <ProjektKort
-              key={p.id}
-              titel={p.titel}
-              text={p.text}
-              bild={bilder[p.bild]}
-              lank={p.lank}
-              teknik={p.teknik.join(", ")}
-            />
+          <ProjektKort
+            key={p.id}
+            titel={p.titel}
+            text={p.text}
+            bild={bilder[p.bild]}
+            lank={p.lank}
+            teknik={p.teknik}
+            onValjTeknik={setVald}
+          />
           ))}
         </div>
       )}
