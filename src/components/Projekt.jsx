@@ -1,7 +1,7 @@
 import "./Projekt.css";
 import { useState } from "react";
 import ProjektKort from "./ProjektKort";
-import projektLista from "../data/projekt.json";
+import projektLista from "../Data/Projekt.json";
 import bild1 from "../assets/Hero 2.webp";
 import bild2 from "../assets/Hero 3.webp";
 import bild3 from "../assets/Hero 4.webp";
