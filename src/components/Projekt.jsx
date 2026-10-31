@@ -12,7 +12,7 @@ const bilder = {
   "Hero 4.webp": bild3,
 };
 
-const filterLista = ["Alla", "React", "CSS", "Git", "useState", "Under planering"];
+const filterLista = ["Alla", ...new Set(projektLista.flatMap((p) => p.teknik))];
 
 function Projekt() {
   const [vald, setVald] = useState("Alla");
