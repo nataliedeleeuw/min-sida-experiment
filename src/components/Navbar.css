@@ -27,8 +27,8 @@
 
 .lankar a {
   display: inline-flex;
-  align-items: flex-start;
-  justify-content: center;
+  align-items: center;
+  justify-content: flex-start;
   box-sizing: border-box;
   min-width: 44px;
   min-height: 44px;
