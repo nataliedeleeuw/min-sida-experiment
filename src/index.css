@@ -66,12 +66,13 @@ h1 {
   margin: 20px 0;
 }
 h2 {
-  font-size: 24px;
+  font-size: 20px;
   line-height: 118%;
   letter-spacing: -0.24px;
   margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
+
+  @media (min-width: 1025px) {
+    font-size: 24px;
   }
 }
 p {
