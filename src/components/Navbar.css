@@ -21,6 +21,9 @@
   display: none;
   gap: 24px;
 }
+.lankar.oppen {
+  display: flex;
+}
 
 .lankar a {
   display: inline-flex;
@@ -71,10 +74,6 @@
   background-color: #FFFAF5;
   border-bottom: 1px solid #E7DFD9;
 }
-
-  .lankar.oppen {
-    display: flex;
-  }
 
   .lankar a {
     justify-content: flex-start;
