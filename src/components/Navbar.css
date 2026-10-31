@@ -19,8 +19,16 @@
 
 .lankar {
   display: none;
-  gap: 24px;
+  position: absolute;
+  top: 100%;
+  right: 20px;
+  min-width: 180px;
+  flex-direction: column;
+  gap: 0;
+  background-color: #FFFAF5;
+  border-bottom: 1px solid #E7DFD9;
 }
+
 .lankar.oppen {
   display: flex;
 }
@@ -60,34 +68,27 @@
   cursor: pointer;
 }
 
-@media (max-width: 700px) {
-
-
-.lankar {
-  display: none;
-  position: absolute;
-  top: 100%;
-  right: 20px;
-  min-width: 180px;
-  flex-direction: column;
-  gap: 0;
-  background-color: #FFFAF5;
-  border-bottom: 1px solid #E7DFD9;
-}
-
-}
 @media (min-width: 701px) {
   .navbar {
     padding: 20px 40px;
   }
+
   .meny-knapp {
-  display: none;
-}
-.lankar {
-  display: flex;
-}
-.lankar a {
-  justify-content: center;
-  padding: 10px 4px;
-}
+    display: none;
+  }
+
+  .lankar {
+    display: flex;
+    position: static;
+    min-width: 0;
+    flex-direction: row;
+    gap: 24px;
+    background-color: transparent;
+    border-bottom: none;
+  }
+
+  .lankar a {
+    justify-content: center;
+    padding: 10px 4px;
+  }
 }
