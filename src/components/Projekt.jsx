@@ -12,7 +12,7 @@ const bilder = {
   "Hero 4.webp": bild3,
 };
 
-const filterLista = ["Alla", "React", "CSS", "Git", "Under planering"];
+const filterLista = ["Alla", "React", "CSS", "Git", "useState", "Under planering"];
 
 function Projekt() {
   const [vald, setVald] = useState("Alla");
