@@ -66,17 +66,17 @@
     cursor: pointer;
   }
 
-  .lankar {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    flex-direction: column;
-    gap: 0;
-    background-color: #FFFAF5;
-    border-bottom: 1px solid #E7DFD9;
-  }
+.lankar {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 20px;
+  min-width: 180px;
+  flex-direction: column;
+  gap: 0;
+  background-color: #FFFAF5;
+  border-bottom: 1px solid #E7DFD9;
+}
 
   .lankar.oppen {
     display: flex;
