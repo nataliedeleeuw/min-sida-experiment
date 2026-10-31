@@ -62,13 +62,28 @@
 }
 
 .projekt-teknik {
-  align-self: flex-start;
-  padding: 5px 12px;
-  margin-bottom: 16px;
+  padding: 8px 12px;
   border-radius: 999px;
   background-color: #ede9f6;
   color: #49345c;
   font-size: 13px;
   font-weight: 600;
+  font-family: inherit;
   border: 1px solid #ddd7dc;
+  cursor: pointer;
+}
+
+.projekt-teknik:hover {
+  background-color: #ddd3ed;
+}
+
+.projekt-teknik:focus-visible {
+  outline: 3px solid #4C78A5;
+  outline-offset: 3px;
+}
+.projekt-tekniker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
 }
