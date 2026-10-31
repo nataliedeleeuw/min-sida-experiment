@@ -20,8 +20,8 @@ function Projekt() {
 
   const synligaProjekt = projektLista.filter((p) => {
     const rattTeknik = vald === "Alla" || p.teknik.includes(vald);
-    const rattSok = p.titel.toLowerCase().includes(sok.toLowerCase());
-
+    const rattSok = p.titel.toLowerCase().includes(sok.toLowerCase()) ||
+                    p.text.toLowerCase().includes(sok.toLowerCase());
     return rattTeknik && rattSok;
   });
 
