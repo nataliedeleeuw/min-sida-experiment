@@ -59,18 +59,6 @@
 
 @media (max-width: 700px) {
 
-  .meny-knapp {
-    display: block;
-    width: 44px;
-    height: 44px;
-    padding: 0;
-    background: transparent;
-    border: 1px solid currentColor;
-    border-radius: 6px;
-    color: #1C2027;
-    font-size: 24px;
-    cursor: pointer;
-  }
 
 .lankar {
   display: none;
@@ -97,4 +85,7 @@
   .navbar {
     padding: 20px 40px;
   }
+  .meny-knapp {
+  display: none;
+}
 }
