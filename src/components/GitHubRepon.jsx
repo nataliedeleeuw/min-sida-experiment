@@ -10,6 +10,8 @@ const API_URL =
 
 function GitHubRepon() {
   const [repon, setRepon] = useState([]);
+  const [laddar, setLaddar] = useState(true);
+  const [fel, setFel] = useState("");
 
   useEffect(() => {
     async function hamta() {
