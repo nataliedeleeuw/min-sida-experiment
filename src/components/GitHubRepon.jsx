@@ -65,7 +65,12 @@ return (
     
 {!laddar && !fel && (
   <ul className="github-lista">
-    {repon.filter((r) => !r.fork).map((r) => (
+    {repon
+  .filter((r) => !r.fork)
+  .filter((r) =>
+    r.name.toLowerCase().includes(sok.toLowerCase())
+  )
+  .map((r) => (
       <li key={r.id} className="github-kort">
         <h3>
           <a href={r.html_url}>{r.name}</a>
