@@ -36,7 +36,25 @@ function GitHubRepon() {
     hamta();
   }, []);
 
-  return <p>Antal repon: {repon.length}</p>;
+  
+return (
+  <section className="github">
+    <h2>Senast på GitHub</h2>
+
+    {laddar && <p>Laddar repon...</p>}
+
+    {fel && (
+      <p className="github-fel" role="alert">
+        {fel}
+      </p>
+    )}
+
+    {!laddar && !fel && (
+      <p>Antal repon: {repon.length}</p>
+    )}
+  </section>
+);
+
 }
 
 export default GitHubRepon;
