@@ -13,6 +13,7 @@ function GitHubRepon() {
   const [repon, setRepon] = useState([]);
   const [laddar, setLaddar] = useState(true);
   const [fel, setFel] = useState("");
+  const [sok, setSok] = useState("");
 
   useEffect(() => {
     async function hamta() {
