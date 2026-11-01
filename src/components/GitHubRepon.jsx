@@ -59,7 +59,9 @@ return (
           <a href={r.html_url}>{r.name}</a>
         </h3>
 
-        <p>
+       <p>{r.description || "Ingen beskrivning än."}</p>
+
+<p>
   Senast uppdaterad: {new Date(r.updated_at).toLocaleDateString("sv-SE")}
 </p>
 
