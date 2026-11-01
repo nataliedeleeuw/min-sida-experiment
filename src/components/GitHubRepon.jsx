@@ -42,6 +42,17 @@ function GitHubRepon() {
 return (
   <section className="github">
     <h2>Senast på GitHub</h2>
+    
+<label className="github-sok">
+  Sök bland GitHub-projekt
+  <input
+    type="search"
+    value={sok}
+    onChange={(e) => setSok(e.target.value)}
+    placeholder="Skriv ett projektnamn..."
+  />
+</label>
+
 
     {laddar && <p>Laddar repon...</p>}
 
