@@ -65,15 +65,12 @@ return (
       </p>
     )}
 
-    
+    {!laddar && !fel && synligaRepon.length === 0 && (
+  <p>Inga GitHub-projekt matchar din sökning.</p>
+)}
 {!laddar && !fel && (
   <ul className="github-lista">
-    {repon
-  .filter((r) => !r.fork)
-  .filter((r) =>
-    r.name.toLowerCase().includes(sok.toLowerCase())
-  )
-  .map((r) => (
+    {synligaRepon.map((r) => (
       <li key={r.id} className="github-kort">
         <h3>
           <a href={r.html_url}>{r.name}</a>
