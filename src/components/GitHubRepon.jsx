@@ -49,9 +49,27 @@ return (
       </p>
     )}
 
-    {!laddar && !fel && (
-      <p>Antal repon: {repon.length}</p>
-    )}
+    
+{!laddar && !fel && (
+  <ul className="github-lista">
+    {repon.map((r) => (
+      <li key={r.id} className="github-kort">
+        <h3>
+          <a href={r.html_url}>{r.name}</a>
+        </h3>
+
+        <p>{r.description || "Ingen beskrivning än."}</p>
+
+        {r.language && (
+          <span className="github-sprak">
+            {r.language}
+          </span>
+        )}
+      </li>
+    ))}
+  </ul>
+)}
+
   </section>
 );
 
