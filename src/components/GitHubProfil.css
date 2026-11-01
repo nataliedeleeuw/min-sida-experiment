@@ -1,0 +1,27 @@
+
+.github-profil {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 24px;
+  margin: 24px 20px;
+  border-radius: 8px;
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(74, 46, 81, 0.12);
+}
+
+.github-profil img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.github-profil h2 {
+  margin: 0 0 8px;
+}
+
+.github-profil p {
+  margin: 0;
+}

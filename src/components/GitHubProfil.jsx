@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from "react";
+import "./GitHubProfil.css";
 
 const API_URL = "https://api.github.com/users/nataliedeleeuw";
 
