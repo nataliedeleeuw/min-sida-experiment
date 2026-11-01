@@ -49,3 +49,29 @@
     padding: 64px 32px;
   }
 }
+
+.github-sok {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 320px;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.github-sok input {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #DDD7DC;
+  border-radius: 8px;
+  background-color: #FFFFFF;
+  color: #1C2027;
+  font: inherit;
+}
+
+.github-sok input:focus-visible {
+  outline: 3px solid #4C78A5;
+  outline-offset: 3px;
+}
