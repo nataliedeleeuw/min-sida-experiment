@@ -53,7 +53,7 @@ return (
     
 {!laddar && !fel && (
   <ul className="github-lista">
-    {repon.map((r) => (
+    {repon.filter((r) => !r.fork).map((r) => (
       <li key={r.id} className="github-kort">
         <h3>
           <a href={r.html_url}>{r.name}</a>
