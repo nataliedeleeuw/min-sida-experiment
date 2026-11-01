@@ -37,7 +37,10 @@ function GitHubRepon() {
 
     hamta();
   }, []);
-
+const synligaRepon = repon.filter((r) =>
+  !r.fork &&
+  r.name.toLowerCase().includes(sok.toLowerCase())
+);
   
 return (
   <section className="github">
