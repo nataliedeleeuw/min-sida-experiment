@@ -15,12 +15,23 @@ function GitHubRepon() {
 
   useEffect(() => {
     async function hamta() {
-      const svar = await fetch(API_URL);
-      const data = await svar.json();
+  try {
+    const svar = await fetch(API_URL);
 
-      console.log(data);
-      setRepon(data);
+    if (!svar.ok) {
+      throw new Error("Svar: " + svar.status);
     }
+
+    const data = await svar.json();
+    setRepon(data);
+
+  } catch {
+    setFel("Kunde inte hämta repon från GitHub just nu. Försök igen om en stund.");
+
+  } finally {
+    setLaddar(false);
+  }
+}
 
     hamta();
   }, []);
