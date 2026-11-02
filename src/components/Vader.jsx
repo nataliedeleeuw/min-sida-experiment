@@ -65,11 +65,12 @@ const synligtVader = vader.filter((stad) => {
     <h2>Vädret just nu</h2>
     <div className="vader-val">
   <button
-    type="button"
-    onClick={() => setValdStad("Alla")}
-  >
-    Alla
-  </button>
+  type="button"
+  onClick={() => setValdStad("Alla")}
+  aria-pressed={valdStad === "Alla"}
+>
+  Alla
+</button>
 
   {stader.map((stad) => (
     <button
