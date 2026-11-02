@@ -9,6 +9,28 @@ const API_URL =
   { namn: "Stockholm", lat: 59.33, lon: 18.07 },
   { namn: "Kiruna", lat: 67.86, lon: 20.23 },
 ];  
+const BAS_URL = "https://api.open-meteo.com/v1/forecast";
+async function hamtaStad(stad) {
+  const url =
+    BAS_URL +
+    "?latitude=" + stad.lat +
+    "&longitude=" + stad.lon +
+    "&current=temperature_2m,wind_speed_10m";
+
+  const svar = await fetch(url);
+
+  if (!svar.ok) {
+    throw new Error("Kunde inte hämta " + stad.namn);
+  }
+
+  const data = await svar.json();
+
+  return {
+    namn: stad.namn,
+    temp: data.current.temperature_2m,
+    vind: data.current.wind_speed_10m,
+  };
+}
   function Vader() {
         const [vader, setVader] = useState(null);
         const [laddar, setLaddar] = useState(true);
