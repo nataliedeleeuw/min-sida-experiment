@@ -31,6 +31,10 @@ async function hamtaStad(stad) {
     vind: data.current.wind_speed_10m,
   };
 }
+function Vader() {
+  const [vader, setVader] = useState([]);
+  const [laddar, setLaddar] = useState(true);
+  const [fel, setFel] = useState("");
   useEffect(() => {
   async function hamta() {
     try {
@@ -50,7 +54,7 @@ async function hamtaStad(stad) {
 
   hamta();
 }, []);
-
+}
     return (
   <section className="vader">
     <h2>Vädret just nu</h2>
