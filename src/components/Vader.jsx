@@ -31,23 +31,14 @@ async function hamtaStad(stad) {
     vind: data.current.wind_speed_10m,
   };
 }
-  function Vader() {
-        const [vader, setVader] = useState(null);
-        const [laddar, setLaddar] = useState(true);
-        const [fel, setFel] = useState("");
-    useEffect(() => {
+  useEffect(() => {
   async function hamta() {
     try {
-      const svar = await fetch(API_URL);
+      const resultat = await Promise.all(stader.map(hamtaStad));
 
-      if (!svar.ok) {
-        throw new Error("Svar: " + svar.status);
-      }
+      setVader(resultat);
 
-      const data = await svar.json();
-      setVader(data.current);
-
-      console.log("Väderdata:", data.current);
+      console.log("Väder för alla städer:", resultat);
 
     } catch {
       setFel("Kunde inte hämta vädret just nu.");
@@ -59,6 +50,7 @@ async function hamtaStad(stad) {
 
   hamta();
 }, []);
+
     return (
   <section className="vader">
     <h2>Vädret just nu</h2>
@@ -67,10 +59,16 @@ async function hamtaStad(stad) {
 
     {fel && <p role="alert">{fel}</p>}
 
-    {vader && <p>{vader.temperature_2m} °C i Helsingborg</p>}
-    {vader && <p>Vindhastighet: {vader.wind_speed_10m} km/h</p>}
+    <div className="vader-lista">
+  {vader.map((stad) => (
+    <article className="vader-kort" key={stad.namn}>
+      <h3>{stad.namn}</h3>
+      <p>Temperatur: {stad.temp} °C</p>
+      <p>Vindhastighet: {stad.vind} km/h</p>
+    </article>
+  ))}
+</div>
   </section>
 );
-}
 
 export default Vader;
