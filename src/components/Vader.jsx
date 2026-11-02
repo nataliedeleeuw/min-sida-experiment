@@ -1,9 +1,6 @@
 import "./Vader.css";
 import { useState, useEffect } from "react";
 
-const API_URL =
-  "https://api.open-meteo.com/v1/forecast?latitude=56.05&longitude=12.69&current=temperature_2m,wind_speed_10m";
-
   const stader = [
   { namn: "Helsingborg", lat: 56.05, lon: 12.69 },
   { namn: "Stockholm", lat: 59.33, lon: 18.07 },
