@@ -8,12 +8,14 @@ const API_URL =
   "https://api.github.com/users/" +
   ANVANDARE +
   "/repos?sort=updated&per_page=6";
+const PROFIL_URL = "https://api.github.com/users/nataliedeleeuw";
 
 function GitHubRepon() {
   const [repon, setRepon] = useState([]);
   const [laddar, setLaddar] = useState(true);
   const [fel, setFel] = useState("");
   const [sok, setSok] = useState("");
+  const [profil, setProfil] = useState(null);
 
   useEffect(() => {
     async function hamta() {
