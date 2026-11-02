@@ -20,14 +20,24 @@ function GitHubRepon() {
   useEffect(() => {
     async function hamta() {
   try {
-    const svar = await fetch(API_URL);
+    const [profilSvar, reponSvar] = await Promise.all([
+  fetch(PROFIL_URL),
+  fetch(API_URL),
+]);
 
-    if (!svar.ok) {
-      throw new Error("Svar: " + svar.status);
-    }
+if (!profilSvar.ok || !reponSvar.ok) {
+  throw new Error("Kunde inte hämta GitHub-information.");
+}
 
-    const data = await svar.json();
-    setRepon(data);
+const [profilData, reponData] = await Promise.all([
+  profilSvar.json(),
+  reponSvar.json(),
+]);
+
+setProfil(profilData);
+setRepon(reponData);
+
+console.log("GitHub-profil hämtad:", profilData.login);
 
   } catch {
     setFel("Kunde inte hämta repon från GitHub just nu. Försök igen om en stund.");
