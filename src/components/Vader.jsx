@@ -57,7 +57,9 @@ function Vader() {
 
   hamta();
 }, [uppdatering]);
-
+const synligtVader = vader.filter((stad) => {
+  return valdStad === "Alla" || stad.namn === valdStad;
+});
     return (
   <section className="vader">
     <h2>Vädret just nu</h2>
@@ -94,7 +96,7 @@ function Vader() {
     {fel && <p role="alert">{fel}</p>}
 
     <div className="vader-lista">
-  {vader.map((stad) => (
+  {synligtVader.map((stad) => (
     <article className="vader-kort" key={stad.namn}>
       <h3>{stad.namn}</h3>
       <p>Temperatur: {stad.temp} °C</p>
