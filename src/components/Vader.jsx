@@ -54,7 +54,7 @@ function Vader() {
 
   hamta();
 }, []);
-}
+
     return (
   <section className="vader">
     <h2>Vädret just nu</h2>
@@ -74,5 +74,5 @@ function Vader() {
 </div>
   </section>
 );
-
+}
 export default Vader;

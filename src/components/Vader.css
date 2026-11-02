@@ -1,0 +1,28 @@
+.vader {
+  padding: 40px 20px;
+  background-color: #F5F0F4;
+}
+
+.vader h2 {
+  font-size: 32px;
+  color: #1C2027;
+  margin-bottom: 24px;
+}
+
+.vader-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.vader-kort {
+  padding: 24px;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.vader-kort h3 {
+  color: #365F87;
+  margin-top: 0;
+}
