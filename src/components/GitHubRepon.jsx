@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from "react";
 import "./GitHubRepon.css";
+import "./GitHubProfil.css";
 
 const ANVANDARE = "nataliedeleeuw";
 
@@ -56,6 +57,21 @@ const synligaRepon = repon.filter((r) =>
   
 return (
   <section className="github">
+    {profil && !fel && (
+  <div className="github-profil">
+    <img
+      src={profil.avatar_url}
+      alt="Min GitHub-profilbild"
+      width="100"
+      height="100"
+    />
+
+    <div>
+      <h2>{profil.name || profil.login}</h2>
+      <p>Offentliga repositories: {profil.public_repos}</p>
+    </div>
+  </div>
+)}
     <h2>Senast på GitHub</h2>
     
 <label className="github-sok">
