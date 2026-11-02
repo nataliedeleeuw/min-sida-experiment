@@ -32,9 +32,14 @@ function Vader() {
   const [vader, setVader] = useState([]);
   const [laddar, setLaddar] = useState(true);
   const [fel, setFel] = useState("");
+  const [uppdatering, setUppdatering] = useState(0);
   useEffect(() => {
   async function hamta() {
-    try {
+  setLaddar(true);
+  setFel("");
+  setVader([]);
+
+  try {
       const resultat = await Promise.all(stader.map(hamtaStad));
 
       setVader(resultat);
@@ -50,11 +55,18 @@ function Vader() {
   }
 
   hamta();
-}, []);
+}, [uppdatering]);
 
     return (
   <section className="vader">
     <h2>Vädret just nu</h2>
+    <button
+  type="button"
+  onClick={() => setUppdatering(uppdatering + 1)}
+  disabled={laddar}
+>
+  {laddar ? "Hämtar..." : "Uppdatera vädret"}
+</button>
 
     {laddar && <p>Laddar vädret...</p>}
 
