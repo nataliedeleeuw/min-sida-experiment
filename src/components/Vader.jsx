@@ -4,7 +4,12 @@ import { useState, useEffect } from "react";
 const API_URL =
   "https://api.open-meteo.com/v1/forecast?latitude=56.05&longitude=12.69&current=temperature_2m,wind_speed_10m";
 
-    function Vader() {
+  const stader = [
+  { namn: "Helsingborg", lat: 56.05, lon: 12.69 },
+  { namn: "Stockholm", lat: 59.33, lon: 18.07 },
+  { namn: "Kiruna", lat: 67.86, lon: 20.23 },
+];  
+  function Vader() {
         const [vader, setVader] = useState(null);
         const [laddar, setLaddar] = useState(true);
         const [fel, setFel] = useState("");
@@ -41,7 +46,7 @@ const API_URL =
     {fel && <p role="alert">{fel}</p>}
 
     {vader && <p>{vader.temperature_2m} °C i Helsingborg</p>}
-    {vader && <p>{vader.wind_speed_10m} m/s</p>}
+    {vader && <p>Vindhastighet: {vader.wind_speed_10m} km/h</p>}
   </section>
 );
 }
