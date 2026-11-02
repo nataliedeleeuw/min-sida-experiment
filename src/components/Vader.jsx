@@ -61,6 +61,26 @@ function Vader() {
     return (
   <section className="vader">
     <h2>Vädret just nu</h2>
+    <div className="vader-val">
+  <button
+    type="button"
+    onClick={() => setValdStad("Alla")}
+  >
+    Alla
+  </button>
+
+  {stader.map((stad) => (
+    <button
+      type="button"
+      key={stad.namn}
+      onClick={() => setValdStad(stad.namn)}
+    >
+      {stad.namn}
+    </button>
+  ))}
+</div>
+
+<p>Vald stad: {valdStad}</p>
     <button
   type="button"
   onClick={() => setUppdatering(uppdatering + 1)}
