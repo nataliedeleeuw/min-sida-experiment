@@ -33,10 +33,17 @@ const API_URL =
   hamta();
 }, []);
     return (
-    <section className="vader">
-      <h2>Vädret just nu</h2>
-    </section>
-  );
+  <section className="vader">
+    <h2>Vädret just nu</h2>
+
+    {laddar && <p>Laddar vädret...</p>}
+
+    {fel && <p role="alert">{fel}</p>}
+
+    {vader && <p>{vader.temperature_2m} °C i Helsingborg</p>}
+    {vader && <p>{vader.wind_speed_10m} m/s</p>}
+  </section>
+);
 }
 
 export default Vader;
