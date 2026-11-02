@@ -73,17 +73,17 @@ const synligtVader = vader.filter((stad) => {
 </button>
 
   {stader.map((stad) => (
-    <button
-      type="button"
-      key={stad.namn}
-      onClick={() => setValdStad(stad.namn)}
-    >
-      {stad.namn}
-    </button>
-  ))}
+  <button
+    type="button"
+    key={stad.namn}
+    onClick={() => setValdStad(stad.namn)}
+    aria-pressed={valdStad === stad.namn}
+  >
+    {stad.namn}
+  </button>
+))}
 </div>
 
-<p>Vald stad: {valdStad}</p>
     <button
   type="button"
   onClick={() => setUppdatering(uppdatering + 1)}
