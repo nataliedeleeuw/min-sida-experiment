@@ -41,7 +41,7 @@ setRepon(reponData);
 console.log("GitHub-profil hämtad:", profilData.login);
 
   } catch {
-    setFel("Kunde inte hämta repon från GitHub just nu. Försök igen om en stund.");
+    setFel("Kunde inte hämta GitHub-information just nu. Försök igen om en stund.");
 
   } finally {
     setLaddar(false);
