@@ -33,6 +33,7 @@ function Vader() {
   const [laddar, setLaddar] = useState(true);
   const [fel, setFel] = useState("");
   const [uppdatering, setUppdatering] = useState(0);
+  const [valdStad, setValdStad] = useState("Alla");
   useEffect(() => {
   async function hamta() {
   setLaddar(true);
