@@ -107,8 +107,8 @@ return (
 
        <p>{r.description || "Ingen beskrivning än."}</p>
 
-<p>
-  Senast uppdaterad: {new Date(r.updated_at).toLocaleDateString("sv-SE")}
+<p className="github-datum">
+  Uppdaterad {snyggtDatum(r.updated_at)}
 </p>
 
         {r.language && (
