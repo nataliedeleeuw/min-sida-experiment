@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import "./GitHubRepon.css";
 import "./GitHubProfil.css";
+import { snyggtDatum, kortText } from "../utils/text";
 
 const ANVANDARE = "nataliedeleeuw";
 
