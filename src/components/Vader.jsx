@@ -1,5 +1,6 @@
 import "./Vader.css";
 import { useState, useEffect } from "react";
+import { grader } from "../utils/text";
 
   const stader = [
   { namn: "Helsingborg", lat: 56.05, lon: 12.69 },
@@ -100,7 +101,7 @@ const synligtVader = vader.filter((stad) => {
   {synligtVader.map((stad) => (
     <article className="vader-kort" key={stad.namn}>
       <h3>{stad.namn}</h3>
-      <p>Temperatur: {stad.temp} °C</p>
+      <p>Temperatur: {grader(stad.temp)}</p>
       <p>Vindhastighet: {stad.vind} km/h</p>
     </article>
   ))}
