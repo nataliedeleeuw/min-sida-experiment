@@ -75,3 +75,7 @@
   outline: 3px solid #4C78A5;
   outline-offset: 3px;
 }
+.github-datum {
+  font-size: 13px;
+  color: #777777;
+}
