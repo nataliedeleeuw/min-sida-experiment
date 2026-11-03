@@ -105,7 +105,7 @@ return (
           <a href={r.html_url}>{r.name}</a>
         </h3>
 
-       <p>{r.description || "Ingen beskrivning än."}</p>
+       <p>{kortText(r.description || "Ingen beskrivning än.", 100)}</p>
 
 <p className="github-datum">
   Uppdaterad {snyggtDatum(r.updated_at)}
