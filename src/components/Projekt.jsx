@@ -1,3 +1,4 @@
+
 import "./Projekt.css";
 import { useState } from "react";
 import ProjektKort from "./ProjektKort";
@@ -13,32 +14,44 @@ const bilder = {
   "Hero 4.webp": bild3,
 };
 
-const filterLista = ["Alla", ...new Set(projektLista.flatMap((p) => p.teknik))];
+const filterLista = [
+  "Alla",
+  ...new Set(projektLista.flatMap((p) => p.teknik)),
+];
 
 function Projekt() {
   const [vald, setVald] = useState("Alla");
   const [sok, setSok] = useState("");
   const [sortering, setSortering] = useState("standard");
 
+  // Filtrera projekten efter teknik och sökord
   const synligaProjekt = projektLista.filter((p) => {
-    const rattTeknik = vald === "Alla" || p.teknik.includes(vald);
-    const rattSok = p.titel.toLowerCase().includes(sok.toLowerCase()) ||
-                    p.text.toLowerCase().includes(sok.toLowerCase());
-    const sorteradeProjekt = [...synligaProjekt];
+    const rattTeknik =
+      vald === "Alla" || p.teknik.includes(vald);
 
-if (sortering === "titel") {
-  sorteradeProjekt.sort((a, b) =>
-    a.titel.localeCompare(b.titel, "sv")
-  );
-}
+    const rattSok =
+      p.titel.toLowerCase().includes(sok.toLowerCase()) ||
+      p.text.toLowerCase().includes(sok.toLowerCase());
 
-if (sortering === "tekniker") {
-  sorteradeProjekt.sort((a, b) =>
-    b.teknik.length - a.teknik.length
-  );
-}
     return rattTeknik && rattSok;
   });
+
+  // Skapa en kopia som vi kan sortera
+  const sorteradeProjekt = [...synligaProjekt];
+
+  // Sortera projekten efter titel
+  if (sortering === "titel") {
+    sorteradeProjekt.sort((a, b) =>
+      a.titel.localeCompare(b.titel, "sv")
+    );
+  }
+
+  // Sortera efter antal tekniker
+  if (sortering === "tekniker") {
+    sorteradeProjekt.sort((a, b) =>
+      b.teknik.length - a.teknik.length
+    );
+  }
 
   return (
     <section className="projekt" id="projekt">
@@ -49,7 +62,11 @@ if (sortering === "tekniker") {
           <button
             key={f}
             type="button"
-            className={f === vald ? "filter-knapp aktiv" : "filter-knapp"}
+            className={
+              f === vald
+                ? "filter-knapp aktiv"
+                : "filter-knapp"
+            }
             onClick={() => setVald(f)}
             aria-pressed={f === vald}
           >
@@ -60,6 +77,7 @@ if (sortering === "tekniker") {
 
       <label className="projekt-sok">
         Sök projekt
+
         <input
           type="search"
           value={sok}
@@ -69,20 +87,31 @@ if (sortering === "tekniker") {
       </label>
 
       <label className="projekt-sortering">
-  Sortera projekt
+        Sortera projekt
 
-  <select
-    value={sortering}
-    onChange={(e) => setSortering(e.target.value)}
-  >
-    <option value="standard">Standardordning</option>
-    <option value="titel">Titel A–Ö</option>
-    <option value="tekniker">Flest tekniker först</option>
-  </select>
-  </label>
+        <select
+          value={sortering}
+          onChange={(e) => setSortering(e.target.value)}
+        >
+          <option value="standard">
+            Standardordning
+          </option>
+
+          <option value="titel">
+            Titel A–Ö
+          </option>
+
+          <option value="tekniker">
+            Flest tekniker först
+          </option>
+        </select>
+      </label>
 
       <p className="projekt-antal" aria-live="polite">
-      {antalProjekt(synligaProjekt.length, projektLista.length)}
+        {antalProjekt(
+          synligaProjekt.length,
+          projektLista.length
+        )}
       </p>
 
       {synligaProjekt.length === 0 ? (
@@ -92,15 +121,15 @@ if (sortering === "tekniker") {
       ) : (
         <div className="projekt-lista">
           {sorteradeProjekt.map((p) => (
-          <ProjektKort
-            key={p.id}
-            titel={p.titel}
-            text={p.text}
-            bild={bilder[p.bild]}
-            lank={p.lank}
-            teknik={p.teknik}
-            onValjTeknik={setVald}
-          />
+            <ProjektKort
+              key={p.id}
+              titel={p.titel}
+              text={p.text}
+              bild={bilder[p.bild]}
+              lank={p.lank}
+              teknik={p.teknik}
+              onValjTeknik={setVald}
+            />
           ))}
         </div>
       )}
