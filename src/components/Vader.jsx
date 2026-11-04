@@ -1,6 +1,7 @@
 import "./Vader.css";
 import { useState, useEffect } from "react";
 import { grader } from "../utils/text";
+import { STADER } from "../Data/stader";
 
   const stader = [
   { namn: "Helsingborg", lat: 56.05, lon: 12.69 },
@@ -9,12 +10,7 @@ import { grader } from "../utils/text";
 ];  
 const BAS_URL = "https://api.open-meteo.com/v1/forecast";
 async function hamtaStad(stad) {
-  const url =
-    BAS_URL +
-    "?latitude=" + stad.lat +
-    "&longitude=" + stad.lon +
-    "&current=temperature_2m,wind_speed_10m";
-
+  const url = `${BAS_URL}?latitude=${stad.lat}&longitude=${stad.lon}&current=temperature_2m,wind_speed_10m`;
   const svar = await fetch(url);
 
   if (!svar.ok) {
@@ -42,7 +38,7 @@ function Vader() {
   setVader([]);
 
   try {
-      const resultat = await Promise.all(stader.map(hamtaStad));
+      const resultat = await Promise.all(STADER.map(hamtaStad));
 
       setVader(resultat);
 
@@ -73,7 +69,7 @@ const synligtVader = vader.filter((stad) => {
   Alla
 </button>
 
-  {stader.map((stad) => (
+  {STADER.map((stad) => (
   <button
     type="button"
     key={stad.namn}
