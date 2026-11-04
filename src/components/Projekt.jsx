@@ -18,11 +18,25 @@ const filterLista = ["Alla", ...new Set(projektLista.flatMap((p) => p.teknik))];
 function Projekt() {
   const [vald, setVald] = useState("Alla");
   const [sok, setSok] = useState("");
+  const [sortering, setSortering] = useState("standard");
 
   const synligaProjekt = projektLista.filter((p) => {
     const rattTeknik = vald === "Alla" || p.teknik.includes(vald);
     const rattSok = p.titel.toLowerCase().includes(sok.toLowerCase()) ||
                     p.text.toLowerCase().includes(sok.toLowerCase());
+    const sorteradeProjekt = [...synligaProjekt];
+
+if (sortering === "titel") {
+  sorteradeProjekt.sort((a, b) =>
+    a.titel.localeCompare(b.titel, "sv")
+  );
+}
+
+if (sortering === "tekniker") {
+  sorteradeProjekt.sort((a, b) =>
+    b.teknik.length - a.teknik.length
+  );
+}
     return rattTeknik && rattSok;
   });
 
@@ -54,6 +68,19 @@ function Projekt() {
         />
       </label>
 
+      <label className="projekt-sortering">
+  Sortera projekt
+
+  <select
+    value={sortering}
+    onChange={(e) => setSortering(e.target.value)}
+  >
+    <option value="standard">Standardordning</option>
+    <option value="titel">Titel A–Ö</option>
+    <option value="tekniker">Flest tekniker först</option>
+  </select>
+  </label>
+
       <p className="projekt-antal" aria-live="polite">
       {antalProjekt(synligaProjekt.length, projektLista.length)}
       </p>
@@ -64,7 +91,7 @@ function Projekt() {
         </p>
       ) : (
         <div className="projekt-lista">
-          {synligaProjekt.map((p) => (
+          {sorteradeProjekt.map((p) => (
           <ProjektKort
             key={p.id}
             titel={p.titel}

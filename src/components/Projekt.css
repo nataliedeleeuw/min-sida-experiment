@@ -92,3 +92,30 @@
     padding: 64px 32px;
   }
 }
+
+.projekt-sortering {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 320px;
+  margin: 0 auto 20px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.projekt-sortering select {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #DDD7DC;
+  border-radius: 8px;
+  background-color: #FFFFFF;
+  color: #1C2027;
+  font: inherit;
+}
+
+.projekt-sortering select:focus-visible {
+  outline: 3px solid #4C78A5;
+  outline-offset: 3px;
+}
