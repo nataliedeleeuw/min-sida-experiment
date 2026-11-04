@@ -7,6 +7,7 @@ import Vader from "../components/Vader";
 import { NAMN } from "../Data/installningar";
 import { fornamn } from "../utils/text";
 import Todo from "../components/Todo";
+import CityWeather from "../components/CityWeather";
 
 function Hem() {
   return (
@@ -19,6 +20,7 @@ function Hem() {
       <Todo />
       <GitHubRepon />
       <Vader />
+      <CityWeather />
       <Raknare />
       <TemaToggle />
     </>

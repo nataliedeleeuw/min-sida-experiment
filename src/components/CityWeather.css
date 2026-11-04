@@ -1,0 +1,37 @@
+
+.city-weather {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #FFFAF5;
+  border-radius: 18px;
+}
+
+.city-weather h2 {
+  margin-top: 0;
+}
+
+.city-weather label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.city-weather select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #DDD7DC;
+  border-radius: 8px;
+  background-color: white;
+  font: inherit;
+}
+
+.city-weather-resultat {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #E8EFF5;
+  border-radius: 12px;
+}
+
+.city-weather-resultat h3 {
+  margin-top: 0;
+}
