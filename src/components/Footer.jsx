@@ -1,7 +1,7 @@
 import './Footer.css';
 import { Link } from "react-router-dom";
 import { copyright } from "../utils/text";
-import { NAMN } from "../Data/installningar";
+import { NAMN, EPOST } from "../Data/installningar";
 
 function Footer() {
 
@@ -18,6 +18,11 @@ function Footer() {
 </p>
       <p>
   <Link to="/kontakt">Kontakt</Link>
+</p>
+<p>
+  <a href={`mailto:${EPOST}`}>
+    {EPOST}
+  </a>
 </p>
       <p>Gjord med React 🧁</p>
     </footer>
