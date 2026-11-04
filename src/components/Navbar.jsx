@@ -1,13 +1,20 @@
 import './Navbar.css';
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
+import { NAMN } from "../Data/installningar";
+import { initialer } from "../utils/text";
 
 function Navbar() {
   const [oppen, setOppen] = useState(false);
 
   return (
     <nav className="navbar">
-      <span className="logo">Work in Progress</span>
+      <span className="logo">
+  <span className="logo-initialer">
+    {initialer(NAMN)}
+  </span>
+  Work in Progress
+</span>
       <button
   type="button"
   className="meny-knapp"

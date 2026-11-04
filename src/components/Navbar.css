@@ -92,3 +92,21 @@
     padding: 10px 4px;
   }
 }
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-initialer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: #365F87;
+  color: white;
+  font-size: 15px;
+}
