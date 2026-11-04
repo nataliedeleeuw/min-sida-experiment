@@ -1,25 +1,38 @@
 import { useState } from "react";
 import "./Todo.css";
+import TodoItem from "./TodoItem";
+
+function loadTodos() {
+  const saved = localStorage.getItem("todos");
+  return saved ? JSON.parse(saved) : [];
+}
 
 function Todo() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(loadTodos());
   const [text, setText] = useState("");
+
+  function saveTodos(newTodos) {
+  setTodos(newTodos);
+  localStorage.setItem("todos", JSON.stringify(newTodos));
+}
 
   function addTodo(e) {
     e.preventDefault();
 
     if (text.trim() === "") {
+        function removeTodo(id) {
+  setTodos(todos.filter((todo) => todo.id !== id));
+}
       return;
     }
 
-    setTodos([
-      ...todos,
-      {
-        id: Date.now(),
-        text: text
-      }
+    saveTodos([
+        ...todos,
+        {
+            id: Date.now(),
+            text: text
+        }
     ]);
-
     setText("");
   }
 
@@ -50,9 +63,11 @@ function Todo() {
       ) : (
         <ul>
           {todos.map((todo) => (
-            <li key={todo.id}>
-              {todo.text}
-            </li>
+            <TodoItem
+            key={todo.id}
+            text={todo.text}
+            onRemove={() => removeTodo(todo.id)}
+            />
           ))}
         </ul>
       )}

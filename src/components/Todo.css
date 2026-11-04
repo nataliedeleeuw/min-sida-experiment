@@ -31,3 +31,21 @@
 .todo li {
   margin-top: 12px;
 }
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid #DDD7DC;
+}
+
+.todo-item span {
+  overflow-wrap: anywhere;
+}
+
+.todo-item button {
+  padding: 6px 12px;
+  flex-shrink: 0;
+}
