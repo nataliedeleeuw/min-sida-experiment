@@ -1,0 +1,27 @@
+.projekt-detalj {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 32px;
+  background-color: #FFFAF5;
+  border-radius: 18px;
+}
+
+.projekt-detalj h2 {
+  color: #1C2027;
+}
+
+.projekt-detalj p {
+  color: #4E5059;
+  line-height: 1.6;
+}
+
+.projekt-detalj li {
+  margin-bottom: 8px;
+}
+
+.projekt-detalj a {
+  display: inline-block;
+  margin-top: 24px;
+  color: #365F87;
+  font-weight: 600;
+}

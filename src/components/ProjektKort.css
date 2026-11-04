@@ -87,3 +87,14 @@
   gap: 8px;
   margin-bottom: 16px;
 }
+
+.projekt-lankar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.projekt-lankar .projekt-knapp {
+  margin-top: 0;
+}

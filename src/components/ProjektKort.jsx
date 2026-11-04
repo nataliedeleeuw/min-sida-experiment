@@ -1,6 +1,7 @@
 import "./ProjektKort.css";
+import { Link } from "react-router-dom";
 
-function ProjektKort({ titel, text, bild, lank, teknik, onValjTeknik }) {
+function ProjektKort({ id, titel, text, bild, lank, teknik, onValjTeknik }) {
   return (
     <article className="projekt-kort">
       <img className="projekt-bild" src={bild} alt="" />
@@ -19,7 +20,18 @@ function ProjektKort({ titel, text, bild, lank, teknik, onValjTeknik }) {
     </button>
   ))}
 </div>
-          <a className="projekt-knapp" href={lank}>Se projektet </a>
+          <div className="projekt-lankar">
+  <Link
+    className="projekt-knapp"
+    to={`/projekt/${id}`}
+  >
+    Läs mer
+  </Link>
+
+  <a className="projekt-knapp" href={lank}>
+    Se projektet
+  </a>
+</div>
       </div>
     </article>
   );
