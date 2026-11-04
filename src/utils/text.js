@@ -19,3 +19,5 @@ export const copyright = (namn) =>
 
 export const antalProjekt = (antal, totalt) =>
   `Visar ${antal} av ${totalt} projekt`;
+
+export const fornamn = (namn) => namn.split(" ")[0];
