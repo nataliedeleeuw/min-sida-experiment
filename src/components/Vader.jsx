@@ -2,12 +2,7 @@ import "./Vader.css";
 import { useState, useEffect } from "react";
 import { grader } from "../utils/text";
 import { STADER } from "../Data/stader";
-
-  const stader = [
-  { namn: "Helsingborg", lat: 56.05, lon: 12.69 },
-  { namn: "Stockholm", lat: 59.33, lon: 18.07 },
-  { namn: "Kiruna", lat: 67.86, lon: 20.23 },
-];  
+ 
 const BAS_URL = "https://api.open-meteo.com/v1/forecast";
 async function hamtaStad(stad) {
   const url = `${BAS_URL}?latitude=${stad.lat}&longitude=${stad.lon}&current=temperature_2m,wind_speed_10m`;
