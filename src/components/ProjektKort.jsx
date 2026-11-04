@@ -8,6 +8,11 @@ function ProjektKort({ id, titel, text, bild, lank, teknik, onValjTeknik }) {
       <div className="projekt-info">
         <h3>{titel}</h3>
         <p>{text}</p>
+        {teknik.some((t) => t === "React") && (
+  <span className="projekt-react-marke">
+    Byggt med React
+  </span>
+)}
         <div className="projekt-tekniker">
   {teknik.map((t) => (
     <button

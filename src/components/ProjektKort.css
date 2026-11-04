@@ -98,3 +98,15 @@
 .projekt-lankar .projekt-knapp {
   margin-top: 0;
 }
+
+.projekt-react-marke {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 6px 12px;
+  margin-bottom: 12px;
+  border-radius: 999px;
+  background-color: #E8EFF5;
+  color: #365F87;
+  font-size: 13px;
+  font-weight: 600;
+}

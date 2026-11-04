@@ -2,6 +2,7 @@ import "./OmMig.css";
 import portrait from "../assets/Portrait.webp";
 import LasMer from "../components/LasMer";
 import { lasTid } from "../utils/text";
+import Statistik from "../components/Statistik";
 
 const omMigText = `Jag heter Natalie och tycker om att lära mig nya saker.
 Mina intressen är ganska blandade, men psykologi, skrivande
@@ -35,6 +36,7 @@ function OmMig() {
         <li>CSS</li>
         <li>Git & GitHub</li>
         </ul>
+        <Statistik />
       </div>
     </section>
   );
