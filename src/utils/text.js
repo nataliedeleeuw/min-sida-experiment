@@ -21,3 +21,6 @@ export const antalProjekt = (antal, totalt) =>
   `Visar ${antal} av ${totalt} projekt`;
 
 export const fornamn = (namn) => namn.split(" ")[0];
+
+export const initialer = (namn) =>
+  namn.split(" ").map((del) => del[0]).join("").toUpperCase();
