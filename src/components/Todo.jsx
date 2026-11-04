@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import "./Todo.css";
 import TodoItem from "./TodoItem";
@@ -12,44 +13,35 @@ function Todo() {
   const [text, setText] = useState("");
 
   function saveTodos(newTodos) {
-  setTodos(newTodos);
-  localStorage.setItem("todos", JSON.stringify(newTodos));
-}
+    setTodos(newTodos);
+    localStorage.setItem("todos", JSON.stringify(newTodos));
+  }
 
   function addTodo(e) {
     e.preventDefault();
 
     if (text.trim() === "") {
-  return;
-}
+      return;
+    }
 
     saveTodos([
-        ...todos,
-        {
-            id: Date.now(),
-            text: text
-        }
+      ...todos,
+      {
+        id: Date.now(),
+        text: text,
+      },
     ]);
+
     setText("");
   }
 
   function removeTodo(id) {
-  saveTodos(todos.filter((todo) => todo.id !== id));
-}
+    saveTodos(todos.filter((todo) => todo.id !== id));
+  }
 
-function clearTodos() {
-  saveTodos([]);
-}
-
-{todos.length > 0 && (
-  <button
-    type="button"
-    className="todo-rensa"
-    onClick={clearTodos}
-  >
-    Rensa allt
-  </button>
-)}
+  function clearTodos() {
+    saveTodos([]);
+  }
 
   return (
     <section className="todo">
@@ -74,8 +66,18 @@ function clearTodos() {
       </form>
 
       <p className="todo-antal">
-  {todos.length} {todos.length === 1 ? "sak" : "saker"} att göra
-</p>
+        {todos.length} {todos.length === 1 ? "sak" : "saker"} att göra
+      </p>
+
+      {todos.length > 0 && (
+        <button
+          type="button"
+          className="todo-rensa"
+          onClick={clearTodos}
+        >
+          Rensa allt
+        </button>
+      )}
 
       {todos.length === 0 ? (
         <p>Inget att göra än.</p>
@@ -83,9 +85,9 @@ function clearTodos() {
         <ul>
           {todos.map((todo) => (
             <TodoItem
-            key={todo.id}
-            text={todo.text}
-            onRemove={() => removeTodo(todo.id)}
+              key={todo.id}
+              text={todo.text}
+              onRemove={() => removeTodo(todo.id)}
             />
           ))}
         </ul>
