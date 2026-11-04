@@ -1,0 +1,33 @@
+.todo {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #FFFAF5;
+  border-radius: 18px;
+}
+
+.todo form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.todo input {
+  padding: 12px;
+  border: 1px solid #DDD7DC;
+  border-radius: 8px;
+  font: inherit;
+}
+
+.todo button {
+  padding: 12px;
+  background-color: #365F87;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.todo li {
+  margin-top: 12px;
+}

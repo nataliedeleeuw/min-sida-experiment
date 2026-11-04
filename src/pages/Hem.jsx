@@ -6,6 +6,7 @@ import TemaToggle from "../components/TemaToggle";
 import Vader from "../components/Vader";
 import { NAMN } from "../Data/installningar";
 import { fornamn } from "../utils/text";
+import Todo from "../components/Todo";
 
 function Hem() {
   return (
@@ -15,6 +16,7 @@ function Hem() {
       titel="Tech Trainee"
     />
       <Projekt />
+      <Todo />
       <GitHubRepon />
       <Vader />
       <Raknare />
