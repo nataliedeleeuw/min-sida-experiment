@@ -5,6 +5,7 @@ import projektLista from "../Data/Projekt.json";
 import bild1 from "../assets/Hero 2.webp";
 import bild2 from "../assets/Hero 3.webp";
 import bild3 from "../assets/Hero 4.webp";
+import { antalProjekt } from "../utils/text";
 
 const bilder = {
   "Hero 2.webp": bild1,
@@ -54,7 +55,7 @@ function Projekt() {
       </label>
 
       <p className="projekt-antal" aria-live="polite">
-        Visar {synligaProjekt.length} av {projektLista.length} projekt
+      {antalProjekt(synligaProjekt.length, projektLista.length)}
       </p>
 
       {synligaProjekt.length === 0 ? (
