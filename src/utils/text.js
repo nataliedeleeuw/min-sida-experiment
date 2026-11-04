@@ -13,3 +13,6 @@ export const kortText = (text, max) => {
   return `${text.slice(0, max)}...`;
 };
 export const grader = (temp) => `${temp} °C`;
+
+export const copyright = (namn) =>
+  `© ${new Date().getFullYear()} ${namn}`;
