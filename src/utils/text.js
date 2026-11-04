@@ -24,3 +24,10 @@ export const fornamn = (namn) => namn.split(" ")[0];
 
 export const initialer = (namn) =>
   namn.split(" ").map((del) => del[0]).join("").toUpperCase();
+
+export const lasTid = (text) => {
+  const antalOrd = text.trim().split(/\s+/).length;
+  const minuter = Math.ceil(antalOrd / 200);
+
+  return `Lästid: ${minuter} min`;
+};

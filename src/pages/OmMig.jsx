@@ -1,6 +1,15 @@
 import "./OmMig.css";
 import portrait from "../assets/Portrait.webp";
 import LasMer from "../components/LasMer";
+import { lasTid } from "../utils/text";
+
+const omMigText = `Jag heter Natalie och tycker om att lära mig nya saker.
+Mina intressen är ganska blandade, men psykologi, skrivande
+och teknik är några av dem. Nu har jag också börjat lära mig
+programmering, vilket hittills verkar vara en ganska bra
+kombination av problemlösning, kreativitet och att undra
+varför något som fungerade för fem minuter sedan plötsligt
+inte fungerar alls.`;
 
 function OmMig() {
   return (
@@ -10,17 +19,14 @@ function OmMig() {
         src={portrait}
         alt="Illustrerat porträtt av Natalie"
        />
+       
       <div className="om-mig-card">
         <h2>Om mig</h2>
-        <p>
-          Jag heter Natalie och tycker om att lära mig nya saker.
-          Mina intressen är ganska blandade, men psykologi, skrivande
-          och teknik är några av dem. Nu har jag också börjat lära mig
-          programmering, vilket hittills verkar vara en ganska bra
-          kombination av problemlösning, kreativitet och att undra
-          varför något som fungerade för fem minuter sedan plötsligt
-          inte fungerar alls.
-        </p>
+        <p>{omMigText}</p>
+
+      <p className="om-mig-lastid">
+        {lasTid(omMigText)}
+      </p>
         <LasMer />
         <h3>Det här lär jag mig i kursen</h3>
         <ul className="om-mig-lista">

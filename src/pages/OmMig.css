@@ -86,6 +86,11 @@
   color: #7e2b60;
   font-weight: 600;
 }
+.om-mig .om-mig-lastid {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #777777;
+}
 
 @media (min-width: 601px) {
   .om-mig {
