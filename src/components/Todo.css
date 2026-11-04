@@ -49,3 +49,14 @@
   padding: 6px 12px;
   flex-shrink: 0;
 }
+
+.todo-antal {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #4E5059;
+}
+
+.todo .todo-rensa {
+  margin-top: 10px;
+  background-color: #7E2B60;
+}

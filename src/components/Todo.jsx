@@ -37,6 +37,20 @@ function Todo() {
   saveTodos(todos.filter((todo) => todo.id !== id));
 }
 
+function clearTodos() {
+  saveTodos([]);
+}
+
+{todos.length > 0 && (
+  <button
+    type="button"
+    className="todo-rensa"
+    onClick={clearTodos}
+  >
+    Rensa allt
+  </button>
+)}
+
   return (
     <section className="todo">
       <h2>Min att göra-lista</h2>
@@ -58,6 +72,10 @@ function Todo() {
           Lägg till
         </button>
       </form>
+
+      <p className="todo-antal">
+  {todos.length} {todos.length === 1 ? "sak" : "saker"} att göra
+</p>
 
       {todos.length === 0 ? (
         <p>Inget att göra än.</p>
