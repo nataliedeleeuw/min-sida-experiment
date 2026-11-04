@@ -4,14 +4,16 @@ import Projekt from "../components/Projekt";
 import Raknare from "../components/Raknare";
 import TemaToggle from "../components/TemaToggle";
 import Vader from "../components/Vader";
+import { NAMN } from "../Data/installningar";
+import { fornamn } from "../utils/text";
 
 function Hem() {
   return (
     <>
-      <Hero
-        namn="Natalie de Leeuw"
-        titel="Tech Trainee"
-      />
+    <Hero
+      namn={fornamn(NAMN)}
+      titel="Tech Trainee"
+    />
       <Projekt />
       <GitHubRepon />
       <Vader />

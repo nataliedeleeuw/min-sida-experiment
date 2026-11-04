@@ -1,6 +1,7 @@
 import './Footer.css';
 import { Link } from "react-router-dom";
 import { copyright } from "../utils/text";
+import { NAMN } from "../Data/installningar";
 
 function Footer() {
 
@@ -12,7 +13,7 @@ function Footer() {
     target="_blank"
     rel="noopener noreferrer"
   >
-    {copyright("Natalie de Leeuw")}
+    {copyright(NAMN)}
   </a>
 </p>
       <p>

@@ -3,14 +3,11 @@ import { useState, useEffect } from "react";
 import "./GitHubRepon.css";
 import "./GitHubProfil.css";
 import { snyggtDatum, kortText } from "../utils/text";
+import { GITHUB_ANVANDARE } from "../Data/installningar";
 
-const ANVANDARE = "nataliedeleeuw";
+const API_URL = `https://api.github.com/users/${GITHUB_ANVANDARE}/repos?sort=updated&per_page=6`;
 
-const API_URL =
-  "https://api.github.com/users/" +
-  ANVANDARE +
-  "/repos?sort=updated&per_page=6";
-const PROFIL_URL = "https://api.github.com/users/nataliedeleeuw";
+const PROFIL_URL = `https://api.github.com/users/${GITHUB_ANVANDARE}`;
 
 function GitHubRepon() {
   const [repon, setRepon] = useState([]);
