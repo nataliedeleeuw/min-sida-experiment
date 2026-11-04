@@ -20,11 +20,8 @@ function Todo() {
     e.preventDefault();
 
     if (text.trim() === "") {
-        function removeTodo(id) {
-  setTodos(todos.filter((todo) => todo.id !== id));
+  return;
 }
-      return;
-    }
 
     saveTodos([
         ...todos,
@@ -35,6 +32,10 @@ function Todo() {
     ]);
     setText("");
   }
+
+  function removeTodo(id) {
+  saveTodos(todos.filter((todo) => todo.id !== id));
+}
 
   return (
     <section className="todo">
