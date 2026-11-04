@@ -16,3 +16,6 @@ export const grader = (temp) => `${temp} °C`;
 
 export const copyright = (namn) =>
   `© ${new Date().getFullYear()} ${namn}`;
+
+export const antalProjekt = (antal, totalt) =>
+  `Visar ${antal} av ${totalt} projekt`;
