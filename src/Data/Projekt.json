@@ -29,6 +29,6 @@
     "text": "En räknare med plus, minus och nollställning.",
     "bild": "Hero 4.webp",
     "lank": "/",
-    "teknik": ["React", "useState"]
+    "teknik": ["React", "useState", "JavaScript"]
   }
 ]

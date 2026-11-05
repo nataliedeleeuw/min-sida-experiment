@@ -14,10 +14,15 @@ const bilder = {
   "Hero 4.webp": bild3,
 };
 
-const filterLista = [
-  "Alla",
-  ...new Set(projektLista.flatMap((p) => p.teknik)),
-];
+const filterLista = ["Alla"];
+
+for (const projekt of projektLista) {
+  for (const teknik of projekt.teknik) {
+    if (!filterLista.includes(teknik)) {
+      filterLista.push(teknik);
+    }
+  }
+}
 
 function Projekt() {
   const [vald, setVald] = useState("Alla");
