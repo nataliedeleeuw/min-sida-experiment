@@ -1,6 +1,7 @@
 import  "./Kontakt.css";
 import KontaktBild from "../assets/Envelope.webp";
 import { useState } from "react";
+const MAX_TECKEN = 500;
 
 
 function Kontakt() {
@@ -10,6 +11,9 @@ function Kontakt() {
   const [skickat, setSkickat] = useState(false);
   const [fel, setFel] = useState("");
   const [skickar, setSkickar] = useState(false);
+  const kvar = MAX_TECKEN - meddelande.length;
+  const fardigt =
+  meddelande.trim() !== "" && kvar >= 0;
   async function handleSubmit(e) {
   e.preventDefault();
 
@@ -31,6 +35,11 @@ function Kontakt() {
     setFel("Skriv en e-postadress som innehåller @.");
     return;
   }
+
+  if (meddelande.length > MAX_TECKEN) {
+  setFel("Meddelandet är för långt.");
+  return;
+  } 
 
   setSkickar(true);
 
@@ -105,8 +114,21 @@ function Kontakt() {
             value={meddelande}
             onChange={(e) => setMeddelande(e.target.value)}
         />
-        <button type="submit" disabled={skickar}>
-        {skickar ? "Skickar..." : "Skicka"}
+        <p
+        className={
+          kvar < 50
+          ? "tecken-kvar varning"
+          : "tecken-kvar"
+        }
+          aria-live="polite"
+        >
+          {kvar} tecken kvar
+        </p>
+       <button
+          type="submit"
+          disabled={skickar || !fardigt}
+        >
+          {skickar ? "Skickar..." : "Skicka"}
         </button>
 
         {fel && <p className="form-fel">{fel}</p>}
