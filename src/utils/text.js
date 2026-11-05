@@ -31,3 +31,18 @@ export const lasTid = (text) => {
 
   return `Lästid: ${minuter} min`;
 };
+
+
+export const halsning = () => {
+  const timme = new Date().getHours();
+
+  if (timme < 6) {
+    return "God natt";
+  } else if (timme < 10) {
+    return "God morgon";
+  } else if (timme < 18) {
+    return "Hej";
+  } else {
+    return "God kväll";
+  }
+};
