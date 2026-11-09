@@ -1,10 +1,11 @@
 import "./Hero.css";
-import HeroImage from "../assets/Hero1.png";
+import HeroImage from "../assets/Hero1.webp";
+import HeroSleep from "../assets/HeroSleep.webp";
 import Header from "./Header";
 import { Link } from "react-router-dom";
 import { halsning } from "../utils/text";
 
-function Hero({ namn, titel, stad }) {
+function Hero({ namn, titel, stad, ljusPa, vaxlaLjus }) {
   return (
     <section className="hero">
 <div className="hero-content">
@@ -29,9 +30,20 @@ function Hero({ namn, titel, stad }) {
                 Se mina projekt
             </Link>
         </div>
-        <div className="hero-image">
-            <img src={HeroImage} alt="Hero Image" />
-        </div>
+<div className="hero-image">
+  <img
+    src={ljusPa ? HeroImage : HeroSleep}
+    alt={ljusPa ? "Katten programmerar" : "Katten sover"}
+  />
+
+  <button
+    type="button"
+    className="hero-ljusknapp"
+    onClick={vaxlaLjus}
+  >
+    {ljusPa ? "Släck lampan" : "Tänd lampan"}
+  </button>
+</div>
     </section>
   );
 }
