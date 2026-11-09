@@ -8,14 +8,27 @@ import ProjektSida from "./pages/ProjektSida";
 import EjHittad from "./pages/EjHittad";
 import ProjektDetalj from "./pages/ProjektDetalj";
 import FizzBuzz from "./pages/FizzBuzz";
+import { useState } from "react";
 
 function App() {
+  const [ljusPa, setLjusPa] = useState(true);
+
+function vaxlaLjus() {
+  setLjusPa((tidigare) => !tidigare);
+}
   return (
     <>
       <Navbar />
 
       <Routes>
-        <Route path="/" element={<Hem />} />
+        <Route
+          path="/"element={
+        <Hem
+          ljusPa={ljusPa}
+          vaxlaLjus={vaxlaLjus}
+        />
+        }
+        />
         <Route path="/om-mig" element={<OmMig />} />
         <Route path="/projekt" element={<ProjektSida />} />
         <Route path="/projekt/:id" element={<ProjektDetalj />} />
