@@ -27,7 +27,7 @@ function vaxlaLjus() {
           ljusPa={ljusPa}
           vaxlaLjus={vaxlaLjus}
         />
-        }
+    }
         />
         <Route path="/om-mig" element={<OmMig />} />
         <Route path="/projekt" element={<ProjektSida />} />

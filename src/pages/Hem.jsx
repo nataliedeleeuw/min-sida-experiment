@@ -9,13 +9,15 @@ import { fornamn } from "../utils/text";
 import Todo from "../components/Todo";
 import CityWeather from "../components/CityWeather";
 
-function Hem() {
+function Hem({ ljusPa, vaxlaLjus }) {
   return (
     <>
     <Hero
-      namn={fornamn(NAMN)}
-      titel="Tech Trainee"
-    />
+  namn={fornamn(NAMN)}
+  titel="Tech Trainee"
+  ljusPa={ljusPa}
+  vaxlaLjus={vaxlaLjus}
+/>
       <Projekt />
       <Todo />
       <GitHubRepon />
