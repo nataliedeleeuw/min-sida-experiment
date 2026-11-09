@@ -1,3 +1,4 @@
+
 import "./Raknare.css";
 
 function Raknare({ ljusNiva, setLjusNiva }) {
@@ -22,13 +23,17 @@ function Raknare({ ljusNiva, setLjusNiva }) {
 
   return (
     <div className="ljus-dimmer-wrap">
-      <p className="ljus-dimmer-label">Kvällsljus</p>
+
+      <p className="ljus-dimmer-label">
+        Kvällsljus · {beskrivningar[ljusNiva]}
+      </p>
 
       <div
         className="ljus-dimmer"
         role="group"
         aria-label="Justera kvällsljuset"
       >
+
         <button
           type="button"
           className="ljus-dimmer-knapp"
@@ -41,14 +46,30 @@ function Raknare({ ljusNiva, setLjusNiva }) {
         </button>
 
         <div className="ljus-dimmer-status">
-          <span className="ljus-dimmer-text">{beskrivningar[ljusNiva]}</span>
 
-          <div className="ljus-dimmer-dots" aria-hidden="true">
-            <span className={ljusNiva >= 0 ? "dot aktiv" : "dot"}></span>
-            <span className={ljusNiva >= 1 ? "dot aktiv" : "dot"}></span>
-            <span className={ljusNiva >= 2 ? "dot aktiv" : "dot"}></span>
-            <span className={ljusNiva >= 3 ? "dot aktiv" : "dot"}></span>
+          <span
+            className="ljus-dimmer-text"
+            aria-live="polite"
+          >
+            {beskrivningar[ljusNiva]}
+          </span>
+
+          <div
+            className="ljus-dimmer-dots"
+            aria-hidden="true"
+          >
+            {[0, 1, 2, 3].map((niva) => (
+              <span
+                key={niva}
+                className={
+                  ljusNiva >= niva
+                    ? "dot aktiv"
+                    : "dot"
+                }
+              />
+            ))}
           </div>
+
         </div>
 
         <button
@@ -71,7 +92,9 @@ function Raknare({ ljusNiva, setLjusNiva }) {
         >
           ↺
         </button>
+
       </div>
+
     </div>
   );
 }
