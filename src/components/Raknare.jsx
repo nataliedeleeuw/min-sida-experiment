@@ -1,13 +1,11 @@
-
 import "./Raknare.css";
 
 function Raknare({ ljusNiva, setLjusNiva }) {
-
   const beskrivningar = [
-    "Svagt sken",
-    "Lugn kväll",
-    "Mysbelysning",
-    "Extra ljust"
+    "Svagt",
+    "Lugnt",
+    "Mysigt",
+    "Ljust"
   ];
 
   function minskaLjus() {
@@ -23,49 +21,57 @@ function Raknare({ ljusNiva, setLjusNiva }) {
   }
 
   return (
-    <div
-      className="ljus-dimmer"
-      role="group"
-      aria-label="Justera kattens belysning"
-    >
+    <div className="ljus-dimmer-wrap">
+      <p className="ljus-dimmer-label">Kvällsljus</p>
 
-      <button
-        type="button"
-        className="ljus-dimmer-knapp"
-        onClick={minskaLjus}
-        disabled={ljusNiva === 0}
-        aria-label="Minska ljusstyrkan"
+      <div
+        className="ljus-dimmer"
+        role="group"
+        aria-label="Justera kvällsljuset"
       >
-        −
-      </button>
+        <button
+          type="button"
+          className="ljus-dimmer-knapp"
+          onClick={okaLjus}
+          disabled={ljusNiva === 3}
+          aria-label="Öka ljusstyrkan"
+          title="Öka ljuset"
+        >
+          +
+        </button>
 
-      <span
-        className="ljus-dimmer-text"
-        aria-live="polite"
-      >
-        {beskrivningar[ljusNiva]}
-      </span>
+        <div className="ljus-dimmer-status">
+          <span className="ljus-dimmer-text">{beskrivningar[ljusNiva]}</span>
 
-      <button
-        type="button"
-        className="ljus-dimmer-knapp"
-        onClick={okaLjus}
-        disabled={ljusNiva === 3}
-        aria-label="Öka ljusstyrkan"
-      >
-        +
-      </button>
+          <div className="ljus-dimmer-dots" aria-hidden="true">
+            <span className={ljusNiva >= 0 ? "dot aktiv" : "dot"}></span>
+            <span className={ljusNiva >= 1 ? "dot aktiv" : "dot"}></span>
+            <span className={ljusNiva >= 2 ? "dot aktiv" : "dot"}></span>
+            <span className={ljusNiva >= 3 ? "dot aktiv" : "dot"}></span>
+          </div>
+        </div>
 
-      <button
-        type="button"
-        className="ljus-dimmer-reset"
-        onClick={aterstallLjus}
-        title="Återställ ljusstyrkan"
-        aria-label="Återställ ljusstyrkan"
-      >
-        ↺
-      </button>
+        <button
+          type="button"
+          className="ljus-dimmer-knapp"
+          onClick={minskaLjus}
+          disabled={ljusNiva === 0}
+          aria-label="Minska ljusstyrkan"
+          title="Minska ljuset"
+        >
+          −
+        </button>
 
+        <button
+          type="button"
+          className="ljus-dimmer-reset"
+          onClick={aterstallLjus}
+          title="Återställ ljusstyrkan"
+          aria-label="Återställ ljusstyrkan"
+        >
+          ↺
+        </button>
+      </div>
     </div>
   );
 }

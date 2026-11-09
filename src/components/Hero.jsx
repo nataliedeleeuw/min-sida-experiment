@@ -58,50 +58,56 @@ function Hero({
 
       <div className="hero-image">
 
-        <div className="hero-illustration">
+        <div className="hero-visual">
 
-          <img
-            src={HeroImage}
-            className={ljusPa ? "hero-cat synlig" : "hero-cat"}
-            alt="Katten sitter och programmerar"
-            aria-hidden={!ljusPa}
-          />
+          <div className="hero-illustration">
 
-          <img
-            src={HeroSleep}
-            className={!ljusPa ? "hero-cat synlig" : "hero-cat"}
-            alt="Katten sover under en varm lampa"
-            aria-hidden={ljusPa}
-            style={{
-              filter: `brightness(${ljusstyrkor[ljusNiva]})`,
-              transition: "opacity 0.6s ease, filter 0.4s ease"
-            }}
-          />
+            <img
+              src={HeroImage}
+              className={ljusPa ? "hero-cat synlig" : "hero-cat"}
+              alt="Katten sitter och programmerar"
+              aria-hidden={!ljusPa}
+            />
 
-          <button
-            type="button"
-            className="hero-lampa"
-            onClick={vaxlaLjus}
-            aria-label={
-              ljusPa
-                ? "Växla till kvällsläge"
-                : "Växla till dagsläge"
-            }
-            aria-pressed={!ljusPa}
-            title="Klicka på lampan"
-          />
+            <img
+              src={HeroSleep}
+              className={!ljusPa ? "hero-cat synlig" : "hero-cat"}
+              alt="Katten sover under en varm lampa"
+              aria-hidden={ljusPa}
+              style={{
+                filter: `brightness(${ljusstyrkor[ljusNiva]})`,
+                transition: "opacity 0.6s ease, filter 0.4s ease"
+              }}
+            />
+
+            <button
+              type="button"
+              className="hero-lampa"
+              onClick={vaxlaLjus}
+              aria-label={
+                ljusPa
+                  ? "Växla till kvällsläge"
+                  : "Växla till dagsläge"
+              }
+              aria-pressed={!ljusPa}
+              title="Klicka på lampan"
+            />
+
+          </div>
+
+          {!ljusPa && (
+            <Raknare
+              ljusNiva={ljusNiva}
+              setLjusNiva={setLjusNiva}
+            />
+          )}
 
         </div>
 
-        {ljusPa ? (
+        {ljusPa && (
           <p className="hero-lamptips">
             Klicka på lampan
           </p>
-        ) : (
-          <Raknare
-            ljusNiva={ljusNiva}
-            setLjusNiva={setLjusNiva}
-          />
         )}
 
       </div>
