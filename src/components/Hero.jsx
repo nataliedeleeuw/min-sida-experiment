@@ -7,7 +7,7 @@ import { halsning } from "../utils/text";
 
 function Hero({ namn, titel, stad, ljusPa, vaxlaLjus }) {
   return (
-    <section className="hero">
+    <section className={ljusPa ? "hero" : "hero hero-natt"}>
 <div className="hero-content">
   <div className="hero-accent" aria-hidden="true">
   <span className="hero-sparkle">✳</span>
@@ -31,15 +31,27 @@ function Hero({ namn, titel, stad, ljusPa, vaxlaLjus }) {
             </Link>
         </div>
 <div className="hero-image">
-  <img
-    src={ljusPa ? HeroImage : HeroSleep}
-    alt={ljusPa ? "Katten programmerar" : "Katten sover"}
-  />
+  <div className="hero-illustration">
+    <img
+      src={HeroImage}
+      className={ljusPa ? "hero-cat synlig" : "hero-cat"}
+      alt="Katten programmerar"
+      aria-hidden={!ljusPa}
+    />
+
+    <img
+      src={HeroSleep}
+      className={!ljusPa ? "hero-cat synlig" : "hero-cat"}
+      alt="Katten sover"
+      aria-hidden={ljusPa}
+    />
+  </div>
 
   <button
     type="button"
     className="hero-ljusknapp"
     onClick={vaxlaLjus}
+    aria-pressed={!ljusPa}
   >
     {ljusPa ? "Släck lampan" : "Tänd lampan"}
   </button>
