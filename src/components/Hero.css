@@ -79,7 +79,6 @@
   display: flex;
   align-items: center;
   gap: 12px;
-
   margin-bottom: 20px;
 }
 
@@ -102,12 +101,11 @@
 
 
 /* ========================================
-   KNAPP TILL PROJEKTEN
+   PROJEKTKNAPP
 ======================================== */
 
 .hero-button {
   display: inline-block;
-
   padding: 12px 24px;
 
   background-color: #365F87;
@@ -115,7 +113,6 @@
 
   font-weight: 700;
   text-decoration: none;
-
   border-radius: 6px;
 
   transition: background-color 0.3s ease;
@@ -127,7 +124,7 @@
 
 
 /* ========================================
-   BILDOMRÅDET
+   BILDOMRÅDE
 ======================================== */
 
 .hero-image {
@@ -138,16 +135,16 @@
   justify-content: center;
   align-items: center;
 
-  gap: 20px;
+  gap: 16px;
   min-width: 0;
 }
 
-/* Den rosa cirkeln bakom bilden */
+/* Cirkeln bakom kattbilden */
 
 .hero-image::before {
   content: "";
-
   position: absolute;
+
   top: -28px;
   right: 4%;
 
@@ -155,7 +152,6 @@
   height: 150px;
 
   border-radius: 50%;
-
   background-color: #E3B7B3;
 
   z-index: 0;
@@ -165,7 +161,7 @@
 
 
 /* ========================================
-   GEMENSAM BILDRAM
+   KATTENS BILDRAM
 ======================================== */
 
 .hero-illustration {
@@ -182,7 +178,6 @@
   border-radius: 24px;
 
   background-color: #FFFFFF;
-
   overflow: hidden;
 
   box-shadow:
@@ -193,13 +188,12 @@
   transition:
     transform 0.3s ease,
     box-shadow 0.6s ease,
-    border-color 0.8s ease,
-    background-color 0.8s ease;
+    border-color 0.8s ease;
 }
 
 
 /* ========================================
-   VAKEN OCH SOVANDE KATT
+   KATTENS TVÅ BILDER
 ======================================== */
 
 .hero-cat {
@@ -217,15 +211,98 @@
   transition: opacity 0.6s ease;
 }
 
-/* React bestämmer vilken bild som syns */
-
 .hero-cat.synlig {
   opacity: 1;
 }
 
 
 /* ========================================
-   HOVER PÅ KATTBILDEN
+   KLICKBAR LAMPA
+======================================== */
+
+.hero-lampa {
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  width: 36%;
+  height: 19%;
+
+  transform: translateX(-50%);
+
+  z-index: 5;
+
+  padding: 0;
+  border: none;
+  border-radius: 0 0 50% 50%;
+
+  background: transparent;
+
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Liten ljuseffekt när man pekar på lampan */
+
+.hero-lampa::after {
+  content: "";
+  position: absolute;
+
+  top: 15%;
+  left: 10%;
+
+  width: 80%;
+  height: 70%;
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 20px 6px rgba(255, 214, 175, 0.25);
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: opacity 0.3s ease;
+}
+
+.hero-lampa:hover::after,
+.hero-lampa:focus-visible::after {
+  opacity: 1;
+}
+
+/* För tangentbordsanvändare */
+
+.hero-lampa:focus-visible {
+  outline: 3px solid #4C78A5;
+  outline-offset: -3px;
+}
+
+.hero-natt .hero-lampa:focus-visible {
+  outline-color: #FFF3D8;
+}
+
+
+/* ========================================
+   TEXT UNDER BILDEN
+======================================== */
+
+.hero-lamptips {
+  position: relative;
+  z-index: 1;
+
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+
+  color: #7A7180;
+
+  transition: color 0.8s ease;
+}
+
+
+/* ========================================
+   HOVER PÅ BILDEN
 ======================================== */
 
 @media (hover: hover) {
@@ -239,41 +316,6 @@
 
 
 /* ========================================
-   TILLFÄLLIG LJUSKNAPP
-======================================== */
-
-.hero-ljusknapp {
-  position: relative;
-  z-index: 1;
-
-  padding: 10px 20px;
-
-  background-color: #E3B7B3;
-  color: #1C2027;
-
-  border: none;
-  border-radius: 999px;
-
-  font-family: 'Outfit', sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-
-  cursor: pointer;
-
-  transition: background-color 0.3s ease;
-}
-
-.hero-ljusknapp:hover {
-  background-color: #D59D9D;
-}
-
-.hero-ljusknapp:focus-visible {
-  outline: 3px solid #4C78A5;
-  outline-offset: 4px;
-}
-
-
-/* ========================================
    NATTLÄGE – HERO
 ======================================== */
 
@@ -282,36 +324,30 @@
   color: #FFFAF5;
 }
 
-/* Ljusa rubriker */
-
 .hero-natt .header h1,
 .hero.hero-natt h2 {
   color: #FFFAF5;
 }
-
-/* Ljusare vanlig text */
 
 .hero-natt .header p,
 .hero-natt .hero-text {
   color: #E5E1E4;
 }
 
-/* Rosa hälsning */
-
 .hero-natt .hero-intro {
   color: #E3B7B3;
 }
-
-/* Rosa dekorationslinje */
 
 .hero-natt .hero-line {
   background-color: #E3B7B3;
 }
 
-/* Dämpad cirkel bakom bilden */
-
 .hero-natt .hero-image::before {
   background-color: #495571;
+}
+
+.hero-natt .hero-lamptips {
+  color: #E3B7B3;
 }
 
 
@@ -319,24 +355,12 @@
    NATTLÄGE – BILDRAM
 ======================================== */
 
-/*
-  Den nya sovbilden har redan
-  sin egen belysning.
-
-  Därför lägger vi INGA mörka filter
-  ovanpå illustrationen.
-*/
+/* Den nya nattbilden har redan rätt ljus */
 
 .hero-natt .hero-illustration {
   border-color: #F8E4DD;
 
-  background:
-    linear-gradient(
-      to bottom,
-      #B98296,
-      #D79B99,
-      #B98296
-    );
+  background-color: #B98296;
 
   box-shadow:
     0 0 36px rgba(244, 169, 164, 0.16),
@@ -395,7 +419,7 @@
   .hero,
   .hero-cat,
   .hero-illustration,
-  .hero-ljusknapp {
+  .hero-lampa::after {
     transition: none;
   }
 }
