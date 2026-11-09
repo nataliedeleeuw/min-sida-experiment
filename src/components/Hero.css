@@ -139,7 +139,7 @@
   min-width: 0;
 }
 
-/* Rosa cirkel bakom kattbilden */
+/* Rosa cirkel bakom katten */
 
 .hero-image::before {
   content: "";
@@ -161,16 +161,14 @@
 
 
 /* ========================================
-   BILD OCH SIDOKONTROLL
+   GEMENSAM RÖRELSE
 ======================================== */
 
 /*
-  Detta är vår gemensamma behållare.
+  Här ligger både kattbilden
+  och ljusdimmern.
 
-  Bildramen ligger inuti.
-  Dimmern ligger bredvid.
-
-  Därför klipps inte dimmern bort.
+  Nu lutar och rör sig båda tillsammans.
 */
 
 .hero-visual {
@@ -179,6 +177,19 @@
 
   width: 100%;
   max-width: 360px;
+
+  transform: rotate(2deg);
+
+  transition: transform 0.35s ease;
+}
+
+
+/* Hela konstruktionen rör sig tillsammans */
+
+@media (hover: hover) {
+  .hero-visual:hover {
+    transform: rotate(0deg) translateY(-6px);
+  }
 }
 
 
@@ -203,12 +214,19 @@
   box-shadow:
     0 14px 32px rgba(28, 32, 39, 0.12);
 
-  transform: rotate(2deg);
-
   transition:
-    transform 0.3s ease,
-    box-shadow 0.6s ease,
+    box-shadow 0.35s ease,
     border-color 0.8s ease;
+}
+
+
+/* Hover-skugga */
+
+@media (hover: hover) {
+  .hero-visual:hover .hero-illustration {
+    box-shadow:
+      0 20px 36px rgba(28, 32, 39, 0.17);
+  }
 }
 
 
@@ -264,7 +282,7 @@
 }
 
 
-/* Liten effekt när man pekar på lampan */
+/* Diskret glöd när lampan får fokus */
 
 .hero-lampa::after {
   content: "";
@@ -303,28 +321,6 @@
 
 
 /* ========================================
-   DIMMER BREDVID BILDRAMEN
-======================================== */
-
-/*
-  Raknare.css sköter kontrollens utseende.
-
-  Här bestämmer vi bara hur den
-  placeras i förhållande till bilden.
-*/
-
-.hero-visual .ljus-dimmer-wrap {
-  position: absolute;
-
-  top: 52%;
-  right: -78px;
-
-  transform: translateY(-50%);
-  z-index: 3;
-}
-
-
-/* ========================================
    TEXT UNDER BILDEN I DAGSLÄGE
 ======================================== */
 
@@ -341,20 +337,6 @@
   color: #7A7180;
 
   transition: color 0.8s ease;
-}
-
-
-/* ========================================
-   HOVER PÅ KATTBILDEN
-======================================== */
-
-@media (hover: hover) {
-  .hero-illustration:hover {
-    transform: rotate(0deg) translateY(-6px);
-
-    box-shadow:
-      0 20px 36px rgba(28, 32, 39, 0.17);
-  }
 }
 
 
@@ -398,6 +380,8 @@
    NATTLÄGE – BILDRAM
 ======================================== */
 
+/* Ingen extra färg läggs över kattbilden */
+
 .hero-natt .hero-illustration {
   border-color: #F8E4DD;
   background-color: #B98296;
@@ -407,13 +391,8 @@
     0 18px 40px rgba(0, 0, 0, 0.30);
 }
 
-
-/* ========================================
-   HOVER I NATTLÄGE
-======================================== */
-
 @media (hover: hover) {
-  .hero-natt .hero-illustration:hover {
+  .hero-natt .hero-visual:hover .hero-illustration {
     box-shadow:
       0 0 46px rgba(244, 169, 164, 0.22),
       0 22px 44px rgba(0, 0, 0, 0.35);
@@ -433,39 +412,6 @@
     padding: 64px 32px 72px;
   }
 }
-
-
-/*
-  På mindre skärmar får dimmern
-  ligga under bilden i stället.
-
-  Annars kan den hamna utanför
-  skärmens högra kant.
-*/
-
-@media (max-width: 1100px) {
-  .hero-visual .ljus-dimmer-wrap {
-    position: static;
-    transform: none;
-
-    margin: 20px auto 0;
-  }
-
-  .hero-visual .ljus-dimmer {
-    flex-direction: row;
-    padding: 10px 14px;
-    border-radius: 999px;
-  }
-
-  .hero-visual .ljus-dimmer-status {
-    min-width: 74px;
-  }
-
-  .hero-visual .ljus-dimmer-dots {
-    flex-direction: row;
-  }
-}
-
 
 @media (max-width: 480px) {
   .hero {
@@ -491,6 +437,7 @@
 @media (prefers-reduced-motion: reduce) {
   .hero,
   .hero-cat,
+  .hero-visual,
   .hero-illustration,
   .hero-lampa::after {
     transition: none;

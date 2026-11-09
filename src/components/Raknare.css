@@ -1,13 +1,13 @@
 
 /* ========================================
-   LJUSDIMMER – INBYGGDA SIDOKNAPPAR
+   LJUSDIMMER – KOMPAKT SIDOKONTROLL
 ======================================== */
 
 .hero .hero-visual .ljus-dimmer-wrap {
   position: absolute;
 
-  top: 52%;
-  right: -28px;
+  top: 50%;
+  right: -25px;
 
   transform: translateY(-50%);
 
@@ -23,39 +23,58 @@
 
 
 /* ========================================
-   LITEN FÖRKLARANDE TEXT
+   FÖRKLARANDE TEXT VID HOVER
 ======================================== */
 
 .ljus-dimmer-label {
   position: absolute;
 
-  bottom: calc(100% + 9px);
-  left: 4px;
+  left: calc(100% + 12px);
+  top: 50%;
+
+  transform: translate(-5px, -50%);
 
   width: max-content;
   margin: 0;
-  padding: 0;
+  padding: 7px 11px;
 
-  transform: none;
+  background-color: #FFF7F2;
+  color: #25334A;
 
-  background: transparent;
-  border: none;
-  box-shadow: none;
-
-  color: #E9BFC4;
+  border: 1px solid #E9CAC8;
+  border-radius: 8px;
 
   font-family: 'Outfit', sans-serif;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
+  font-size: 11px;
+  font-weight: 600;
 
-  text-align: left;
-  white-space: nowrap;
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.18);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s ease;
+}
+
+
+/* Visa förklaringen när kontrollen används */
+
+.ljus-dimmer-wrap:hover .ljus-dimmer-label,
+.ljus-dimmer-wrap:focus-within .ljus-dimmer-label {
+  opacity: 1;
+  visibility: visible;
+
+  transform: translate(0, -50%);
 }
 
 
 /* ========================================
-   SJÄLVA KONTROLLEN
+   DEN BLÅ SIDOREMSAN
 ======================================== */
 
 .hero .hero-visual .ljus-dimmer {
@@ -66,12 +85,22 @@
   gap: 5px;
 
   width: 30px;
-  padding: 0;
+  padding: 5px 0;
 
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
+  background: linear-gradient(
+    90deg,
+    #29445F,
+    #365F87 45%,
+    #29445F
+  );
+
+  border: 1px solid #52718D;
+  border-radius: 0 9px 9px 0;
+
+  box-shadow:
+    2px 4px 9px rgba(0, 0, 0, 0.20);
+
+  box-sizing: border-box;
 }
 
 
@@ -84,26 +113,26 @@
   align-items: center;
   justify-content: center;
 
-  width: 30px;
-  height: 32px;
+  width: 26px;
+  height: 30px;
 
   padding: 0;
   flex-shrink: 0;
 
   background: linear-gradient(
     145deg,
-    #537EA4,
-    #365F87
+    #638DB0,
+    #40698E
   );
 
   color: #FFFFFF;
 
-  border: 1px solid #6286A6;
-  border-radius: 0 8px 8px 0;
+  border: 1px solid #7899B4;
+  border-radius: 0 6px 6px 0;
 
   box-shadow:
-    inset 1px 1px 1px rgba(255,255,255,0.20),
-    2px 3px 5px rgba(0,0,0,0.18);
+    inset 1px 1px 1px rgba(255, 255, 255, 0.24),
+    1px 2px 4px rgba(0, 0, 0, 0.20);
 
   font-family: 'Outfit', sans-serif;
   font-size: 19px;
@@ -113,14 +142,12 @@
   cursor: pointer;
 
   transition:
-    transform 0.2s ease,
-    opacity 0.2s ease,
-    background 0.2s ease;
+    background 0.2s ease,
+    opacity 0.2s ease;
 }
 
 .ljus-dimmer-knapp:hover:not(:disabled) {
-  background: #5B87AB;
-  transform: translateX(2px);
+  background: #6F9BBE;
 }
 
 .ljus-dimmer-knapp:disabled {
@@ -130,7 +157,7 @@
 
 
 /* ========================================
-   LJUSSTYRKANS FYRA PRICKAR
+   FYRA LJUSINDIKATORER
 ======================================== */
 
 .ljus-dimmer-status {
@@ -140,12 +167,15 @@
   justify-content: center;
 
   gap: 0;
+
+  width: 26px;
   min-width: 0;
-  height: 30px;
+  height: 36px;
 
   padding: 0;
   margin: 0;
 }
+
 
 /* Texten finns kvar för skärmläsare */
 
@@ -165,35 +195,34 @@
   border: 0;
 }
 
+
+/* Prickarna ligger på remsan */
+
 .ljus-dimmer-dots {
   display: flex;
   flex-direction: column;
   align-items: center;
 
   gap: 4px;
-  margin: 0;
 }
 
 .dot {
   width: 5px;
   height: 5px;
 
-  background-color: #58677B;
-
+  background-color: #192E42;
   border-radius: 50%;
 
   transition:
-    background-color 0.25s ease,
-    transform 0.25s ease;
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .dot.aktiv {
-  background-color: #F3BFC2;
+  background-color: #FFC9CF;
 
   box-shadow:
-    0 0 5px rgba(243, 191, 194, 0.35);
-
-  transform: scale(1.08);
+    0 0 6px rgba(255, 201, 207, 0.65);
 }
 
 
@@ -206,17 +235,18 @@
   align-items: center;
   justify-content: center;
 
-  width: 30px;
+  width: 26px;
   height: 26px;
 
   padding: 0;
   margin: 0;
 
   background: transparent;
-  color: #E0BBC7;
+  color: #F2C6D1;
 
   border: none;
-  border-radius: 50%;
+  border-top: 1px solid rgba(255,255,255,0.16);
+  border-radius: 0;
 
   font-size: 20px;
   line-height: 1;
@@ -230,7 +260,7 @@
 
 .ljus-dimmer-reset:hover {
   color: #FFFFFF;
-  transform: rotate(-35deg);
+  transform: rotate(-30deg);
 }
 
 
@@ -248,7 +278,7 @@
    MINDRE SKÄRMAR
 ======================================== */
 
-@media (max-width: 1100px) {
+@media (max-width: 1050px) {
 
   .hero .hero-visual .ljus-dimmer-wrap {
     position: static;
@@ -256,42 +286,31 @@
     transform: none;
 
     width: max-content;
-    margin: 16px auto 0;
-
-    gap: 5px;
-  }
-
-  .ljus-dimmer-label {
-    position: static;
-
-    width: auto;
-    margin-bottom: 4px;
-
-    transform: none;
-
-    text-align: center;
+    margin: 18px auto 0;
   }
 
   .hero .hero-visual .ljus-dimmer {
     flex-direction: row;
 
     width: auto;
-    gap: 10px;
+    gap: 8px;
 
-    padding: 0;
-    border-radius: 0;
+    padding: 5px 8px;
+
+    border-radius: 12px;
   }
 
   .ljus-dimmer-knapp {
-    width: 34px;
-    height: 34px;
+    width: 32px;
+    height: 32px;
 
-    border-radius: 9px;
+    border-radius: 7px;
   }
 
   .ljus-dimmer-status {
-    height: 34px;
-    min-width: 40px;
+    width: 44px;
+    min-width: 44px;
+    height: 32px;
   }
 
   .ljus-dimmer-dots {
@@ -299,8 +318,35 @@
   }
 
   .ljus-dimmer-reset {
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
+
+    border-top: none;
+    border-left: 1px solid rgba(255,255,255,0.16);
+  }
+
+  .ljus-dimmer-label {
+    position: static;
+
+    transform: none;
+
+    visibility: visible;
+    opacity: 1;
+
+    margin-bottom: 7px;
+
+    padding: 0;
+
+    background: transparent;
+    border: none;
+    box-shadow: none;
+
+    color: #F8D6D2;
+  }
+
+  .ljus-dimmer-wrap:hover .ljus-dimmer-label,
+  .ljus-dimmer-wrap:focus-within .ljus-dimmer-label {
+    transform: none;
   }
 }
 
@@ -312,7 +358,8 @@
 @media (prefers-reduced-motion: reduce) {
   .ljus-dimmer-knapp,
   .ljus-dimmer-reset,
-  .dot {
+  .dot,
+  .ljus-dimmer-label {
     transition: none;
   }
 }
