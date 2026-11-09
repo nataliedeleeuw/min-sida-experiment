@@ -5,11 +5,23 @@ import HeroImage from "../assets/Hero1.webp";
 import HeroSleep from "../assets/HeroSleep.webp";
 
 import Header from "./Header";
+import Raknare from "./Raknare";
 
 import { Link } from "react-router-dom";
 import { halsning } from "../utils/text";
 
-function Hero({ namn, titel, stad, ljusPa, vaxlaLjus }) {
+function Hero({
+  namn,
+  titel,
+  stad,
+  ljusPa,
+  vaxlaLjus,
+  ljusNiva,
+  setLjusNiva
+}) {
+
+  const ljusstyrkor = [0.76, 0.88, 1, 1.08];
+
   return (
     <section className={ljusPa ? "hero" : "hero hero-natt"}>
 
@@ -60,6 +72,10 @@ function Hero({ namn, titel, stad, ljusPa, vaxlaLjus }) {
             className={!ljusPa ? "hero-cat synlig" : "hero-cat"}
             alt="Katten sover under en varm lampa"
             aria-hidden={ljusPa}
+            style={{
+              filter: `brightness(${ljusstyrkor[ljusNiva]})`,
+              transition: "opacity 0.6s ease, filter 0.4s ease"
+            }}
           />
 
           <button
@@ -77,9 +93,16 @@ function Hero({ namn, titel, stad, ljusPa, vaxlaLjus }) {
 
         </div>
 
-        <p className="hero-lamptips">
-          Klicka på lampan
-        </p>
+        {ljusPa ? (
+          <p className="hero-lamptips">
+            Klicka på lampan
+          </p>
+        ) : (
+          <Raknare
+            ljusNiva={ljusNiva}
+            setLjusNiva={setLjusNiva}
+          />
+        )}
 
       </div>
 

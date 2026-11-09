@@ -1,32 +1,72 @@
-import { useState } from "react";
 
-function Raknare() {
-  const [antal, setAntal] = useState(0);
+import "./Raknare.css";
+
+function Raknare({ ljusNiva, setLjusNiva }) {
+
+  const beskrivningar = [
+    "Svagt sken",
+    "Lugn kväll",
+    "Mysbelysning",
+    "Extra ljust"
+  ];
+
+  function minskaLjus() {
+    setLjusNiva((tidigare) => Math.max(0, tidigare - 1));
+  }
+
+  function okaLjus() {
+    setLjusNiva((tidigare) => Math.min(3, tidigare + 1));
+  }
+
+  function aterstallLjus() {
+    setLjusNiva(2);
+  }
 
   return (
-    <section>
-      <h2>Min räknare</h2>
+    <div
+      className="ljus-dimmer"
+      role="group"
+      aria-label="Justera kattens belysning"
+    >
+
       <button
-     onClick={() => {
-      if (antal > 0) {
-         setAntal(antal - 1);
-       }
-     }}
->
-     −
-    </button>
+        type="button"
+        className="ljus-dimmer-knapp"
+        onClick={minskaLjus}
+        disabled={ljusNiva === 0}
+        aria-label="Minska ljusstyrkan"
+      >
+        −
+      </button>
 
-      <span style={{ color: antal > 0 ? "green" : "red" }}>
-      {antal}
-        </span>
+      <span
+        className="ljus-dimmer-text"
+        aria-live="polite"
+      >
+        {beskrivningar[ljusNiva]}
+      </span>
 
-      <button onClick={() => setAntal(antal + 1)}>
+      <button
+        type="button"
+        className="ljus-dimmer-knapp"
+        onClick={okaLjus}
+        disabled={ljusNiva === 3}
+        aria-label="Öka ljusstyrkan"
+      >
         +
       </button>
-      <button onClick={() => setAntal(0)}>
-  Nollställ
-</button>
-    </section>
+
+      <button
+        type="button"
+        className="ljus-dimmer-reset"
+        onClick={aterstallLjus}
+        title="Återställ ljusstyrkan"
+        aria-label="Återställ ljusstyrkan"
+      >
+        ↺
+      </button>
+
+    </div>
   );
 }
 
