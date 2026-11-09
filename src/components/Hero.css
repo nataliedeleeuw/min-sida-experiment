@@ -1,3 +1,4 @@
+
 /* ========================================
    HERO – GRUNDLAYOUT
 ======================================== */
@@ -11,7 +12,7 @@
   padding: 40px 24px 48px;
 
   background-color: #FFFAF5;
-  color: #131314;
+  color: #1C2027;
 
   transition:
     background-color 0.8s ease,
@@ -34,9 +35,9 @@
 
   color: #1C2027;
 
+  font-family: 'Outfit', sans-serif;
   font-size: clamp(1.75rem, 5vw, 2.5rem);
   font-weight: 600;
-  font-family: 'Outfit', sans-serif;
 
   line-height: 1.3;
   letter-spacing: -0.01em;
@@ -61,6 +62,11 @@
   font-size: 18px;
   font-weight: 600;
 
+  transition: color 0.8s ease;
+}
+
+.hero .header h1,
+.hero .header p {
   transition: color 0.8s ease;
 }
 
@@ -96,7 +102,7 @@
 
 
 /* ========================================
-   KNAPPEN TILL PROJEKTEN
+   KNAPP TILL PROJEKTEN
 ======================================== */
 
 .hero-button {
@@ -107,7 +113,7 @@
   background-color: #365F87;
   color: #FFFFFF;
 
-  font-weight: bold;
+  font-weight: 700;
   text-decoration: none;
 
   border-radius: 6px;
@@ -136,7 +142,7 @@
   min-width: 0;
 }
 
-/* Rosa cirkel bakom kattbilden */
+/* Den rosa cirkeln bakom bilden */
 
 .hero-image::before {
   content: "";
@@ -159,7 +165,7 @@
 
 
 /* ========================================
-   KATTENS BILDRAM
+   GEMENSAM BILDRAM
 ======================================== */
 
 .hero-illustration {
@@ -178,7 +184,6 @@
   background-color: #FFFFFF;
 
   overflow: hidden;
-  isolation: isolate;
 
   box-shadow:
     0 14px 32px rgba(28, 32, 39, 0.12);
@@ -188,12 +193,13 @@
   transition:
     transform 0.3s ease,
     box-shadow 0.6s ease,
-    border-color 0.8s ease;
+    border-color 0.8s ease,
+    background-color 0.8s ease;
 }
 
 
 /* ========================================
-   KATTENS TVÅ BILDER
+   VAKEN OCH SOVANDE KATT
 ======================================== */
 
 .hero-cat {
@@ -211,7 +217,7 @@
   transition: opacity 0.6s ease;
 }
 
-/* React väljer vilken katt som syns */
+/* React bestämmer vilken bild som syns */
 
 .hero-cat.synlig {
   opacity: 1;
@@ -268,71 +274,7 @@
 
 
 /* ========================================
-   NATTLJUS – PLOMMONROSA SKUGGOR
-======================================== */
-
-.hero-illustration::before {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-
-  pointer-events: none;
-
-  background:
-    radial-gradient(
-      ellipse 75% 115% at 50% -5%,
-      rgba(152, 77, 108, 0.42) 0%,
-      rgba(112, 49, 101, 0.52) 35%,
-      rgba(79, 31, 85, 0.72) 68%,
-      rgba(40, 20, 60, 0.88) 100%
-    );
-
-  mix-blend-mode: multiply;
-
-  opacity: 0;
-
-  transition: opacity 0.8s ease;
-}
-
-
-/* ========================================
-   NATTLJUS – ROSY GLOW OVANIFRÅN
-======================================== */
-
-.hero-illustration::after {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-
-  pointer-events: none;
-
-  background:
-    radial-gradient(
-      ellipse 62% 24% at 50% 0%,
-      rgba(255, 218, 216, 0.60) 0%,
-      rgba(255, 181, 196, 0.28) 55%,
-      transparent 100%
-    ),
-
-    radial-gradient(
-      ellipse 75% 110% at 50% -8%,
-      rgba(255, 174, 193, 0.26) 0%,
-      rgba(245, 143, 174, 0.15) 42%,
-      transparent 80%
-    );
-
-  opacity: 0;
-
-  transition: opacity 0.8s ease;
-}
-
-
-/* ========================================
-   NATTLÄGE – SIDANS FÄRGER
+   NATTLÄGE – HERO
 ======================================== */
 
 .hero.hero-natt {
@@ -340,33 +282,33 @@
   color: #FFFAF5;
 }
 
-/* Rubriker */
+/* Ljusa rubriker */
 
 .hero-natt .header h1,
 .hero.hero-natt h2 {
   color: #FFFAF5;
 }
 
-/* Vanlig text */
+/* Ljusare vanlig text */
 
 .hero-natt .header p,
 .hero-natt .hero-text {
   color: #E5E1E4;
 }
 
-/* Hälsningen */
+/* Rosa hälsning */
 
 .hero-natt .hero-intro {
   color: #E3B7B3;
 }
 
-/* Dekorationslinjen */
+/* Rosa dekorationslinje */
 
 .hero-natt .hero-line {
   background-color: #E3B7B3;
 }
 
-/* Cirkeln bakom kattbilden */
+/* Dämpad cirkel bakom bilden */
 
 .hero-natt .hero-image::before {
   background-color: #495571;
@@ -374,24 +316,31 @@
 
 
 /* ========================================
-   NATTLÄGE – KATTENS BELYSNING
+   NATTLÄGE – BILDRAM
 ======================================== */
 
-/* Visa mörkret och det rosiga ljuset */
+/*
+  Den nya sovbilden har redan
+  sin egen belysning.
 
-.hero-natt .hero-illustration::before,
-.hero-natt .hero-illustration::after {
-  opacity: 1;
-}
-
-/* Varm bildram med rosa sken */
+  Därför lägger vi INGA mörka filter
+  ovanpå illustrationen.
+*/
 
 .hero-natt .hero-illustration {
   border-color: #F8E4DD;
 
+  background:
+    linear-gradient(
+      to bottom,
+      #B98296,
+      #D79B99,
+      #B98296
+    );
+
   box-shadow:
-    0 0 38px rgba(244, 169, 164, 0.20),
-    0 18px 40px rgba(0, 0, 0, 0.35);
+    0 0 36px rgba(244, 169, 164, 0.16),
+    0 18px 40px rgba(0, 0, 0, 0.30);
 }
 
 
@@ -402,8 +351,8 @@
 @media (hover: hover) {
   .hero-natt .hero-illustration:hover {
     box-shadow:
-      0 0 48px rgba(244, 169, 164, 0.26),
-      0 22px 44px rgba(0, 0, 0, 0.40);
+      0 0 46px rgba(244, 169, 164, 0.22),
+      0 22px 44px rgba(0, 0, 0, 0.35);
   }
 }
 
@@ -415,8 +364,8 @@
 @media (min-width: 800px) {
   .hero {
     grid-template-columns: 1fr 1fr;
-
     gap: 40px;
+
     padding: 64px 32px 72px;
   }
 }
@@ -434,5 +383,19 @@
   .hero-image::before {
     width: 110px;
     height: 110px;
+  }
+}
+
+
+/* ========================================
+   MINSKA ANIMATIONER VID BEHOV
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero,
+  .hero-cat,
+  .hero-illustration,
+  .hero-ljusknapp {
+    transition: none;
   }
 }
