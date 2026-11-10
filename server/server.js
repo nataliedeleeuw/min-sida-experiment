@@ -30,6 +30,15 @@ app.get("/slump", (req, res) => {
   });
 });
 
+app.get("/rakna/:a/:b", (req, res) => {
+  const a = Number(req.params.a);
+  const b = Number(req.params.b);
+
+  res.json({
+    summa: a + b,
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`Servern körs på http://localhost:${PORT}`);
 });
