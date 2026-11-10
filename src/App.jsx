@@ -10,6 +10,7 @@ import ProjektSida from "./pages/ProjektSida";
 import EjHittad from "./pages/EjHittad";
 import ProjektDetalj from "./pages/ProjektDetalj";
 import FizzBuzz from "./pages/FizzBuzz";
+import MinServer from "./components/MinServer";
 
 function App() {
   // Bestämmer om det är dag eller kväll
@@ -59,6 +60,7 @@ function App() {
         <Route path="/kontakt" element={<Kontakt />} />
 
         <Route path="*" element={<EjHittad />} />
+        <Route path="/server" element={<MinServer />} />
       </Routes>
 
       <Footer />
