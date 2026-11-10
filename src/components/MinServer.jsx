@@ -5,6 +5,7 @@ function MinServer() {
   const [data, setData] = useState(null);
   const [laddar, setLaddar] = useState(true);
   const [fel, setFel] = useState("");
+  const [slumptal, setSlumptal] = useState(null);
 
   useEffect(() => {
     async function hamtaServer() {
@@ -27,6 +28,21 @@ function MinServer() {
     hamtaServer();
   }, []);
 
+async function hamtaSlumptal() {
+  try {
+    const svar = await fetch("http://localhost:3001/slump");
+
+    if (!svar.ok) {
+      throw new Error("Kunde inte hämta slumptalet.");
+    }
+
+    const resultat = await svar.json();
+    setSlumptal(resultat.slumptal);
+  } catch {
+    setFel("Kunde inte hämta slumptalet.");
+  }
+}
+
   return (
     <section className="min-server">
       <h2>Min egen server</h2>
@@ -47,6 +63,16 @@ function MinServer() {
               <li key={intresse}>{intresse}</li>
             ))}
           </ul>
+
+<h4>Slumpgenerator</h4>
+<button type="button" onClick={hamtaSlumptal}>
+  Slumpa ett tal
+</button>
+
+{slumptal !== null && (
+  <p>Ditt slumptal är: {slumptal}</p>
+)}
+
         </div>
       )}
     </section>

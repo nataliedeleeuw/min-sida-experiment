@@ -21,6 +21,15 @@ app.get("/tid", (req, res) => {
     tid: new Date().toLocaleTimeString("sv-SE"),
   });
 });
+
+app.get("/slump", (req, res) => {
+  const tal = Math.floor(Math.random() * 100) + 1;
+
+  res.json({
+    slumptal: tal,
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`Servern körs på http://localhost:${PORT}`);
 });
