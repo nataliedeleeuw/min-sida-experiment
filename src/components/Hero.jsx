@@ -23,10 +23,10 @@ function Hero({
   setLjusNiva
 }) {
 
-  // Samma dimmerstyrka som tidigare
-  const ljusstyrkor = [0.76, 0.88, 1, 1.08];
+  // Tydligare skillnad mellan de fyra nivåerna
+  const ljusstyrkor = [0.38, 0.65, 1.00, 1.45];
 
-  // Fyra stadier av kattens trötthet
+  // Kattens fyra stadier av kvällströtthet
   const kvallsbilder = [
     {
       bild: HeroSleep,
@@ -99,7 +99,7 @@ function Hero({
               aria-hidden={!ljusPa}
             />
 
-            {/* De fyra kvällskatterna */}
+            {/* Kattens fyra kvällsstadier */}
 
             {kvallsbilder.map((katt, niva) => (
 
@@ -122,7 +122,7 @@ function Hero({
 
             ))}
 
-            {/* Den klickbara lampan */}
+            {/* Klickbar lampa */}
 
             <button
               type="button"
@@ -139,7 +139,7 @@ function Hero({
 
           </div>
 
-          {/* Dimmern visas bara i kvällsläge */}
+          {/* Dimmern syns bara i kvällsläge */}
 
           {!ljusPa && (
             <Raknare
@@ -150,11 +150,20 @@ function Hero({
 
         </div>
 
-        {ljusPa && (
-          <p className="hero-lamptips">
-            Klicka på lampan
-          </p>
-        )}
+        {/* 
+          Texten behåller sin plats även i kvällsläge.
+          Därför hoppar inte kattbilden.
+        */}
+
+        <p
+          className="hero-lamptips"
+          style={{
+            visibility: ljusPa ? "visible" : "hidden"
+          }}
+          aria-hidden={!ljusPa}
+        >
+          Klicka på lampan
+        </p>
 
       </div>
 
