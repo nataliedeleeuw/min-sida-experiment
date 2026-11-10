@@ -5,6 +5,7 @@ const app = express();
 const PORT = 3001;
 
 
+
 app.get("/hej", (req, res) => {
   res.json({
     meddelande: "Hej från min egen server!",
@@ -13,6 +14,7 @@ app.get("/hej", (req, res) => {
     intressen: ["React", "Psykologi", "Skrivande"],
   });
 });
+
 app.get("/tid", (req, res) => {
   res.json({
     tid: new Date().toLocaleTimeString("sv-SE"),
