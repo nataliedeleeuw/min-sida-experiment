@@ -2,6 +2,7 @@
 import "./Raknare.css";
 
 function Raknare({ ljusNiva, setLjusNiva }) {
+
   const beskrivningar = [
     "Svagt",
     "Lugnt",
@@ -18,7 +19,7 @@ function Raknare({ ljusNiva, setLjusNiva }) {
   }
 
   function aterstallLjus() {
-    setLjusNiva(2);
+    setLjusNiva(3);
   }
 
   return (
@@ -58,7 +59,7 @@ function Raknare({ ljusNiva, setLjusNiva }) {
             className="ljus-dimmer-dots"
             aria-hidden="true"
           >
-            {[0, 1, 2, 3].map((niva) => (
+            {[3, 2, 1, 0].map((niva) => (
               <span
                 key={niva}
                 className={
@@ -87,8 +88,8 @@ function Raknare({ ljusNiva, setLjusNiva }) {
           type="button"
           className="ljus-dimmer-reset"
           onClick={aterstallLjus}
-          title="Återställ ljusstyrkan"
-          aria-label="Återställ ljusstyrkan"
+          title="Återställ till full ljusstyrka"
+          aria-label="Återställ till full ljusstyrka"
         >
           ↺
         </button>

@@ -1,7 +1,6 @@
 
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
-
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Hem from "./pages/Hem";
@@ -16,10 +15,16 @@ function App() {
   // Bestämmer om det är dag eller kväll
   const [ljusPa, setLjusPa] = useState(true);
 
-  // Bestämmer hur stark kvällsbelysningen är
-  const [ljusNiva, setLjusNiva] = useState(2);
+  // Kvällsbelysningen börjar på högsta nivån
+  const [ljusNiva, setLjusNiva] = useState(3);
 
   function vaxlaLjus() {
+    // När vi går till kvällsläge börjar vi på nivå 3
+    if (ljusPa) {
+      setLjusNiva(3);
+    }
+
+    // Växla mellan dag och kväll
     setLjusPa((tidigare) => !tidigare);
   }
 
