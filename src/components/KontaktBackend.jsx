@@ -53,13 +53,16 @@ function KontaktBackend() {
       body: JSON.stringify({ namn, email, text: meddelande }),
     });
 
-    if (svar.ok) {
-      setSkickat(true);
-      setEmail("");
-      setMeddelande("");
-    } else {
-      setFel("Något gick fel. Försök igen om en stund.");
-    }
+
+if (svar.ok) {
+  setSkickat(true);
+  setEmail("");
+  setMeddelande("");
+} else {
+  const data = await svar.json();
+  setFel(data.fel || "Något gick fel. Försök igen.");
+}
+
   } catch {
     setFel("Kunde inte skicka. Kontrollera anslutningen och försök igen.");
   } finally {

@@ -43,8 +43,20 @@ app.get("/rakna/:a/:b", (req, res) => {
 });
 
 
+
 app.post("/kontakt", (req, res) => {
   const { namn, email, text } = req.body;
+
+  if (
+    typeof namn !== "string" ||
+    namn.trim() === "" ||
+    typeof text !== "string" ||
+    text.trim() === ""
+  ) {
+    return res.status(400).json({
+      fel: "Namn och meddelande måste fyllas i",
+    });
+  }
 
   meddelanden.push({ namn, email, text });
 
@@ -55,9 +67,20 @@ app.post("/kontakt", (req, res) => {
   });
 });
 
+
+  console.log(`Nytt meddelande från ${namn}`);
+
+  res.status(201).json({
+    meddelande: "Tack för ditt meddelande!",
+  });
+;
+
+
 app.get("/kontakt", (req, res) => {
+  res.set("Cache-Control", "no-store");
   res.json(meddelanden);
 });
+
 
 app.listen(PORT, () => {
   console.log(`Servern körs på http://localhost:${PORT}`);
