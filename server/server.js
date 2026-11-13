@@ -3,7 +3,10 @@ import express from "express";
 
 const app = express();
 app.use(cors());
+app.use(express.json());
 const PORT = 3001;
+
+const meddelanden = [];
 
 
 
@@ -37,6 +40,23 @@ app.get("/rakna/:a/:b", (req, res) => {
   res.json({
     summa: a + b,
   });
+});
+
+
+app.post("/kontakt", (req, res) => {
+  const { namn, email, text } = req.body;
+
+  meddelanden.push({ namn, email, text });
+
+  console.log(`Nytt meddelande från ${namn}`);
+
+  res.status(201).json({
+    meddelande: "Tack för ditt meddelande!",
+  });
+});
+
+app.get("/kontakt", (req, res) => {
+  res.json(meddelanden);
 });
 
 app.listen(PORT, () => {
