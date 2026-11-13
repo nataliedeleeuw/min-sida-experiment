@@ -67,7 +67,16 @@ app.post("/kontakt", (req, res) => {
   }
 
   // Spara meddelandet
-  meddelanden.push({ namn, email, text });
+  
+const nyttMeddelande = {
+  id: meddelanden.length + 1,
+  datum: new Date().toISOString(),
+  namn,
+  email,
+  text,
+};
+
+meddelanden.push(nyttMeddelande);
 
   console.log(`Nytt meddelande från ${namn}`);
 
