@@ -12,78 +12,95 @@ function ProjektKort({
   onValjTeknik
 }) {
   const underPlanering = teknik.includes("Under planering");
-
   const arGithub = lank?.includes("github.com");
   const internLank = lank?.startsWith("/");
 
   return (
-    <article className="projekt-kort">
-      <img
-        className="projekt-bild"
-        src={bild}
-        alt=""
-      />
+    <article
+      className={
+        underPlanering
+          ? "projekt-kort projekt-kort--planerat"
+          : "projekt-kort"
+      }
+    >
+      {!underPlanering && bild && (
+        <img
+          className="projekt-bild"
+          src={bild}
+          alt=""
+        />
+      )}
 
       <div className="projekt-info">
-        <h3>{titel}</h3>
-
-        <p>{text}</p>
-
-        {!underPlanering && teknik.includes("React") && (
-          <span className="projekt-react-marke">
-            Byggt med React
-          </span>
+        {underPlanering && (
+          <button
+            type="button"
+            className="projekt-kort-status"
+            onClick={() => onValjTeknik("Under planering")}
+          >
+            Under planering
+          </button>
         )}
 
-        <div className="projekt-tekniker">
-          {teknik.map((t) => (
-            <button
-              key={t}
-              type="button"
-              className="projekt-teknik"
-              onClick={() => onValjTeknik(t)}
-            >
-              {t}
-            </button>
-          ))}
-        </div>
+        <h3>{titel}</h3>
+        <p className="projekt-beskrivning">{text}</p>
 
-        {underPlanering ? (
-          <p className="projekt-planerad">
-            Mer information kommer när projektet
-            tar form.
-          </p>
-        ) : (
-          <div className="projekt-lankar">
-            <Link
-              className="projekt-knapp"
-              to={`/projekt/${id}`}
-            >
-              Läs mer
-            </Link>
+        {!underPlanering && (
+          <>
+            <div className="projekt-tekniker">
+              {teknik.includes("React") && (
+                <button
+                  type="button"
+                  className="projekt-react-marke"
+                  onClick={() => onValjTeknik("React")}
+                >
+                  Byggt med React
+                </button>
+              )}
 
-            {lank && (
-              internLank ? (
-                <Link
-                  className="projekt-knapp"
-                  to={lank}
-                >
-                  Prova funktionen
-                </Link>
-              ) : (
-                <a
-                  className="projekt-knapp"
-                  href={lank}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {arGithub
-                    ? "Se koden"
-                    : "Se projektet"}
-                </a>
-              )
-            )}
-          </div>
+              {teknik
+                .filter((t) => t !== "React")
+                .map((t) => (
+                  <button
+                    key={t}
+                    type="button"
+                    className="projekt-teknik"
+                    onClick={() => onValjTeknik(t)}
+                  >
+                    {t}
+                  </button>
+                ))}
+            </div>
+
+            <div className="projekt-lankar">
+              <Link
+                className="projekt-knapp"
+                to={`/projekt/${id}`}
+              >
+                Läs mer
+              </Link>
+
+              {lank && (
+                internLank ? (
+                  <Link
+                    className="projekt-knapp projekt-knapp--sekundar"
+                    to={lank}
+                  >
+                    Prova funktionen
+                  </Link>
+                ) : (
+                  <a
+                    className="projekt-knapp projekt-knapp--sekundar"
+                    href={lank}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {arGithub ? "Se koden" : "Se projektet"}
+                  </a>
+                )
+              )}
+            </div>
+          </>
         )}
       </div>
     </article>

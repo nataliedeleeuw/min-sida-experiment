@@ -1,3 +1,4 @@
+
 [
   {
     "id": 1,
@@ -12,21 +13,21 @@
     "titel": "Projekt 2",
     "text": "Kommer snart.",
     "bild": "Hero 3.webp",
-    "lank": "https://www.google.se",
+    "lank": "",
     "teknik": ["Under planering"]
   },
-    {
+  {
     "id": 3,
     "titel": "Projekt 3",
     "text": "Kommer snart.",
     "bild": "Hero 4.webp",
-    "lank": "https://www.google.se",
+    "lank": "",
     "teknik": ["Under planering"]
   },
   {
     "id": 4,
-    "titel": "Min räknare",
-    "text": "En räknare med plus, minus och nollställning.",
+    "titel": "Kattens ljusdimmer",
+    "text": "En interaktiv ljusdimmer som styr kattens lampa och kvällsläge på startsidan.",
     "bild": "Hero 4.webp",
     "lank": "/",
     "teknik": ["React", "useState", "JavaScript"]
