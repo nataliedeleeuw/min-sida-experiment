@@ -1,8 +1,9 @@
-import  "./Kontakt.css";
+
+import "./Kontakt.css";
 import KontaktBild from "../assets/Envelope.webp";
 import { useState } from "react";
-const MAX_TECKEN = 500;
 
+const MAX_TECKEN = 500;
 
 function Kontakt() {
   const [namn, setNamn] = useState("");
@@ -11,128 +12,196 @@ function Kontakt() {
   const [skickat, setSkickat] = useState(false);
   const [fel, setFel] = useState("");
   const [skickar, setSkickar] = useState(false);
+
   const kvar = MAX_TECKEN - meddelande.length;
-  const fardigt =
-  meddelande.trim() !== "" && kvar >= 0;
+
   async function handleSubmit(e) {
-  e.preventDefault();
+    e.preventDefault();
 
-  if (skickar) return;
+    if (skickar) return;
 
-  setFel("");
-  setSkickat(false);
+    setFel("");
 
-  if (
-    namn.trim() === "" ||
-    email.trim() === "" ||
-    meddelande.trim() === ""
-  ) {
-    setFel("Fyll i alla fält.");
-    return;
-  }
+    if (
+      namn.trim() === "" ||
+      email.trim() === "" ||
+      meddelande.trim() === ""
+    ) {
+      setFel("Fyll i alla fält innan du skickar.");
+      return;
+    }
 
-  if (!email.includes("@")) {
-    setFel("Skriv en e-postadress som innehåller @.");
-    return;
-  }
+    const giltigEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+      email.trim()
+    );
 
-  if (meddelande.length > MAX_TECKEN) {
-  setFel("Meddelandet är för långt.");
-  return;
-  } 
+    if (!giltigEmail) {
+      setFel("Kontrollera att e-postadressen är korrekt.");
+      return;
+    }
 
-  setSkickar(true);
+    if (meddelande.length > MAX_TECKEN) {
+      setFel("Meddelandet är för långt.");
+      return;
+    }
 
-  try {
-    const svar = await fetch("https://formspree.io/f/xzeeggbe", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({ namn, email, meddelande }),
-    });
+    setSkickar(true);
 
-    if (svar.ok) {
+    try {
+      const svar = await fetch(
+        "https://formspree.io/f/xzeeggbe",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            namn: namn.trim(),
+            email: email.trim(),
+            meddelande: meddelande.trim(),
+          }),
+        }
+      );
+
+      if (!svar.ok) {
+        throw new Error("Kunde inte skicka meddelandet.");
+      }
+
       setSkickat(true);
       setEmail("");
       setMeddelande("");
-    } else {
-      setFel("Något gick fel. Försök igen om en stund.");
+    } catch {
+      setFel(
+        "Meddelandet kunde inte skickas. Försök igen om en stund."
+      );
+    } finally {
+      setSkickar(false);
     }
-  } catch {
-    setFel("Kunde inte skicka. Kontrollera anslutningen och försök igen.");
-  } finally {
-    setSkickar(false);
   }
-}
+
+  function nyttMeddelande() {
+    setSkickat(false);
+    setNamn("");
+    setEmail("");
+    setMeddelande("");
+    setFel("");
+  }
+
   return (
     <section className="kontakt">
       <div className="kontakt-info">
         <h2>Kontakta mig</h2>
-        <p className="kontakt-text">Har du en fråga? Skriv ett meddelande!</p>
-          <img
-              className="kontakt-bild"
-                src={KontaktBild}
-              alt="Illustration av ett kuvert med ett meddelande"
-          />
+
+        <p className="kontakt-text">
+          Har du en fråga eller vill du säga hej?
+          Skicka gärna ett meddelande!
+        </p>
+
+        <img
+          className="kontakt-bild"
+          src={KontaktBild}
+          alt="Illustration av ett kuvert med ett meddelande"
+        />
       </div>
-          {skickat ? (
-          <p className="form-tack">
+
+      {skickat ? (
+        <div className="kontakt-form">
+          <h3>Tack för ditt meddelande!</h3>
+
+          <p className="form-tack" role="status">
             Tack {namn}! Ditt meddelande har skickats.
           </p>
-) : (
-      <form
-            className="kontakt-form"
-            onSubmit={handleSubmit}
-            noValidate
-      >
-        <label htmlFor="namn">Namn</label>
-        <input
+
+          <p>
+            Jag återkommer så snart jag kan.
+          </p>
+
+          <button
+            type="button"
+            onClick={nyttMeddelande}
+          >
+            Skicka ett nytt meddelande
+          </button>
+        </div>
+      ) : (
+        <form
+          className="kontakt-form"
+          onSubmit={handleSubmit}
+          noValidate
+        >
+          <label htmlFor="namn">
+            Namn
+          </label>
+
+          <input
             type="text"
             id="namn"
             name="namn"
             placeholder="Ditt namn"
             value={namn}
             onChange={(e) => setNamn(e.target.value)}
-            
-        />
-        <label htmlFor="epost">E-post</label>
-        <input
+            autoComplete="name"
+            maxLength={100}
+            required
+          />
+
+          <label htmlFor="epost">
+            E-post
+          </label>
+
+          <input
             type="email"
             id="epost"
             name="epost"
             placeholder="namn@exempel.se"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-        />
-        <label htmlFor="meddelande">Meddelande</label>
-        <textarea
+            autoComplete="email"
+            maxLength={150}
+            required
+          />
+
+          <label htmlFor="meddelande">
+            Meddelande
+          </label>
+
+          <textarea
             id="meddelande"
             name="meddelande"
             rows="5"
             value={meddelande}
-            onChange={(e) => setMeddelande(e.target.value)}
-        />
-        <p
-        className={
-          kvar < 50
-          ? "tecken-kvar varning"
-          : "tecken-kvar"
-        }
-          aria-live="polite"
-        >
-          {kvar} tecken kvar
-        </p>
-       <button
-          type="submit"
-          disabled={skickar || !fardigt}
-        >
-          {skickar ? "Skickar..." : "Skicka"}
-        </button>
+            onChange={(e) =>
+              setMeddelande(e.target.value)
+            }
+            maxLength={MAX_TECKEN}
+            required
+          />
 
-        {fel && <p className="form-fel">{fel}</p>}
-      </form>
+          <p
+            className={
+              kvar < 50
+                ? "tecken-kvar varning"
+                : "tecken-kvar"
+            }
+            aria-live="polite"
+          >
+            {kvar} tecken kvar
+          </p>
+
+          {fel && (
+            <p className="form-fel" role="alert">
+              {fel}
+            </p>
+          )}
+
+          <button
+            type="submit"
+            disabled={skickar}
+          >
+            {skickar ? "Skickar..." : "Skicka meddelande"}
+          </button>
+        </form>
       )}
     </section>
   );

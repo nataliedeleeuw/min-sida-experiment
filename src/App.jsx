@@ -11,6 +11,7 @@ import ProjektSida from "./pages/ProjektSida";
 import EjHittad from "./pages/EjHittad";
 import ProjektDetalj from "./pages/ProjektDetalj";
 import FizzBuzz from "./pages/FizzBuzz";
+
 import MinServer from "./components/MinServer";
 import KontaktBackend from "./components/KontaktBackend";
 import AdminMeddelanden from "./components/AdminMeddelanden";
@@ -18,8 +19,6 @@ import AdminMeddelanden from "./components/AdminMeddelanden";
 import "./Tema.css";
 
 function App() {
-  // Hela webbplatsen delar på samma ljusläge.
-  // Besökarens tidigare val används vid nästa besök.
   const [ljusPa, setLjusPa] = useState(() => {
     try {
       return localStorage.getItem("portfolio-tema") !== "morkt";
@@ -28,10 +27,8 @@ function App() {
     }
   });
 
-  // Kattens ljusdimmer.
   const [ljusNiva, setLjusNiva] = useState(3);
 
-  // Spara temat och ändra även bakgrunden utanför sidan.
   useEffect(() => {
     const tema = ljusPa ? "ljust" : "morkt";
 
@@ -40,11 +37,10 @@ function App() {
     try {
       localStorage.setItem("portfolio-tema", tema);
     } catch {
-      // Webbplatsen fungerar även utan lagring.
+      // Sidan fungerar även utan lagring.
     }
   }, [ljusPa]);
 
-  // Används av både kattens lampa och menyknappen.
   function vaxlaLjus() {
     if (ljusPa) {
       setLjusNiva(3);
@@ -95,29 +91,35 @@ function App() {
         />
 
         <Route
-          path="/fizzbuzz"
-          element={<FizzBuzz />}
-        />
-
-        <Route
           path="/kontakt"
           element={<Kontakt />}
         />
 
+        {/* FizzBuzz behålls som tidigare. */}
         <Route
-          path="/kontakt-backend"
-          element={<KontaktBackend />}
+          path="/fizzbuzz"
+          element={<FizzBuzz />}
         />
 
-        <Route
-          path="/admin-meddelanden"
-          element={<AdminMeddelanden />}
-        />
+        {/* Serverövningar finns bara under utveckling. */}
+        {import.meta.env.DEV && (
+          <>
+            <Route
+              path="/server"
+              element={<MinServer />}
+            />
 
-        <Route
-          path="/server"
-          element={<MinServer />}
-        />
+            <Route
+              path="/kontakt-backend"
+              element={<KontaktBackend />}
+            />
+
+            <Route
+              path="/admin-meddelanden"
+              element={<AdminMeddelanden />}
+            />
+          </>
+        )}
 
         <Route
           path="*"
