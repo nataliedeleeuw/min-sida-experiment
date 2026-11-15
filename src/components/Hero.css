@@ -1,445 +1,561 @@
-
-/* ========================================
-   HERO – GRUNDLAYOUT
-======================================== */
-
 .hero {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1.05fr 0.95fr;
   align-items: center;
-  gap: 40px;
+  gap: 56px;
 
-  padding: 40px 24px 48px;
+  padding: 40px 42px 56px;
 
-  background-color: #FFFAF5;
-  color: #1C2027;
+  background: #f8f4ef;
+  color: #18202d;
 
   transition:
-    background-color 0.8s ease,
-    color 0.8s ease;
+    background-color 0.45s ease,
+    color 0.45s ease;
 }
+
+.hero.hero-natt {
+  background: #162a46;
+  color: #f8f4ef;
+}
+
+/* ===== TEXTDEL ===== */
 
 .hero-content {
-  min-width: 0;
-  text-align: left;
+  position: relative;
+  z-index: 2;
 }
-
-
-/* ========================================
-   RUBRIKER OCH TEXT
-======================================== */
-
-.hero h2 {
-  max-width: 28ch;
-  margin: 24px 0 16px;
-
-  color: #1C2027;
-
-  font-family: 'Outfit', sans-serif;
-  font-size: clamp(1.75rem, 5vw, 2.5rem);
-  font-weight: 600;
-
-  line-height: 1.3;
-  letter-spacing: -0.01em;
-
-  transition: color 0.8s ease;
-}
-
-.hero-text {
-  max-width: 40ch;
-  margin: 0 0 32px;
-
-  font-size: 18px;
-  line-height: 1.7;
-
-  transition: color 0.8s ease;
-}
-
-.hero-intro {
-  margin: 0 0 12px;
-
-  color: #7E2B60;
-  font-size: 18px;
-  font-weight: 600;
-
-  transition: color 0.8s ease;
-}
-
-.hero .header h1,
-.hero .header p {
-  transition: color 0.8s ease;
-}
-
-
-/* ========================================
-   DEKORATION OVANFÖR NAMNET
-======================================== */
 
 .hero-accent {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
+
   margin-bottom: 20px;
 }
 
 .hero-sparkle {
-  font-size: 30px;
+  font-size: 28px;
+  color: #d9a0a6;
   line-height: 1;
-  color: #D59D9D;
 }
 
 .hero-line {
-  width: 314px;
-  max-width: 80%;
+  width: 300px;
+  max-width: 100%;
   height: 3px;
 
-  background-color: #4C78A5;
   border-radius: 999px;
+  background: #4b78a7;
 
-  transition: background-color 0.8s ease;
+  transition: background-color 0.45s ease;
 }
 
+.hero-intro {
+  margin: 6px 0 24px;
 
-/* ========================================
-   PROJEKTKNAPP
-======================================== */
+  color: #8d356f;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.hero h2 {
+  max-width: 8ch;
+  margin: 0 0 20px;
+
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+.hero-text {
+  max-width: 26ch;
+  margin: 0 0 34px;
+
+  font-size: 18px;
+  line-height: 1.65;
+}
 
 .hero-button {
-  display: inline-block;
-  padding: 12px 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-  background-color: #365F87;
-  color: #FFFFFF;
+  min-height: 58px;
+  padding: 0 32px;
+
+  border-radius: 10px;
+  border: 1px solid transparent;
+
+  background: #4f7dab;
+  color: #ffffff;
 
   font-weight: 700;
+  font-size: 18px;
   text-decoration: none;
-  border-radius: 6px;
 
-  transition: background-color 0.3s ease;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .hero-button:hover {
-  background-color: #4C78A5;
+  transform: translateY(-2px);
+  background: #5b89b7;
+  box-shadow: 0 10px 24px rgba(79, 125, 171, 0.22);
 }
 
+.hero-button:focus-visible {
+  outline: 3px solid #8bb4db;
+  outline-offset: 4px;
+}
 
-/* ========================================
-   BILDOMRÅDET
-======================================== */
+.hero.hero-natt .hero-intro {
+  color: #efb8b6;
+}
+
+.hero.hero-natt .hero-line {
+  background: #efb8b6;
+}
+
+.hero.hero-natt .hero-text,
+.hero.hero-natt .hero-content,
+.hero.hero-natt h2 {
+  color: #f5f1ed;
+}
+
+/* ===== BILDDEL ===== */
 
 .hero-image {
   position: relative;
+  display: flex;
+  justify-content: center;
+}
 
+.hero-visual-wrap {
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-
-  gap: 16px;
-  min-width: 0;
 }
 
-/* Rosa cirkel bakom katten */
-
-.hero-image::before {
+/* dekorativ cirkel bakom */
+.hero-visual-wrap::before {
   content: "";
+
   position: absolute;
+  top: 34px;
+  right: -56px;
 
-  top: -28px;
-  right: 4%;
-
-  width: 150px;
-  height: 150px;
-
+  width: 158px;
+  height: 158px;
   border-radius: 50%;
-  background-color: #E3B7B3;
+
+  background: rgba(117, 130, 164, 0.42);
 
   z-index: 0;
+  pointer-events: none;
 
-  transition: background-color 0.8s ease;
+  transition:
+    transform 0.45s ease,
+    opacity 0.45s ease,
+    background-color 0.45s ease;
 }
-
-
-/* ========================================
-   GEMENSAM RÖRELSE
-======================================== */
-
-/*
-  Här ligger både kattbilden
-  och ljusdimmern.
-
-  Nu lutar och rör sig båda tillsammans.
-*/
 
 .hero-visual {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 
-  width: 100%;
-  max-width: 360px;
-
-  transform: rotate(2deg);
-
-  transition: transform 0.35s ease;
-}
-
-
-/* Hela konstruktionen rör sig tillsammans */
-
-@media (hover: hover) {
-  .hero-visual:hover {
-    transform: rotate(0deg) translateY(-6px);
-  }
-}
-
-
-/* ========================================
-   KATTENS BILDRAM
-======================================== */
-
-.hero-illustration {
-  position: relative;
-
-  width: 100%;
+  width: min(100%, 520px);
   aspect-ratio: 4 / 5;
 
-  box-sizing: border-box;
-
-  border: 8px solid #FFFFFF;
-  border-radius: 24px;
-
-  background-color: #FFFFFF;
   overflow: hidden;
 
+  border: 8px solid #f6e7e1;
+  border-radius: 28px;
+
+  background: #f8f2ef;
+
+  transform: rotate(2.1deg);
+
   box-shadow:
-    0 14px 32px rgba(28, 32, 39, 0.12);
+    0 18px 32px rgba(26, 37, 57, 0.14);
 
   transition:
     box-shadow 0.35s ease,
-    border-color 0.8s ease;
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    background-color 0.35s ease;
 }
 
-
-/* Hover-skugga */
-
-@media (hover: hover) {
-  .hero-visual:hover .hero-illustration {
-    box-shadow:
-      0 20px 36px rgba(28, 32, 39, 0.17);
-  }
-}
-
-
-/* ========================================
-   KATTENS TVÅ BILDER
-======================================== */
-
-.hero-cat {
-  position: absolute;
-  inset: 0;
-
+.hero-cat-image {
+  display: block;
   width: 100%;
   height: 100%;
+  object-fit: cover;
 
-  object-fit: contain;
-  display: block;
-
-  opacity: 0;
-
-  transition: opacity 0.6s ease;
+  transition: filter 0.35s ease;
 }
 
-.hero-cat.synlig {
-  opacity: 1;
-}
-
-
-/* ========================================
-   KLICKBAR LAMPA
-======================================== */
-
-.hero-lampa {
+.hero-lamp-hitbox {
   position: absolute;
-
   top: 0;
   left: 50%;
 
-  width: 36%;
-  height: 19%;
+  width: 34%;
+  height: 18%;
 
   transform: translateX(-50%);
 
-  z-index: 5;
-
-  padding: 0;
   border: none;
-  border-radius: 0 0 50% 50%;
-
   background: transparent;
+  cursor: pointer;
+
+  z-index: 5;
+}
+
+.hero-lamp-hitbox:focus-visible {
+  outline: 3px solid #8bb4db;
+  outline-offset: -2px;
+  border-radius: 12px;
+}
+
+.hero-hint {
+  margin: 14px 0 0;
+
+  color: #7a6980;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.hero.hero-natt .hero-hint {
+  color: #efb8b6;
+}
+
+/* ===== GLOW-RING OCH LJUSNIVÅER ===== */
+
+/* dagsläge */
+.hero[data-ljuslage="dag"] .hero-visual {
+  box-shadow:
+    0 18px 32px rgba(26, 37, 57, 0.14);
+}
+
+/* kvällsläge gemensamt */
+.hero.hero-natt .hero-visual {
+  background: #231f32;
+  border-color: #f7e6df;
+}
+
+/* nivå 0 – första kvällsbilden, tona ned */
+.hero.hero-natt[data-ljuslage="0"] .hero-visual {
+  box-shadow:
+    0 0 22px rgba(255, 230, 175, 0.12),
+    0 0 48px rgba(255, 207, 135, 0.08),
+    0 18px 34px rgba(7, 13, 24, 0.34);
+}
+
+/* nivå 1 – mysigast och mest balanserad */
+.hero.hero-natt[data-ljuslage="1"] .hero-visual {
+  box-shadow:
+    0 0 28px rgba(255, 210, 153, 0.14),
+    0 0 56px rgba(255, 181, 137, 0.08),
+    0 20px 36px rgba(7, 13, 24, 0.36);
+}
+
+/* nivå 2 – lite mer hjälp upp ur mörkret */
+.hero.hero-natt[data-ljuslage="2"] .hero-visual {
+  box-shadow:
+    0 0 24px rgba(255, 190, 138, 0.13),
+    0 0 46px rgba(255, 171, 127, 0.07),
+    0 20px 38px rgba(7, 13, 24, 0.38);
+}
+
+/* nivå 3 – mörkast motiv, får lite extra glöd */
+.hero.hero-natt[data-ljuslage="3"] .hero-visual {
+  box-shadow:
+    0 0 30px rgba(255, 184, 138, 0.14),
+    0 0 58px rgba(255, 148, 98, 0.08),
+    0 22px 42px rgba(7, 13, 24, 0.42);
+}
+
+/* ===== DIMMERPANEL I HERO ===== */
+
+.hero-dimmer-panel {
+  position: absolute;
+  top: 50%;
+  right: -88px;
+  transform: translateY(-50%);
+
+  z-index: 4;
+}
+
+/* vi stylar raknaren här inifrån hero */
+.hero-dimmer-panel .ljus-dimmer-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.hero-dimmer-panel .ljus-dimmer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 10px 12px;
+
+  border-radius: 14px;
+  border: 1px solid rgba(118, 161, 199, 0.55);
+
+  background: linear-gradient(
+    180deg,
+    rgba(84, 124, 162, 0.92),
+    rgba(47, 78, 112, 0.92)
+  );
+
+  box-shadow:
+    0 10px 24px rgba(5, 10, 20, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+  backdrop-filter: blur(8px);
+}
+
+.hero-dimmer-panel .ljus-dimmer-knapp,
+.hero-dimmer-panel .ljus-dimmer-reset {
+  width: 48px;
+  height: 48px;
+
+  border-radius: 12px;
+  border: 1px solid rgba(160, 195, 224, 0.55);
+
+  background: linear-gradient(
+    180deg,
+    rgba(118, 162, 199, 0.28),
+    rgba(74, 112, 149, 0.28)
+  );
+
+  color: #f4f7fb;
+
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
 
   cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    opacity 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
+.hero-dimmer-panel .ljus-dimmer-knapp:hover:not(:disabled),
+.hero-dimmer-panel .ljus-dimmer-reset:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(8, 16, 27, 0.16);
+  background: linear-gradient(
+    180deg,
+    rgba(132, 176, 214, 0.36),
+    rgba(84, 126, 167, 0.36)
+  );
+}
 
-/* Diskret glöd när lampan får fokus */
+.hero-dimmer-panel .ljus-dimmer-knapp:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
 
-.hero-lampa::after {
-  content: "";
-  position: absolute;
+.hero-dimmer-panel .ljus-dimmer-status {
+  display: flex;
+  justify-content: center;
+}
 
-  top: 15%;
-  left: 10%;
+.hero-dimmer-panel .ljus-dimmer-dots {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
 
-  width: 80%;
-  height: 70%;
+.hero-dimmer-panel .dot {
+  width: 6px;
+  height: 6px;
 
   border-radius: 50%;
+  background: rgba(20, 39, 58, 0.82);
 
-  box-shadow:
-    0 0 20px 6px rgba(255, 214, 175, 0.25);
-
-  opacity: 0;
-  pointer-events: none;
-
-  transition: opacity 0.3s ease;
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
 }
 
-.hero-lampa:hover::after,
-.hero-lampa:focus-visible::after {
-  opacity: 1;
+.hero-dimmer-panel .dot.aktiv {
+  background: #f6c0c7;
+  box-shadow: 0 0 12px rgba(246, 192, 199, 0.75);
+  transform: scale(1.08);
 }
 
-.hero-lampa:focus-visible {
-  outline: 3px solid #4C78A5;
-  outline-offset: -3px;
-}
-
-.hero-natt .hero-lampa:focus-visible {
-  outline-color: #FFF3D8;
-}
-
-
-/* ========================================
-   TEXT UNDER BILDEN I DAGSLÄGE
-======================================== */
-
-.hero-lamptips {
-  position: relative;
-  z-index: 1;
-
+.hero-dimmer-panel .ljus-dimmer-label {
   margin: 0;
+  padding: 12px 16px;
 
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.02em;
+  border-radius: 14px;
+  border: 1px solid rgba(250, 228, 220, 0.45);
 
-  color: #7A7180;
+  background: rgba(252, 242, 236, 0.98);
+  color: #485164;
 
-  transition: color 0.8s ease;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+
+  box-shadow: 0 10px 24px rgba(9, 15, 25, 0.12);
 }
 
-
-/* ========================================
-   NATTLÄGE – HERO
-======================================== */
-
-.hero.hero-natt {
-  background-color: #1C2B40;
-  color: #FFFAF5;
+.hero-dimmer-panel button:focus-visible {
+  outline: 2px solid #ffe3d3;
+  outline-offset: 3px;
 }
 
-.hero-natt .header h1,
-.hero.hero-natt h2 {
-  color: #FFFAF5;
-}
+/* ===== RESPONSIVT ===== */
 
-.hero-natt .header p,
-.hero-natt .hero-text {
-  color: #E5E1E4;
-}
+@media (max-width: 1100px) {
+  .hero {
+    gap: 42px;
+    padding: 36px 28px 48px;
+  }
 
-.hero-natt .hero-intro {
-  color: #E3B7B3;
-}
-
-.hero-natt .hero-line {
-  background-color: #E3B7B3;
-}
-
-.hero-natt .hero-image::before {
-  background-color: #495571;
-}
-
-.hero-natt .hero-lamptips {
-  color: #E3B7B3;
-}
-
-
-/* ========================================
-   NATTLÄGE – BILDRAM
-======================================== */
-
-/* Ingen extra färg läggs över kattbilden */
-
-.hero-natt .hero-illustration {
-  border-color: #F8E4DD;
-  background-color: #B98296;
-
-  box-shadow:
-    0 0 36px rgba(244, 169, 164, 0.16),
-    0 18px 40px rgba(0, 0, 0, 0.30);
-}
-
-@media (hover: hover) {
-  .hero-natt .hero-visual:hover .hero-illustration {
-    box-shadow:
-      0 0 46px rgba(244, 169, 164, 0.22),
-      0 22px 44px rgba(0, 0, 0, 0.35);
+  .hero-dimmer-panel {
+    right: -64px;
   }
 }
 
-
-/* ========================================
-   RESPONSIV DESIGN
-======================================== */
-
-@media (min-width: 800px) {
+@media (max-width: 900px) {
   .hero {
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-
-    padding: 64px 32px 72px;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero {
-    gap: 32px;
-    padding: 32px 20px 48px;
+    grid-template-columns: 1fr;
+    gap: 34px;
+    padding: 32px 22px 44px;
   }
 
   .hero-text {
-    font-size: 16px;
+    max-width: 32ch;
   }
 
-  .hero-image::before {
-    width: 110px;
-    height: 110px;
+  .hero-image {
+    justify-content: flex-start;
+  }
+
+  .hero-visual-wrap {
+    margin: 0 auto;
+  }
+
+  .hero-visual-wrap::before {
+    right: -34px;
+    top: 18px;
+    width: 124px;
+    height: 124px;
+  }
+
+  .hero-dimmer-panel {
+    right: -54px;
   }
 }
 
+@media (max-width: 700px) {
+  .hero h2 {
+    max-width: 10ch;
+    font-size: clamp(2.6rem, 10vw, 4rem);
+  }
 
-/* ========================================
-   MINSKA ANIMATIONER VID BEHOV
-======================================== */
+  .hero-text {
+    max-width: 100%;
+    font-size: 17px;
+  }
+
+  .hero-visual {
+    width: min(100%, 430px);
+  }
+
+  .hero-dimmer-panel {
+    right: -48px;
+  }
+
+  .hero-dimmer-panel .ljus-dimmer-label {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero {
+    gap: 28px;
+    padding: 28px 18px 36px;
+  }
+
+  .hero-line {
+    width: 220px;
+  }
+
+  .hero-intro {
+    font-size: 17px;
+  }
+
+  .hero-button {
+    min-height: 54px;
+    padding: 0 24px;
+    font-size: 17px;
+  }
+
+  .hero-visual-wrap::before {
+    right: -14px;
+    top: 22px;
+    width: 92px;
+    height: 92px;
+  }
+
+  .hero-dimmer-panel {
+    right: -18px;
+    top: auto;
+    bottom: 22px;
+    transform: none;
+  }
+
+  .hero-dimmer-panel .ljus-dimmer {
+    padding: 8px 8px 10px;
+    gap: 8px;
+  }
+
+  .hero-dimmer-panel .ljus-dimmer-knapp,
+  .hero-dimmer-panel .ljus-dimmer-reset {
+    width: 42px;
+    height: 42px;
+    font-size: 24px;
+  }
+
+  .hero-dimmer-panel .ljus-dimmer-dots {
+    gap: 6px;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero-dimmer-panel {
+    right: 8px;
+    bottom: 16px;
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
   .hero,
-  .hero-cat,
+  .hero-line,
+  .hero-button,
   .hero-visual,
-  .hero-illustration,
-  .hero-lampa::after {
+  .hero-cat-image,
+  .hero-dimmer-panel .ljus-dimmer-knapp,
+  .hero-dimmer-panel .ljus-dimmer-reset,
+  .hero-dimmer-panel .dot {
     transition: none;
   }
 }
