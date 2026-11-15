@@ -1,19 +1,26 @@
 
+/* ========================================
+   PROJEKTDETALJ – GRUND
+======================================== */
+
 .projekt-detalj {
   box-sizing: border-box;
   width: calc(100% - 40px);
   max-width: 860px;
   margin: 48px auto 64px;
   padding: 40px;
+
   background-color: #FFFAF5;
   border: 1px solid #E7DFD9;
   border-radius: 20px;
+
   text-align: left;
 }
 
 .projekt-detalj-tillbaka {
   display: inline-block;
   margin-bottom: 32px;
+
   color: #365F87;
   font-weight: 600;
   text-decoration: none;
@@ -25,6 +32,7 @@
 
 .projekt-detalj h1 {
   margin: 0 0 16px;
+
   color: #1C2027;
   font-family: "Outfit", sans-serif;
   font-size: clamp(28px, 5vw, 40px);
@@ -34,17 +42,25 @@
 .projekt-detalj-beskrivning {
   max-width: 620px;
   margin: 0 0 32px;
+
   color: #4E5059;
   font-size: 18px;
   line-height: 1.7;
 }
 
+/* ========================================
+   PROJEKTDEMO
+======================================== */
+
 .projekt-detalj-demo {
   margin: 32px 0;
   padding: 24px;
+
   background-color: #F5F0F4;
   border-radius: 18px;
 }
+
+/* Kom ihåg-listan */
 
 .projekt-detalj-demo .todo {
   margin: 0 auto;
@@ -60,6 +76,206 @@
   margin-top: 20px;
   color: #77717B;
 }
+
+/* ========================================
+   VÄDERKOLLEN
+======================================== */
+
+.vader-demo-intro {
+  margin-bottom: 24px;
+}
+
+.vader-demo-intro h2 {
+  margin: 0 0 12px;
+  color: #1C2027;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.vader-demo-intro p {
+  max-width: 560px;
+  color: #4E5059;
+  line-height: 1.7;
+}
+
+/* Val mellan de två väderfunktionerna */
+
+.vader-demo-val {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  padding-bottom: 20px;
+  border-bottom: 1px solid #DDD7DC;
+}
+
+.vader-demo-knapp {
+  min-height: 44px;
+  padding: 10px 20px;
+
+  border: 2px solid #365F87;
+  border-radius: 999px;
+
+  background-color: transparent;
+  color: #365F87;
+
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.vader-demo-knapp:hover {
+  background-color: #E8EFF5;
+}
+
+.vader-demo-knapp.aktiv {
+  background-color: #365F87;
+  color: #FFFFFF;
+}
+
+.vader-demo-knapp:focus-visible {
+  outline: 3px solid #4C78A5;
+  outline-offset: 3px;
+}
+
+/* Själva väderfunktionerna */
+
+.vader-demo-innehall {
+  min-width: 0;
+}
+
+.projekt-detalj .projekt-detalj-vader .vader {
+  padding: 24px 0 0;
+  background: transparent;
+}
+
+.projekt-detalj .projekt-detalj-vader .vader h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  text-align: left;
+}
+
+.projekt-detalj .projekt-detalj-vader .vader-lista {
+  grid-template-columns:
+    repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.projekt-detalj .projekt-detalj-vader .vader-kort {
+  padding: 20px;
+  text-align: left;
+}
+
+.projekt-detalj .projekt-detalj-vader .vader-val {
+  gap: 8px;
+}
+
+.projekt-detalj .projekt-detalj-vader .vader-val button {
+  min-height: 44px;
+  padding: 8px 14px;
+  font-size: 14px;
+}
+
+/* Uppdateringsknappen */
+
+.projekt-detalj .projekt-detalj-vader .vader > button {
+  min-height: 44px;
+  padding: 10px 18px;
+
+  border: none;
+  border-radius: 8px;
+
+  background-color: #365F87;
+  color: #FFFFFF;
+
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.projekt-detalj .projekt-detalj-vader .vader > button:hover {
+  background-color: #4C78A5;
+}
+
+.projekt-detalj .projekt-detalj-vader .vader > button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+/* Välj en stad */
+
+.projekt-detalj .projekt-detalj-vader .city-weather {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 600px;
+
+  margin: 0 auto;
+  padding: 24px 0 0;
+
+  background: transparent;
+  text-align: left;
+}
+
+.projekt-detalj .projekt-detalj-vader .city-weather h2 {
+  font-size: 24px;
+}
+
+.projekt-detalj .projekt-detalj-vader .city-weather select {
+  max-width: 100%;
+  min-height: 44px;
+  color: #1C2027;
+}
+
+/* ========================================
+   MÖRKERLÄGE – VÄDERKOLLEN
+======================================== */
+
+.dark-mode .vader-demo-intro h2 {
+  color: #FFF7F3;
+}
+
+.dark-mode .vader-demo-intro p {
+  color: #D0D9E6;
+}
+
+.dark-mode .vader-demo-val {
+  border-color: #536D8A;
+}
+
+.dark-mode .vader-demo-knapp {
+  border-color: #86ACD0;
+  background-color: transparent;
+  color: #D0E7FF;
+}
+
+.dark-mode .vader-demo-knapp:hover {
+  background-color: #354B65;
+}
+
+.dark-mode .vader-demo-knapp.aktiv {
+  background-color: #466F96;
+  color: #FFFFFF;
+}
+
+.dark-mode .projekt-detalj .projekt-detalj-vader .vader > button {
+  background-color: #466F96;
+  color: #FFFFFF;
+}
+
+.dark-mode .projekt-detalj .projekt-detalj-vader .city-weather select {
+  background-color: #19293F;
+  color: #FFF7F3;
+  border-color: #60738C;
+}
+
+/* ========================================
+   TEKNIKER
+======================================== */
 
 .projekt-detalj-teknik {
   margin-top: 40px;
@@ -78,6 +294,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+
   margin: 0;
   padding: 0;
   list-style: none;
@@ -85,12 +302,18 @@
 
 .projekt-detalj-teknik li {
   padding: 8px 14px;
+
   border-radius: 999px;
   background-color: #E8EFF5;
   color: #365F87;
+
   font-size: 14px;
   font-weight: 600;
 }
+
+/* ========================================
+   MOBIL
+======================================== */
 
 @media (max-width: 620px) {
   .projekt-detalj {
@@ -103,10 +326,28 @@
   }
 
   .projekt-detalj-demo {
-    padding: 12px;
+    padding: 16px;
   }
 
   .projekt-detalj-demo .todo {
     padding: 20px;
+  }
+
+  .vader-demo-val {
+    flex-direction: column;
+  }
+
+  .vader-demo-knapp {
+    width: 100%;
+  }
+
+  .projekt-detalj .projekt-detalj-vader .vader-kort {
+    padding: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vader-demo-knapp {
+    transition: none;
   }
 }

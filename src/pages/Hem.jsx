@@ -1,7 +1,5 @@
 
 import Hero from "../components/Hero";
-import Vader from "../components/Vader";
-import CityWeather from "../components/CityWeather";
 import { NAMN } from "../Data/installningar";
 import { fornamn } from "../utils/text";
 
@@ -21,9 +19,6 @@ function Hem({
         ljusNiva={ljusNiva}
         setLjusNiva={setLjusNiva}
       />
-
-      <Vader />
-      <CityWeather />
     </>
   );
 }

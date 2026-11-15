@@ -19,11 +19,12 @@
   },
   {
     "id": 3,
-    "titel": "Projekt 3",
-    "text": "Kommer snart.",
+    "titel": "Väderkollen",
+    "text": "Utforska aktuellt väder i olika städer. Jämför flera städer eller välj en stad att undersöka närmare.",
     "bild": "Hero 4.webp",
     "lank": "",
-    "teknik": ["Under planering"]
+    "demo": "vader",
+    "teknik": ["React", "JavaScript", "API"]
   },
   {
     "id": 4,
