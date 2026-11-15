@@ -1,7 +1,5 @@
 
-import GitHubRepon from "../components/GitHubRepon";
 import Hero from "../components/Hero";
-import Projekt from "../components/Projekt";
 import TemaToggle from "../components/TemaToggle";
 import Vader from "../components/Vader";
 import { NAMN } from "../Data/installningar";
@@ -21,9 +19,7 @@ function Hem({ ljusPa, vaxlaLjus, ljusNiva, setLjusNiva }) {
         setLjusNiva={setLjusNiva}
       />
 
-      <Projekt />
       <Todo />
-      <GitHubRepon />
       <Vader />
       <CityWeather />
       <TemaToggle />
