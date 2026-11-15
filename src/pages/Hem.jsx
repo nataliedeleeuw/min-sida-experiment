@@ -1,12 +1,16 @@
 
 import Hero from "../components/Hero";
-import TemaToggle from "../components/TemaToggle";
 import Vader from "../components/Vader";
+import CityWeather from "../components/CityWeather";
 import { NAMN } from "../Data/installningar";
 import { fornamn } from "../utils/text";
-import CityWeather from "../components/CityWeather";
 
-function Hem({ ljusPa, vaxlaLjus, ljusNiva, setLjusNiva }) {
+function Hem({
+  ljusPa,
+  vaxlaLjus,
+  ljusNiva,
+  setLjusNiva
+}) {
   return (
     <>
       <Hero
@@ -20,7 +24,6 @@ function Hem({ ljusPa, vaxlaLjus, ljusNiva, setLjusNiva }) {
 
       <Vader />
       <CityWeather />
-      <TemaToggle />
     </>
   );
 }

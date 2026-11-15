@@ -1,30 +1,75 @@
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
+
   padding: 16px 20px;
+
   background-color: #FFFAF5;
   border-bottom: 1px solid #E7DFD9;
+
   position: sticky;
   top: 0;
   z-index: 10;
 }
 
+/* Logotyp */
+
 .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  min-width: 0;
+
   color: #1C2027;
+  font-family: "Outfit", sans-serif;
   font-size: 22px;
-  font-weight: bold;
-  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.logo-text {
+  white-space: nowrap;
+}
+
+.logo-initialer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+  background-color: #365F87;
+  color: #FFFFFF;
+
+  font-size: 15px;
+}
+
+/* Meny och knappar */
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .lankar {
   display: none;
   position: absolute;
+
   top: 100%;
-  right: 20px;
-  min-width: 180px;
+  left: 0;
+  right: 0;
+
   flex-direction: column;
   gap: 0;
+
   background-color: #FFFAF5;
   border-bottom: 1px solid #E7DFD9;
 }
@@ -38,11 +83,13 @@
   align-items: center;
   justify-content: flex-start;
   box-sizing: border-box;
-  min-width: 44px;
+
   min-height: 44px;
   padding: 14px 32px;
+
   color: #1C2027;
   text-decoration: none;
+
   transition: color 0.2s ease;
 }
 
@@ -55,18 +102,73 @@
   border-bottom: 2px solid currentColor;
 }
 
+/* Mörkerlägesknappen */
+
+.tema-knapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+
+  border: 1px solid #D5DEE8;
+  border-radius: 50%;
+
+  background-color: #E8EFF5;
+  color: #365F87;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.tema-knapp svg {
+  width: 22px;
+  height: 22px;
+}
+
+.tema-knapp:hover {
+  background-color: #D6E5F0;
+  transform: translateY(-2px);
+}
+
+/* Mobilmeny */
+
 .meny-knapp {
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
   width: 44px;
   height: 44px;
   padding: 0;
-  background: transparent;
-  border: 1px solid currentColor;
-  border-radius: 6px;
+
+  background-color: transparent;
   color: #1C2027;
+
+  border: 1px solid currentColor;
+  border-radius: 8px;
+
   font-size: 24px;
   cursor: pointer;
 }
+
+/* Tangentbordsnavigation */
+
+.tema-knapp:focus-visible,
+.meny-knapp:focus-visible,
+.logo:focus-visible,
+.lankar a:focus-visible {
+  outline: 3px solid #4C78A5;
+  outline-offset: 3px;
+}
+
+/* Dator */
 
 @media (min-width: 701px) {
   .navbar {
@@ -80,11 +182,13 @@
   .lankar {
     display: flex;
     position: static;
-    min-width: 0;
+
     flex-direction: row;
+    align-items: center;
     gap: 24px;
-    background-color: transparent;
-    border-bottom: none;
+
+    border: none;
+    background: transparent;
   }
 
   .lankar a {
@@ -93,20 +197,29 @@
   }
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+/* Små mobiler */
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 12px 14px;
+  }
+
+  .logo-text {
+    font-size: 14px;
+  }
+
+  .logo-initialer {
+    width: 36px;
+    height: 36px;
+  }
+
+  .navbar-actions {
+    gap: 8px;
+  }
 }
 
-.logo-initialer {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background-color: #365F87;
-  color: white;
-  font-size: 15px;
+@media (prefers-reduced-motion: reduce) {
+  .tema-knapp {
+    transition: none;
+  }
 }

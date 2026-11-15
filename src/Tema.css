@@ -1,0 +1,431 @@
+
+/* ========================================
+   HELA WEBBPLATSEN
+======================================== */
+
+html[data-tema="morkt"] {
+  background-color: #142238;
+  color-scheme: dark;
+}
+
+html[data-tema="morkt"] body {
+  background-color: #142238;
+}
+
+.site-shell {
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+  width: 100%;
+  min-height: 100svh;
+
+  background-color: #FFFAF5;
+}
+
+.site-shell > .footer {
+  margin-top: auto;
+}
+
+/* Gemensamma nattfärger */
+
+.site-shell.dark-mode {
+  --text: #D9E0EC;
+  --text-h: #FFF7F3;
+  --bg: #1C2B40;
+  --border: #465872;
+  --code-bg: #26374E;
+
+  background-color: #172437;
+  color: #E9EDF4;
+  color-scheme: dark;
+}
+
+/* ========================================
+   NAVIGATION
+======================================== */
+
+.dark-mode .navbar,
+.dark-mode .lankar {
+  background-color: #1C2B40;
+  border-color: #465872;
+}
+
+.dark-mode .logo,
+.dark-mode .lankar a,
+.dark-mode .meny-knapp {
+  color: #FFF7F3;
+}
+
+.dark-mode .logo-initialer {
+  background-color: #466F96;
+}
+
+.dark-mode .lankar a:hover {
+  color: #F0BDB8;
+}
+
+.dark-mode .tema-knapp {
+  background-color: #304660;
+  border-color: #536D8A;
+  color: #FFD7BA;
+}
+
+.dark-mode .tema-knapp:hover {
+  background-color: #3C5573;
+}
+
+/* ========================================
+   SIDORNAS BAKGRUNDER
+======================================== */
+
+.dark-mode .hero,
+.dark-mode .projekt-sida-intro,
+.dark-mode .projekt-github {
+  background-color: #1C2B40;
+}
+
+.dark-mode .projekt,
+.dark-mode .om-mig,
+.dark-mode .kontakt,
+.dark-mode .vader {
+  background-color: #172437;
+}
+
+/* ========================================
+   KORT OCH INNEHÅLLSRUTOR
+======================================== */
+
+.dark-mode .projekt-kort,
+.dark-mode .om-mig-card,
+.dark-mode .kontakt-form,
+.dark-mode .vader-kort,
+.dark-mode .github-profil,
+.dark-mode .github-kort,
+.dark-mode .projekt-detalj,
+.dark-mode .city-weather,
+.dark-mode .todo,
+.dark-mode .fizzbuzz {
+  background-color: #26374E;
+  border-color: #465872;
+  color: #E9EDF4;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.dark-mode .projekt-kort--planerat {
+  background-color: #213149;
+  border-color: #465872;
+  border-top-color: #E3B7B3;
+  box-shadow: none;
+}
+
+.dark-mode .projekt-github-intro,
+.dark-mode .projekt-github-innehall,
+.dark-mode .projekt-detalj-demo {
+  background-color: #26374E;
+  border-color: #465872;
+}
+
+.dark-mode .projekt-tom {
+  background-color: #26374E;
+  color: #D9E0EC;
+}
+
+.dark-mode .city-weather-resultat {
+  background-color: #354B65;
+}
+
+/* ========================================
+   RUBRIKER
+======================================== */
+
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode .projekt h2,
+.dark-mode .vader h2,
+.dark-mode .kontakt-info h2,
+.dark-mode .projekt-info h3,
+.dark-mode .projekt-sida-intro h1,
+.dark-mode .projekt-github-intro h2,
+.dark-mode .om-mig h2,
+.dark-mode .om-mig h3,
+.dark-mode .projekt-detalj h1,
+.dark-mode .projekt-detalj-teknik h2,
+.dark-mode .fizzbuzz h2 {
+  color: #FFF7F3;
+}
+
+/* ========================================
+   VANLIG TEXT
+======================================== */
+
+.dark-mode .om-mig p,
+.dark-mode .projekt-info .projekt-beskrivning,
+.dark-mode .projekt-sida-intro > p:last-child,
+.dark-mode .projekt-github-intro p:last-child,
+.dark-mode .kontakt-text,
+.dark-mode .projekt-detalj-beskrivning,
+.dark-mode .projekt-detalj-demo .todo-intro,
+.dark-mode .projekt-detalj-demo .todo-tom,
+.dark-mode .fizzbuzz p,
+.dark-mode .todo-antal,
+.dark-mode .projekt-antal,
+.dark-mode .projekt-filter-etikett,
+.dark-mode .statistik-info,
+.dark-mode .github-datum,
+.dark-mode .projekt-planerad,
+.dark-mode .projekt-kort--planerat .projekt-beskrivning,
+.dark-mode .kontakt-form .tecken-kvar {
+  color: #D0D9E6;
+}
+
+.dark-mode .om-mig .om-mig-lastid {
+  color: #B8C6D8;
+}
+
+.dark-mode .projekt-sida-etikett {
+  color: #F0BDB8;
+}
+
+.dark-mode .vader-kort h3 {
+  color: #B6D4F0;
+}
+
+/* ========================================
+   FORMULÄR OCH INMATNINGSFÄLT
+======================================== */
+
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select {
+  background-color: #19293F;
+  color: #FFF7F3;
+  border-color: #60738C;
+}
+
+.dark-mode input::placeholder,
+.dark-mode textarea::placeholder {
+  color: #B7C5D6;
+}
+
+.dark-mode .projekt-sok,
+.dark-mode .projekt-sortering,
+.dark-mode .kontakt-form label {
+  color: #F1F3F8;
+}
+
+.dark-mode input:focus-visible,
+.dark-mode textarea:focus-visible,
+.dark-mode select:focus-visible {
+  outline: 3px solid #A9CAE7;
+  outline-offset: 2px;
+}
+
+/* ========================================
+   FILTER OCH VAL
+======================================== */
+
+.dark-mode .filter-knapp,
+.dark-mode .vader-val button {
+  background-color: #26374E;
+  color: #D7E8F9;
+  border-color: #789CC0;
+}
+
+.dark-mode .filter-knapp:hover,
+.dark-mode .vader-val button:hover {
+  background-color: #354B65;
+}
+
+.dark-mode .filter-knapp.aktiv,
+.dark-mode .vader-val button[aria-pressed="true"] {
+  background-color: #466F96;
+  border-color: #8AB0D3;
+  color: #FFFFFF;
+}
+
+/* ========================================
+   KNAPPAR OCH LÄNKAR
+======================================== */
+
+.dark-mode .hero-button,
+.dark-mode .projekt-knapp,
+.dark-mode .projekt-github-knapp,
+.dark-mode .kontakt-form button,
+.dark-mode .todo button {
+  background-color: #466F96;
+  color: #FFFFFF;
+}
+
+.dark-mode .hero-button:hover,
+.dark-mode .projekt-knapp:hover,
+.dark-mode .projekt-github-knapp:hover,
+.dark-mode .kontakt-form button:hover,
+.dark-mode .todo button:hover {
+  background-color: #567FA7;
+}
+
+.dark-mode .projekt-knapp {
+  border-color: #466F96;
+}
+
+.dark-mode .projekt-knapp--sekundar {
+  background-color: transparent;
+  color: #D0E7FF;
+  border-color: #86ACD0;
+}
+
+.dark-mode .projekt-knapp--sekundar:hover {
+  background-color: #354B65;
+  color: #FFFFFF;
+  border-color: #86ACD0;
+}
+
+.dark-mode .projekt-detalj-tillbaka,
+.dark-mode .projekt-detalj a,
+.dark-mode .github-kort a {
+  color: #B9D8F3;
+}
+
+.dark-mode .ej-hittad-kod,
+.dark-mode .ej-hittad-knappar button {
+  color: #B9D8F3;
+}
+
+.dark-mode .ej-hittad-knappar button {
+  border-color: #86ACD0;
+}
+
+/* ========================================
+   ETIKETTER OCH TEKNIKER
+======================================== */
+
+.dark-mode .projekt-teknik,
+.dark-mode .projekt-react-marke,
+.dark-mode .github-sprak,
+.dark-mode .projekt-detalj-teknik li {
+  background-color: #354B65;
+  color: #E2EEFF;
+  border-color: #536D8A;
+}
+
+.dark-mode .projekt-kort-status,
+.dark-mode .om-mig-lista li {
+  background-color: #493B53;
+  color: #F5D4E4;
+  border-color: #67536C;
+}
+
+.dark-mode .projekt-teknik:hover,
+.dark-mode .projekt-react-marke:hover {
+  background-color: #49617E;
+}
+
+/* ========================================
+   STATISTIK
+======================================== */
+
+.dark-mode .statistik-stapel {
+  background-color: #445671;
+}
+
+.dark-mode .statistik-fyllning {
+  background-color: #81A8CF;
+}
+
+/* ========================================
+   ATT GÖRA-LISTAN
+======================================== */
+
+.dark-mode .todo-item {
+  border-color: #465872;
+}
+
+.dark-mode .todo .todo-rensa {
+  background-color: #835775;
+}
+
+/* ========================================
+   FIZZBUZZ
+======================================== */
+
+.dark-mode .fizzbuzz-ruta {
+  background-color: #354B65;
+  color: #E2EEFF;
+}
+
+.dark-mode .fizzbuzz-ruta span {
+  color: #D0D9E6;
+}
+
+.dark-mode .fizzbuzz-ruta.kombination {
+  background-color: #513C55;
+  color: #FFD8E7;
+}
+
+/* ========================================
+   MEDDELANDEN OCH FEL
+======================================== */
+
+.dark-mode .form-fel,
+.dark-mode .github-fel,
+.dark-mode .kontakt-form .tecken-kvar.varning {
+  color: #FFB4AE;
+}
+
+.dark-mode .form-tack {
+  color: #B2E8BD;
+}
+
+/* ========================================
+   SIDFOT
+======================================== */
+
+.dark-mode .footer {
+  background-color: #111E31;
+  color: #FFF7F3;
+}
+
+.dark-mode .footer a {
+  color: #FFF7F3;
+}
+
+.dark-mode .footer a:hover {
+  color: #F0BDB8;
+}
+
+/* ========================================
+   MJUKA ÖVERGÅNGAR
+======================================== */
+
+.site-shell,
+.site-shell .navbar,
+.site-shell .projekt,
+.site-shell .om-mig,
+.site-shell .kontakt,
+.site-shell .vader,
+.site-shell .projekt-kort,
+.site-shell .om-mig-card,
+.site-shell .kontakt-form,
+.site-shell .footer {
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-shell,
+  .site-shell .navbar,
+  .site-shell .projekt,
+  .site-shell .om-mig,
+  .site-shell .kontakt,
+  .site-shell .vader,
+  .site-shell .projekt-kort,
+  .site-shell .om-mig-card,
+  .site-shell .kontakt-form,
+  .site-shell .footer {
+    transition: none;
+  }
+}
