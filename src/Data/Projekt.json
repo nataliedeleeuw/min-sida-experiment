@@ -10,11 +10,12 @@
   },
   {
     "id": 2,
-    "titel": "Projekt 2",
-    "text": "Kommer snart.",
+    "titel": "Kom ihåg-listan",
+    "text": "En interaktiv lista där du kan lägga till, ta bort och spara egna påminnelser.",
     "bild": "Hero 3.webp",
     "lank": "",
-    "teknik": ["Under planering"]
+    "demo": "todo",
+    "teknik": ["React", "useState", "JavaScript"]
   },
   {
     "id": 3,

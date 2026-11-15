@@ -1,27 +1,112 @@
+
 .projekt-detalj {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 32px;
+  box-sizing: border-box;
+  width: calc(100% - 40px);
+  max-width: 860px;
+  margin: 48px auto 64px;
+  padding: 40px;
   background-color: #FFFAF5;
+  border: 1px solid #E7DFD9;
+  border-radius: 20px;
+  text-align: left;
+}
+
+.projekt-detalj-tillbaka {
+  display: inline-block;
+  margin-bottom: 32px;
+  color: #365F87;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.projekt-detalj-tillbaka:hover {
+  text-decoration: underline;
+}
+
+.projekt-detalj h1 {
+  margin: 0 0 16px;
+  color: #1C2027;
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(28px, 5vw, 40px);
+  font-weight: 700;
+}
+
+.projekt-detalj-beskrivning {
+  max-width: 620px;
+  margin: 0 0 32px;
+  color: #4E5059;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.projekt-detalj-demo {
+  margin: 32px 0;
+  padding: 24px;
+  background-color: #F5F0F4;
   border-radius: 18px;
 }
 
-.projekt-detalj h2 {
-  color: #1C2027;
+.projekt-detalj-demo .todo {
+  margin: 0 auto;
 }
 
-.projekt-detalj p {
+.projekt-detalj-demo .todo-intro {
+  margin: 0 0 24px;
   color: #4E5059;
   line-height: 1.6;
 }
 
-.projekt-detalj li {
-  margin-bottom: 8px;
+.projekt-detalj-demo .todo-tom {
+  margin-top: 20px;
+  color: #77717B;
 }
 
-.projekt-detalj a {
-  display: inline-block;
-  margin-top: 24px;
+.projekt-detalj-teknik {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid #E7DFD9;
+}
+
+.projekt-detalj-teknik h2 {
+  margin: 0 0 16px;
+  color: #1C2027;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.projekt-detalj-teknik ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.projekt-detalj-teknik li {
+  padding: 8px 14px;
+  border-radius: 999px;
+  background-color: #E8EFF5;
   color: #365F87;
+  font-size: 14px;
   font-weight: 600;
+}
+
+@media (max-width: 620px) {
+  .projekt-detalj {
+    margin: 24px auto 40px;
+    padding: 24px;
+  }
+
+  .projekt-detalj-beskrivning {
+    font-size: 16px;
+  }
+
+  .projekt-detalj-demo {
+    padding: 12px;
+  }
+
+  .projekt-detalj-demo .todo {
+    padding: 20px;
+  }
 }

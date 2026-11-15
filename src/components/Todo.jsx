@@ -4,12 +4,18 @@ import "./Todo.css";
 import TodoItem from "./TodoItem";
 
 function loadTodos() {
-  const saved = localStorage.getItem("todos");
-  return saved ? JSON.parse(saved) : [];
+  try {
+    const saved = localStorage.getItem("todos");
+    const lista = saved ? JSON.parse(saved) : [];
+
+    return Array.isArray(lista) ? lista : [];
+  } catch {
+    return [];
+  }
 }
 
 function Todo() {
-  const [todos, setTodos] = useState(loadTodos());
+  const [todos, setTodos] = useState(loadTodos);
   const [text, setText] = useState("");
 
   function saveTodos(newTodos) {
@@ -20,7 +26,9 @@ function Todo() {
   function addTodo(e) {
     e.preventDefault();
 
-    if (text.trim() === "") {
+    const nyText = text.trim();
+
+    if (nyText === "") {
       return;
     }
 
@@ -28,7 +36,7 @@ function Todo() {
       ...todos,
       {
         id: Date.now(),
-        text: text,
+        text: nyText,
       },
     ]);
 
@@ -36,7 +44,9 @@ function Todo() {
   }
 
   function removeTodo(id) {
-    saveTodos(todos.filter((todo) => todo.id !== id));
+    saveTodos(
+      todos.filter((todo) => todo.id !== id)
+    );
   }
 
   function clearTodos() {
@@ -45,11 +55,18 @@ function Todo() {
 
   return (
     <section className="todo">
-      <h2>Min att göra-lista</h2>
+      <h2>Testa Kom ihåg-listan</h2>
+
+      <p className="todo-intro">
+        Skriv något du vill komma ihåg.
+        Dina anteckningar sparas i den här
+        webbläsaren och finns kvar när du
+        besöker sidan igen.
+      </p>
 
       <form onSubmit={addTodo}>
         <label htmlFor="ny-uppgift">
-          Ny uppgift
+          Ny påminnelse
         </label>
 
         <input
@@ -57,7 +74,8 @@ function Todo() {
           type="text"
           value={text}
           onChange={(e) => setText(e.target.value)}
-          placeholder="Vad behöver göras?"
+          placeholder="Vad vill du komma ihåg?"
+          maxLength={120}
         />
 
         <button type="submit">
@@ -65,8 +83,11 @@ function Todo() {
         </button>
       </form>
 
-      <p className="todo-antal">
-        {todos.length} {todos.length === 1 ? "sak" : "saker"} att göra
+      <p className="todo-antal" aria-live="polite">
+        {todos.length}
+        {todos.length === 1
+          ? " påminnelse"
+          : " påminnelser"}
       </p>
 
       {todos.length > 0 && (
@@ -75,12 +96,14 @@ function Todo() {
           className="todo-rensa"
           onClick={clearTodos}
         >
-          Rensa allt
+          Rensa listan
         </button>
       )}
 
       {todos.length === 0 ? (
-        <p>Inget att göra än.</p>
+        <p className="todo-tom">
+          Här är det tomt än så länge.
+        </p>
       ) : (
         <ul>
           {todos.map((todo) => (
