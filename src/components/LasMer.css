@@ -1,0 +1,70 @@
+
+.las-mer {
+  margin-top: 20px;
+}
+
+.las-mer-knapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+
+  min-height: 44px;
+  padding: 10px 16px;
+
+  border: 1.5px solid #365F87;
+  border-radius: 8px;
+
+  background-color: transparent;
+  color: #365F87;
+
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.las-mer-knapp:hover {
+  background-color: #E8EFF5;
+}
+
+.las-mer-knapp:focus-visible {
+  outline: 3px solid #4C78A5;
+  outline-offset: 3px;
+}
+
+.las-mer-innehall {
+  margin-top: 16px;
+  padding: 16px 20px;
+
+  border-left: 3px solid #E3B7B3;
+  border-radius: 0 8px 8px 0;
+
+  background-color: #F5F0F4;
+}
+
+/* Mörkerläge */
+
+.dark-mode .las-mer-knapp {
+  border-color: #86ACD0;
+  color: #D0E7FF;
+}
+
+.dark-mode .las-mer-knapp:hover {
+  background-color: #354B65;
+}
+
+.dark-mode .las-mer-innehall {
+  background-color: #30435C;
+  border-left-color: #E3B7B3;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .las-mer-knapp {
+    transition: none;
+  }
+}

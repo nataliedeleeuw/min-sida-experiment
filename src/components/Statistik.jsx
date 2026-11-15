@@ -3,50 +3,77 @@ import projektLista from "../Data/Projekt.json";
 import "./Statistik.css";
 
 function Statistik() {
-  const antal = projektLista.reduce((summa, projekt) => {
-    for (const teknik of projekt.teknik) {
-      summa[teknik] = (summa[teknik] || 0) + 1;
-    }
+  // Räkna bara projekt som inte är under planering.
+  const aktivaProjekt = projektLista.filter(
+    (projekt) =>
+      !projekt.teknik.includes("Under planering")
+  );
 
-    return summa;
-  }, {});
+  const antal = aktivaProjekt.reduce(
+    (summa, projekt) => {
+      for (const teknik of projekt.teknik) {
+        summa[teknik] = (summa[teknik] || 0) + 1;
+      }
+
+      return summa;
+    },
+    {}
+  );
 
   const sorteradStatistik = Object.entries(antal).sort(
-    (a, b) => b[1] - a[1]
+    (a, b) =>
+      b[1] - a[1] ||
+      a[0].localeCompare(b[0], "sv")
   );
 
   return (
     <section className="statistik">
-      <h3>Det här har jag använt mest</h3>
+      <h3>Tekniker i mina projekt</h3>
 
       <div className="statistik-lista">
-        {sorteradStatistik.map(([teknik, antalProjekt]) => {
-          const procent =
-            projektLista.length === 0
-              ? 0
-              : Math.round(
-                  (antalProjekt / projektLista.length) * 100
-                );
+        {sorteradStatistik.map(
+          ([teknik, antalProjekt]) => {
+            const procent =
+              aktivaProjekt.length === 0
+                ? 0
+                : Math.round(
+                    (antalProjekt /
+                      aktivaProjekt.length) *
+                      100
+                  );
 
-          return (
-            <div className="statistik-rad" key={teknik}>
-              <div className="statistik-info">
-                <span>{teknik}</span>
+            return (
+              <div
+                className="statistik-rad"
+                key={teknik}
+              >
+                <div className="statistik-info">
+                  <span>{teknik}</span>
 
-                <span>
-                  {antalProjekt} projekt ({procent}%)
-                </span>
-              </div>
+                  <span>
+                    {antalProjekt} av{" "}
+                    {aktivaProjekt.length} projekt
+                  </span>
+                </div>
 
-              <div className="statistik-stapel">
                 <div
-                  className="statistik-fyllning"
-                  style={{ width: `${procent}%` }}
-                />
+                  className="statistik-stapel"
+                  role="meter"
+                  aria-label={teknik}
+                  aria-valuemin={0}
+                  aria-valuemax={100}
+                  aria-valuenow={procent}
+                  aria-valuetext={`${antalProjekt} av ${aktivaProjekt.length} projekt`}
+                >
+                  <div
+                    className="statistik-fyllning"
+                    style={{ width: `${procent}%` }}
+                  />
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          }
+        )}
       </div>
     </section>
   );
