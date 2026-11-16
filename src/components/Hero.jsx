@@ -26,15 +26,16 @@ function Hero({
   /*
     Ljusstyrkor från mörkast till ljusast.
 
-    Bilderna har redan olika mycket ljus,
-    så vi korrigerar dem försiktigt.
+    Originalbilderna har olika mycket ljus.
+    Dessa värden ger en försiktig justering
+    så att ljuset ökar med dimmerns nivå.
 
     0 = sover djupt
     1 = nästan somnat
     2 = väldigt sömnig
     3 = försöker hålla sig vaken
   */
-  const ljusstyrkor = [1.12, 1.08, 1.00, 0.82];
+  const ljusstyrkor = [0.45, 0.70, 0.85, 1.00];
 
   // Kattens fyra stadier av kvällströtthet
   const kvallsbilder = [
