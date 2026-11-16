@@ -90,119 +90,137 @@ function Kontakt() {
 
   return (
     <section className="kontakt">
-      <div className="kontakt-info">
-        <h2>Kontakta mig</h2>
+      <div className="kontakt-layout">
 
-        <p className="kontakt-text">
-          Har du en fråga eller vill du säga hej?
-          Skicka gärna ett meddelande!
-        </p>
+        {/* Introduktion */}
 
-        <img
-          className="kontakt-bild"
-          src={KontaktBild}
-          alt="Illustration av ett kuvert med ett meddelande"
-        />
-      </div>
-
-      {skickat ? (
-        <div className="kontakt-form">
-          <h3>Tack för ditt meddelande!</h3>
-
-          <p className="form-tack" role="status">
-            Tack {namn}! Ditt meddelande har skickats.
+        <div className="kontakt-info">
+          <p className="kontakt-etikett">
+            SÄG HEJ
           </p>
 
-          <p>
-            Jag återkommer så snart jag kan.
-          </p>
+          <h1>Kontakta mig</h1>
 
-          <button
-            type="button"
-            onClick={nyttMeddelande}
-          >
-            Skicka ett nytt meddelande
-          </button>
+          <p className="kontakt-text">
+            Har du en fråga eller vill du säga hej?
+            Skicka gärna ett meddelande!
+          </p>
         </div>
-      ) : (
-        <form
-          className="kontakt-form"
-          onSubmit={handleSubmit}
-          noValidate
-        >
-          <label htmlFor="namn">
-            Namn
-          </label>
 
-          <input
-            type="text"
-            id="namn"
-            name="namn"
-            placeholder="Ditt namn"
-            value={namn}
-            onChange={(e) => setNamn(e.target.value)}
-            autoComplete="name"
-            maxLength={100}
-            required
-          />
+        {/* Formulär eller tackmeddelande */}
 
-          <label htmlFor="epost">
-            E-post
-          </label>
+        {skickat ? (
+          <div className="kontakt-form">
+            <h2>Tack för ditt meddelande!</h2>
 
-          <input
-            type="email"
-            id="epost"
-            name="epost"
-            placeholder="namn@exempel.se"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            autoComplete="email"
-            maxLength={150}
-            required
-          />
-
-          <label htmlFor="meddelande">
-            Meddelande
-          </label>
-
-          <textarea
-            id="meddelande"
-            name="meddelande"
-            rows="5"
-            value={meddelande}
-            onChange={(e) =>
-              setMeddelande(e.target.value)
-            }
-            maxLength={MAX_TECKEN}
-            required
-          />
-
-          <p
-            className={
-              kvar < 50
-                ? "tecken-kvar varning"
-                : "tecken-kvar"
-            }
-            aria-live="polite"
-          >
-            {kvar} tecken kvar
-          </p>
-
-          {fel && (
-            <p className="form-fel" role="alert">
-              {fel}
+            <p className="form-tack" role="status">
+              Tack {namn}! Ditt meddelande har skickats.
             </p>
-          )}
 
-          <button
-            type="submit"
-            disabled={skickar}
+            <p>
+              Jag återkommer så snart jag kan.
+            </p>
+
+            <button
+              type="button"
+              onClick={nyttMeddelande}
+            >
+              Skicka ett nytt meddelande
+            </button>
+          </div>
+        ) : (
+          <form
+            className="kontakt-form"
+            onSubmit={handleSubmit}
+            noValidate
           >
-            {skickar ? "Skickar..." : "Skicka meddelande"}
-          </button>
-        </form>
-      )}
+            <label htmlFor="namn">
+              Namn
+            </label>
+
+            <input
+              type="text"
+              id="namn"
+              name="namn"
+              placeholder="Ditt namn"
+              value={namn}
+              onChange={(e) => setNamn(e.target.value)}
+              autoComplete="name"
+              maxLength={100}
+              required
+            />
+
+            <label htmlFor="epost">
+              E-post
+            </label>
+
+            <input
+              type="email"
+              id="epost"
+              name="epost"
+              placeholder="namn@exempel.se"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              autoComplete="email"
+              maxLength={150}
+              required
+            />
+
+            <label htmlFor="meddelande">
+              Meddelande
+            </label>
+
+            <textarea
+              id="meddelande"
+              name="meddelande"
+              rows="5"
+              value={meddelande}
+              onChange={(e) =>
+                setMeddelande(e.target.value)
+              }
+              maxLength={MAX_TECKEN}
+              required
+            />
+
+            <p
+              className={
+                kvar < 50
+                  ? "tecken-kvar varning"
+                  : "tecken-kvar"
+              }
+              aria-live="polite"
+            >
+              {kvar} tecken kvar
+            </p>
+
+            {fel && (
+              <p className="form-fel" role="alert">
+                {fel}
+              </p>
+            )}
+
+            <button
+              type="submit"
+              disabled={skickar}
+            >
+              {skickar
+                ? "Skickar..."
+                : "Skicka meddelande"}
+            </button>
+          </form>
+        )}
+
+        {/* Illustration */}
+
+        <div className="kontakt-illustration">
+          <img
+            className="kontakt-bild"
+            src={KontaktBild}
+            alt="Illustration av ett kuvert med ett meddelande"
+          />
+        </div>
+
+      </div>
     </section>
   );
 }

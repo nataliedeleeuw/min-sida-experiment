@@ -1,86 +1,265 @@
+
+/* ========================================
+   KONTAKTSIDAN
+======================================== */
+
 .kontakt {
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: center;
-  gap: 32px;
-  padding: 48px 24px;
+  box-sizing: border-box;
+  width: 100%;
+
+  padding: 72px 36px 88px;
+
   background-color: #FCF5F6;
+
+  background-image:
+    radial-gradient(
+      circle at 8% 20%,
+      rgba(227, 183, 179, 0.13),
+      transparent 34%
+    );
+
+  color: #1C2027;
 }
+
+/* ========================================
+   TVÅ KOLUMNER
+======================================== */
+
+.kontakt-layout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.9fr)
+    minmax(0, 1.1fr);
+
+  grid-template-areas:
+    "intro form"
+    "bild form";
+
+  column-gap: 60px;
+  row-gap: 28px;
+
+  align-items: start;
+
+  width: 100%;
+  max-width: 1080px;
+
+  margin: 0 auto;
+}
+
+/* ========================================
+   INTRODUKTION
+======================================== */
 
 .kontakt-info {
+  grid-area: intro;
+
   min-width: 0;
+  padding-top: 20px;
+
   text-align: left;
-  align-self: center;
-  padding-top: 0;
 }
 
-.kontakt-info h2 {
-  color: #1C2027;
-  font-family: 'Outfit', sans-serif;
-  font-size: 32px;
+/* Liten grafisk signatur */
+
+.kontakt-etikett {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin: 0 0 18px;
+
+  color: #365F87;
+
+  font-size: 13px;
   font-weight: 700;
-  margin: 0 0 20px;
+  letter-spacing: 0.12em;
 }
 
-.kontakt-text {
-  color: #4E5059;
-  font-size: 19px;
-  line-height: 1.7;
-  max-width: 30ch;
+.kontakt-etikett::before {
+  content: "✳";
+
+  color: #D59D9D;
+
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: normal;
 }
 
-.kontakt-text::after {
+.kontakt-etikett::after {
   content: "";
-  display: block;
-  width: 64px;
-  height: 3px;
-  margin-top: 24px;
+
+  width: 72px;
+  height: 2px;
+
   background-color: #4C78A5;
   border-radius: 999px;
 }
 
-.kontakt-bild {
-  display: block;
-  width: 100%;
-  max-width: 320px;
-  height: auto;
-  margin: 36px auto 0;
-  border-radius: 18px;
+/* Rubrik */
+
+.kontakt-info h1 {
+  margin: 0 0 20px;
+
+  color: #1C2027;
+
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(32px, 4vw, 42px);
+  font-weight: 700;
+  line-height: 1.2;
 }
 
+/* Beskrivning */
+
+.kontakt-text {
+  max-width: 30ch;
+  margin: 0;
+
+  color: #4E5059;
+
+  font-size: 19px;
+  line-height: 1.7;
+}
+
+/* ========================================
+   ILLUSTRATIONEN
+======================================== */
+
+.kontakt-illustration {
+  grid-area: bild;
+
+  position: relative;
+  isolation: isolate;
+
+  width: min(100%, 360px);
+  margin: 0;
+}
+
+/* Mjuk rosa form bakom bilden */
+
+.kontakt-illustration::before {
+  content: "";
+
+  position: absolute;
+  top: -18px;
+  right: -18px;
+
+  width: 110px;
+  height: 110px;
+
+  background-color: #E3B7B3;
+  border-radius: 50%;
+
+  opacity: 0.65;
+
+  z-index: -1;
+  pointer-events: none;
+}
+
+.kontakt-bild {
+  display: block;
+  box-sizing: border-box;
+
+  width: 100%;
+  height: auto;
+
+  border: 1.5px solid #E8DFDA;
+  border-radius: 18px;
+
+  box-shadow:
+    9px 9px 0 rgba(227, 183, 179, 0.22);
+}
+
+/* ========================================
+   FORMULÄRKORT
+======================================== */
+
 .kontakt-form {
+  grid-area: form;
+
+  position: relative;
+
   display: flex;
   flex-direction: column;
+
+  box-sizing: border-box;
+
   min-width: 0;
+  width: 100%;
+
   gap: 12px;
-  padding: 24px;
+  padding: 36px;
+
   background-color: #FFFAF5;
-  border-radius: 18px;
+
+  border: 1px solid #E8DFDA;
   border-top: 6px solid #E3B7B3;
-  box-shadow: 0 12px 32px rgba(28, 32, 39, 0.07);
+  border-radius: 18px;
+
+  box-shadow:
+    0 12px 32px rgba(28, 32, 39, 0.07);
+
   text-align: left;
+  overflow: hidden;
 }
+
+/* En diskret rosa detalj i kortets hörn */
+
+.kontakt-form::before {
+  content: "";
+
+  position: absolute;
+  top: -48px;
+  right: -48px;
+
+  width: 105px;
+  height: 105px;
+
+  background-color: #E3B7B3;
+  border-radius: 50%;
+
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* ========================================
+   FORMULÄRETS ETIKETTER
+======================================== */
 
 .kontakt-form label {
   color: #1C2027;
+
   font-size: 15px;
   font-weight: 600;
+
   margin-top: 8px;
 }
 
+/* ========================================
+   INMATNINGSFÄLT
+======================================== */
+
 .kontakt-form input,
 .kontakt-form textarea {
+  box-sizing: border-box;
+
   width: 100%;
   min-width: 0;
-  box-sizing: border-box;
+
   padding: 13px 16px;
+
   background-color: #FFFFFF;
   color: #1C2027;
+
   border: 1px solid #DDD7DC;
   border-radius: 8px;
-  font-family: 'Outfit', sans-serif;
+
+  font-family: "Outfit", sans-serif;
   font-size: 16px;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .kontakt-form input::placeholder,
@@ -88,36 +267,80 @@
   color: #8B8991;
 }
 
+/* Tydligt fokus när man skriver */
+
 .kontakt-form input:focus,
 .kontakt-form textarea:focus {
   outline: none;
+
   border-color: #4C78A5;
-  box-shadow: 0 0 0 3px rgba(76, 120, 165, 0.15);
+
+  box-shadow:
+    0 0 0 3px rgba(76, 120, 165, 0.15);
 }
+
+.kontakt-form input:focus-visible,
+.kontakt-form textarea:focus-visible {
+  outline: 2px solid #4C78A5;
+  outline-offset: 2px;
+}
+
+/* Meddelandefält */
 
 .kontakt-form textarea {
   resize: vertical;
   min-height: 140px;
 }
 
-.kontakt-form button {
-  align-self: flex-start;
-  min-height: 44px;
-  margin-top: 12px;
-  padding: 12px 30px;
-  background-color: #365F87;
-  color: #FFFAF5;
-  border: none;
-  border-radius: 6px;
-  font-family: 'Outfit', sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
+/* ========================================
+   TECKENRÄKNARE
+======================================== */
+
+.kontakt-form .tecken-kvar {
+  margin: 0;
+
+  color: #4E5059;
+
+  font-size: 14px;
 }
 
-.kontakt-form button:hover {
+.kontakt-form .tecken-kvar.varning {
+  color: #B42318;
+  font-weight: 600;
+}
+
+/* ========================================
+   KNAPPAR
+======================================== */
+
+.kontakt-form button {
+  align-self: flex-start;
+
+  min-height: 44px;
+  margin-top: 12px;
+
+  padding: 12px 30px;
+
+  background-color: #365F87;
+  color: #FFFAF5;
+
+  border: none;
+  border-radius: 7px;
+
+  font-family: "Outfit", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.kontakt-form button:hover:not(:disabled) {
   background-color: #4C78A5;
+  transform: translateY(-2px);
 }
 
 .kontakt-form button:focus-visible {
@@ -130,39 +353,225 @@
   cursor: wait;
 }
 
+/* ========================================
+   FEL OCH TACKMEDDELANDEN
+======================================== */
+
 .form-fel {
-  color: #b42318;
+  color: #B42318;
 }
 
 .form-tack {
-  color: #237a35;
+  color: #237A35;
 }
 
-@media (min-width: 601px) {
-  .kontakt-form {
-    padding: 36px;
-  }
+.kontakt-form h2 {
+  margin: 0 0 12px;
+
+  color: #1C2027;
+
+  font-family: "Outfit", sans-serif;
+  font-size: 26px;
 }
 
-@media (min-width: 801px) {
+/* ========================================
+   MÖRKERLÄGE
+======================================== */
+
+/* Mörkblå bas med en aning plommon */
+
+.dark-mode .kontakt {
+  background-color: #172437;
+
+  background-image:
+    radial-gradient(
+      circle at 8% 20%,
+      rgba(143, 90, 130, 0.18),
+      transparent 34%
+    );
+}
+
+/* Rubrik och introduktion */
+
+.dark-mode .kontakt .kontakt-etikett {
+  color: #F0BDB8;
+}
+
+.dark-mode .kontakt .kontakt-etikett::before {
+  color: #F0BDB8;
+}
+
+.dark-mode .kontakt .kontakt-etikett::after {
+  background-color: #C493AF;
+}
+
+.dark-mode .kontakt .kontakt-info h1 {
+  color: #FFF7F3;
+}
+
+.dark-mode .kontakt .kontakt-text {
+  color: #D0D9E6;
+}
+
+/* Illustration */
+
+.dark-mode .kontakt-illustration::before {
+  background-color: #72536F;
+  opacity: 0.65;
+}
+
+.dark-mode .kontakt-bild {
+  border-color: #7D6B86;
+
+  box-shadow:
+    9px 9px 0 rgba(80, 54, 82, 0.55);
+}
+
+/* Formulärkort */
+
+.dark-mode .kontakt .kontakt-form {
+  background-color: #26374E;
+
+  border-color: #53617B;
+  border-top-color: #B98F9C;
+
+  color: #E9EDF4;
+
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.16);
+}
+
+.dark-mode .kontakt-form::before {
+  background-color: #956C8C;
+  opacity: 0.28;
+}
+
+.dark-mode .kontakt .kontakt-form label {
+  color: #F1F3F8;
+}
+
+.dark-mode .kontakt .kontakt-form h2 {
+  color: #FFF7F3;
+}
+
+/* Inmatningsfält */
+
+.dark-mode .kontakt .kontakt-form input,
+.dark-mode .kontakt .kontakt-form textarea {
+  background-color: #19293F;
+  color: #FFF7F3;
+
+  border-color: #60738C;
+}
+
+.dark-mode .kontakt .kontakt-form input::placeholder,
+.dark-mode .kontakt .kontakt-form textarea::placeholder {
+  color: #B7C5D6;
+}
+
+.dark-mode .kontakt .kontakt-form input:focus,
+.dark-mode .kontakt .kontakt-form textarea:focus {
+  border-color: #A9CAE7;
+
+  box-shadow:
+    0 0 0 3px rgba(185, 143, 156, 0.22);
+}
+
+.dark-mode .kontakt .kontakt-form input:focus-visible,
+.dark-mode .kontakt .kontakt-form textarea:focus-visible {
+  outline: 2px solid #A9CAE7;
+  outline-offset: 2px;
+}
+
+/* Statusmeddelanden */
+
+.dark-mode .kontakt .form-fel,
+.dark-mode .kontakt .tecken-kvar.varning {
+  color: #FFB4AE;
+}
+
+.dark-mode .kontakt .form-tack {
+  color: #B2E8BD;
+}
+
+/* ========================================
+   SURFPLATTA OCH MOBIL
+======================================== */
+
+/*
+  På smalare skärmar kommer formuläret
+  före illustrationen.
+
+  Besökaren slipper skrolla förbi bilden
+  för att kunna skicka ett meddelande.
+*/
+
+@media (max-width: 900px) {
   .kontakt {
-    grid-template-columns: 1fr 1.2fr;
-    gap: 48px;
-    padding: 80px 48px;
+    padding: 48px 24px 64px;
   }
 
-  .kontakt-info h2 {
-    font-size: 38px;
+  .kontakt-layout {
+    max-width: 640px;
+
+    grid-template-columns: minmax(0, 1fr);
+
+    grid-template-areas:
+      "intro"
+      "form"
+      "bild";
+
+    row-gap: 28px;
+  }
+
+  .kontakt-info {
+    padding-top: 0;
+  }
+
+  .kontakt-illustration {
+    width: min(100%, 320px);
+    margin: 8px auto 0;
   }
 }
 
-.kontakt-form .tecken-kvar {
-  margin: 0;
-  color: #4E5059;
-  font-size: 14px;
+@media (max-width: 520px) {
+  .kontakt {
+    padding: 32px 18px 48px;
+  }
+
+  .kontakt-layout {
+    row-gap: 24px;
+  }
+
+  .kontakt-info h1 {
+    font-size: 32px;
+  }
+
+  .kontakt-text {
+    font-size: 17px;
+  }
+
+  .kontakt-form {
+    padding: 28px 24px;
+  }
+
+  .kontakt-illustration {
+    width: min(100%, 270px);
+  }
+
+  .kontakt-etikett::after {
+    width: 48px;
+  }
 }
 
-.kontakt-form .tecken-kvar.varning {
-  color: #b42318;
-  font-weight: 600;
+/* ========================================
+   MINSKA ANIMATIONER VID BEHOV
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .kontakt-form button,
+  .kontakt-form input,
+  .kontakt-form textarea {
+    transition: none;
+  }
 }
