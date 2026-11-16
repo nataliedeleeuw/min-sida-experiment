@@ -17,7 +17,6 @@
 
   background-color: #FFFAF5;
 
-  /* Mjuk färgtoning längst till höger */
   background-image:
     radial-gradient(
       circle at 88% 45%,
@@ -47,7 +46,7 @@
   letter-spacing: 0.12em;
 }
 
-/* Stjärna och linje enbart i introduktionen */
+/* Stjärna och linje i introduktionen */
 
 .projekt-sida-intro .projekt-sida-etikett {
   display: flex;
@@ -108,15 +107,14 @@
 }
 
 /* ========================================
-   LITEN KODILLUSTRATION
+   KODRUTAN – FINS LIPAD FORM
 ======================================== */
 
 /*
-  Ett diskret dekorativt kort inspirerat
-  av kodrutan i originalillustrationen.
+  En liten grafisk blinkning till kodrutan
+  i kattens originalillustration.
 
-  Det visas bara när det finns gott om plats
-  och är inte en klickbar funktion.
+  Något bredare, lägre och med tydligare kant.
 */
 
 @media (min-width: 1100px) {
@@ -132,10 +130,10 @@
 
     box-sizing: border-box;
 
-    width: 140px;
-    height: 108px;
+    width: 154px;
+    height: 98px;
 
-    padding-top: 18px;
+    padding-top: 16px;
 
     background-color: #F5EFF3;
 
@@ -164,37 +162,42 @@
     background-size: 8px 8px;
     background-repeat: no-repeat;
 
-    border: 2px solid #7995B0;
-    border-radius: 17px;
+    border: 2px solid #567A9D;
+    border-radius: 19px 19px 16px 19px;
 
     color: #365F87;
 
     font-family: monospace;
-    font-size: 36px;
+    font-size: 34px;
     font-weight: 700;
     letter-spacing: -0.08em;
 
-    transform: rotate(7deg);
+    transform: rotate(6deg);
 
     box-shadow:
-      7px 8px 0 rgba(227, 183, 179, 0.28);
+      7px 7px 0 rgba(227, 183, 179, 0.28);
 
     pointer-events: none;
   }
 }
 
 /* ========================================
-   LITEN ACCENT VID ÖVERGÅNGEN
+   AVSLUTANDE ACCENTLINJE
 ======================================== */
+
+/*
+  Kortare och flyttad upp från sektionens kant.
+  Nu får den lite egen luft.
+*/
 
 .projekt-sida-intro::after {
   content: "";
 
   position: absolute;
-  bottom: 0;
+  bottom: 18px;
   left: 32px;
 
-  width: 160px;
+  width: 116px;
   height: 3px;
 
   border-radius: 999px;
@@ -212,11 +215,6 @@
 /* ========================================
    MÖRKERLÄGE – INTRODUKTIONEN
 ======================================== */
-
-/*
-  Behåll den mörkblå basen.
-  Plommon och lampglöd används sparsamt.
-*/
 
 .dark-mode .projekt-sida-intro {
   background-color: #1C2B40;
@@ -255,18 +253,18 @@
   );
 }
 
-/* Kodrutan får plommonfärgad bakgrund */
+/* Kodrutans färger i mörkerläge */
 
 @media (min-width: 1100px) {
   .dark-mode .projekt-sida-intro::before {
     background-color: #393147;
 
-    border-color: #826984;
+    border-color: #A582A5;
 
     color: #F0BDB8;
 
     box-shadow:
-      7px 8px 0 rgba(19, 16, 31, 0.28);
+      7px 7px 0 rgba(19, 16, 31, 0.28);
   }
 }
 
@@ -379,8 +377,9 @@
   }
 
   .projekt-sida-intro::after {
+    bottom: 14px;
     left: 24px;
-    width: 115px;
+    width: 85px;
   }
 
   .projekt-sida-intro
