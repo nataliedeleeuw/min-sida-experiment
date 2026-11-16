@@ -1,3 +1,4 @@
+
 import "./Hero.css";
 
 import HeroImage from "../assets/Hero1.webp";
@@ -21,53 +22,48 @@ function Hero({
   ljusNiva,
   setLjusNiva
 }) {
-  const kvallslagen = [
+
+  /*
+    Ljusstyrkor från mörkast till ljusast.
+
+    Bilderna har redan olika mycket ljus,
+    så vi korrigerar dem försiktigt.
+
+    0 = sover djupt
+    1 = nästan somnat
+    2 = väldigt sömnig
+    3 = försöker hålla sig vaken
+  */
+  const ljusstyrkor = [1.12, 1.08, 1.00, 0.82];
+
+  // Kattens fyra stadier av kvällströtthet
+  const kvallsbilder = [
     {
-      bild: HeroDrowsy,
-      alt: "Katten sitter under lampan och ser småtrött men vaken ut.",
-      label: "Kvällsljus · Ljust",
-      brightness: 0.74,
-      contrast: 1.02
-    },
-    {
-      bild: HeroSleepy,
-      alt: "Katten sitter under lampan och börjar gäspa.",
-      label: "Kvällsljus · Mysigt",
-      brightness: 0.96,
-      contrast: 1.02
+      bild: HeroSleep,
+      beskrivning: "Katten sover djupt under lampan"
     },
     {
       bild: HeroAlmostAsleep,
-      alt: "Katten sitter under lampan och håller på att somna.",
-      label: "Kvällsljus · Sömnigt",
-      brightness: 1.10,
-      contrast: 1.03
+      beskrivning: "Katten håller precis på att somna"
     },
     {
-      bild: HeroSleep,
-      alt: "Katten har somnat under lampan och drömmer.",
-      label: "Kvällsljus · Zzz",
-      brightness: 1.20,
-      contrast: 1.04
+      bild: HeroSleepy,
+      beskrivning: "Katten är väldigt sömnig"
+    },
+    {
+      bild: HeroDrowsy,
+      beskrivning: "Katten försöker hålla sig vaken"
     }
   ];
-
-  const aktivtKvallslage =
-    kvallslagen[
-      Math.max(0, Math.min(ljusNiva, kvallslagen.length - 1))
-    ];
-
-  const aktuellBild = ljusPa ? HeroImage : aktivtKvallslage.bild;
-  const aktuellAlt = ljusPa
-    ? "Katten sitter pigg och programmerar under lampan."
-    : aktivtKvallslage.alt;
 
   return (
     <section
       className={ljusPa ? "hero" : "hero hero-natt"}
-      data-ljuslage={ljusPa ? "dag" : String(ljusNiva)}
+      data-ljusniva={ljusPa ? "dag" : ljusNiva}
     >
+
       <div className="hero-content">
+
         <div className="hero-accent" aria-hidden="true">
           <span className="hero-sparkle">✳</span>
           <span className="hero-line"></span>
@@ -79,67 +75,111 @@ function Hero({
           {halsning()}, jag heter {namn}!
         </p>
 
-        <h2>Välkommen till min portfolio!</h2>
+        <h2 id="hero-title">
+          Välkommen till min portfolio!
+        </h2>
 
         <p className="hero-text">
           Jag har precis börjat plugga programmering.
           Den här sidan är ett av våra första projekt på utbildningen,
           så just nu testar jag mig fram och försöker undvika att vara
-          allt för besatt. Tanken är att fylla på med fler saker allt
-          eftersom vi lär oss mer.
+          allt för besatt. Tanken är att fylla på med fler saker
+          allt eftersom vi lär oss mer.
         </p>
 
         <Link className="hero-button" to="/projekt">
           Se mina projekt
         </Link>
+
       </div>
 
       <div className="hero-image">
-        <div className="hero-visual-wrap">
-          <div className="hero-visual">
+
+        <div className="hero-visual">
+
+          <div className="hero-illustration">
+
+            {/* Dagskatten */}
+
             <img
-              src={aktuellBild}
-              alt={aktuellAlt}
-              className="hero-cat-image"
-              style={
+              src={HeroImage}
+              className={
                 ljusPa
-                  ? undefined
-                  : {
-                      filter: `brightness(${aktivtKvallslage.brightness}) contrast(${aktivtKvallslage.contrast})`
-                    }
+                  ? "hero-cat synlig"
+                  : "hero-cat"
               }
+              alt="Katten sitter vaken och programmerar"
+              aria-hidden={!ljusPa}
             />
+
+            {/* Kattens fyra kvällsstadier */}
+
+            {kvallsbilder.map((katt, niva) => (
+
+              <img
+                key={niva}
+                src={katt.bild}
+                className={
+                  !ljusPa && ljusNiva === niva
+                    ? "hero-cat synlig"
+                    : "hero-cat"
+                }
+                alt={katt.beskrivning}
+                aria-hidden={ljusPa || ljusNiva !== niva}
+                style={{
+                  filter: `brightness(${ljusstyrkor[ljusNiva]})`,
+                  transition:
+                    "opacity 0.6s ease, filter 0.4s ease"
+                }}
+              />
+
+            ))}
+
+            {/* Klickbar lampa */}
 
             <button
               type="button"
-              className="hero-lamp-hitbox"
+              className="hero-lampa"
               onClick={vaxlaLjus}
               aria-label={
                 ljusPa
-                  ? "Byt till kvällsläge"
-                  : "Byt till dagsläge"
+                  ? "Växla till kvällsläge"
+                  : "Växla till dagsläge"
               }
-              title={
-                ljusPa
-                  ? "Byt till kvällsläge"
-                  : "Byt till dagsläge"
-              }
+              aria-pressed={!ljusPa}
+              title="Klicka på lampan"
             />
+
           </div>
 
-          {ljusPa ? (
-            <p className="hero-hint">Klicka på lampan</p>
-          ) : (
-            <div className="hero-dimmer-panel">
-              <Raknare
-                ljusNiva={ljusNiva}
-                setLjusNiva={setLjusNiva}
-                etikett={aktivtKvallslage.label}
-              />
-            </div>
+          {/* Dimmern syns bara i kvällsläge */}
+
+          {!ljusPa && (
+            <Raknare
+              ljusNiva={ljusNiva}
+              setLjusNiva={setLjusNiva}
+            />
           )}
+
         </div>
+
+        {/*
+          Texten behåller sin plats även i kvällsläge.
+          Därför hoppar inte kattbilden.
+        */}
+
+        <p
+          className="hero-lamptips"
+          style={{
+            visibility: ljusPa ? "visible" : "hidden"
+          }}
+          aria-hidden={!ljusPa}
+        >
+          Klicka på lampan
+        </p>
+
       </div>
+
     </section>
   );
 }
