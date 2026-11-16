@@ -1,13 +1,11 @@
 
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
-
 import projektLista from "../Data/Projekt.json";
 import Todo from "../components/Todo";
 import Vader from "../components/Vader";
 import CityWeather from "../components/CityWeather";
 import Statistik from "../components/Statistik";
-
 import "./ProjektDetalj.css";
 
 function ProjektDetalj() {
