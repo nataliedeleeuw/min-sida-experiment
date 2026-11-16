@@ -1,5 +1,7 @@
 
-/* Hela projektsektionen */
+/* ========================================
+   HELA PROJEKTSEKTIONEN
+======================================== */
 
 .projekt {
   padding: 56px 32px 72px;
@@ -16,7 +18,9 @@
   text-align: center;
 }
 
-/* Sökning, sortering och filter */
+/* ========================================
+   SÖKNING OCH FILTER
+======================================== */
 
 .projekt-verktyg {
   max-width: 900px;
@@ -25,10 +29,12 @@
 
 .projekt-verktygsrad {
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
-  gap: 16px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 14px;
+
   max-width: 680px;
-  margin: 0 auto 24px;
+  margin: 0 auto;
 }
 
 .projekt-sok,
@@ -37,6 +43,7 @@
   flex-direction: column;
   gap: 8px;
   min-width: 0;
+
   color: #1C2027;
   font-weight: 600;
   font-size: 15px;
@@ -45,12 +52,16 @@
 .projekt-sok input,
 .projekt-sortering select {
   box-sizing: border-box;
+
   width: 100%;
   min-width: 0;
   min-height: 46px;
+
   padding: 10px 14px;
+
   border: 1px solid #DDD7DC;
   border-radius: 10px;
+
   background-color: #FFFFFF;
   color: #1C2027;
   font: inherit;
@@ -62,15 +73,99 @@
   outline-offset: 2px;
 }
 
-/* Filterknappar */
+/* ========================================
+   KNAPP FÖR FLER ALTERNATIV
+======================================== */
+
+.projekt-filter-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  box-sizing: border-box;
+  min-height: 46px;
+  padding: 10px 16px;
+
+  background-color: #FFFFFF;
+  color: #365F87;
+
+  border: 1.5px solid #365F87;
+  border-radius: 10px;
+
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.projekt-filter-toggle:hover {
+  background-color: #E8EFF5;
+}
+
+.projekt-filter-symbol {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.projekt-filter-markering {
+  padding: 3px 8px;
+
+  background-color: #F1E8EF;
+  color: #7E2B60;
+
+  border-radius: 999px;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.projekt-filter-toggle.har-aktiva-val {
+  border-color: #9E6689;
+}
+
+/* ========================================
+   PANEL FÖR FILTER OCH SORTERING
+======================================== */
+
+.projekt-filter-panel {
+  box-sizing: border-box;
+  max-width: 680px;
+  margin: 16px auto 0;
+  padding: 24px;
+
+  background-color: #FFFAF5;
+
+  border: 1px solid #E7DFD9;
+  border-radius: 16px;
+
+  box-shadow:
+    0 8px 24px rgba(28, 32, 39, 0.05);
+}
+
+.projekt-filter-panel[hidden] {
+  display: none;
+}
+
+.projekt-sortering {
+  max-width: 300px;
+  margin-bottom: 24px;
+}
 
 .projekt-filter-wrap {
-  text-align: center;
+  text-align: left;
 }
 
 .projekt-filter-etikett {
   margin: 0 0 12px;
+
   color: #4E5059;
+
   font-size: 14px;
   font-weight: 600;
 }
@@ -78,24 +173,34 @@
 .projekt-filter {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 8px;
 }
+
+/* ========================================
+   TEKNIKFILTER
+======================================== */
 
 .filter-knapp {
   min-height: 44px;
   padding: 8px 16px;
+
   border: 1.5px solid #365F87;
   border-radius: 999px;
+
   background-color: #FFFFFF;
   color: #365F87;
+
   font: inherit;
   font-size: 14px;
   font-weight: 600;
+
   cursor: pointer;
+
   transition:
     background-color 0.2s ease,
-    color 0.2s ease;
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .filter-knapp:hover {
@@ -107,45 +212,140 @@
   color: #FFFFFF;
 }
 
-.filter-knapp:focus-visible {
+.projekt-filter-rensa {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 5px 0;
+
+  background: transparent;
+  border: none;
+
+  color: #7E2B60;
+
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+
+  cursor: pointer;
+}
+
+.projekt-filter-rensa:hover {
+  color: #5D2147;
+}
+
+.projekt-filter-toggle:focus-visible,
+.filter-knapp:focus-visible,
+.projekt-filter-rensa:focus-visible {
   outline: 3px solid #4C78A5;
   outline-offset: 3px;
 }
 
-/* Antal projekt */
+/* ========================================
+   ANTAL PROJEKT
+======================================== */
 
 .projekt-antal {
   max-width: 960px;
   margin: 0 auto 20px;
+
   color: #66616B;
   font-size: 14px;
+
   text-align: left;
 }
 
-/* Projektkorten */
+/* ========================================
+   PROJEKTKORTEN
+======================================== */
 
 .projekt-lista {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px;
+
   max-width: 960px;
   margin: 0 auto;
+
   align-items: stretch;
 }
 
-/* När sökningen inte hittar något */
+/* ========================================
+   INGA MATCHANDE PROJEKT
+======================================== */
 
 .projekt-tom {
   max-width: 600px;
   margin: 0 auto;
   padding: 32px;
+
   border-radius: 14px;
+
   background-color: #FFFAF5;
   color: #4E5059;
+
   text-align: center;
 }
 
-/* Mobilanpassning */
+/* ========================================
+   MÖRKERLÄGE – FILTERPANELEN
+======================================== */
+
+.dark-mode .projekt .projekt-filter-toggle {
+  background-color: #30445D;
+  color: #E2EEFF;
+  border-color: #789CC0;
+}
+
+.dark-mode .projekt .projekt-filter-toggle:hover {
+  background-color: #3D536D;
+}
+
+/* Plommonfärg när besökaren har gjort ett val */
+
+.dark-mode .projekt .projekt-filter-toggle.har-aktiva-val {
+  background-color: #493B53;
+  color: #FFF7F3;
+  border-color: #B38DA8;
+}
+
+.dark-mode .projekt .projekt-filter-markering {
+  background-color: #654C67;
+  color: #FFE0E2;
+}
+
+.dark-mode .projekt .projekt-filter-panel {
+  background-color: #223249;
+  border-color: #5C526B;
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Aktivt teknikfilter: dusty plum i stället för blått */
+
+.dark-mode .projekt .filter-knapp.aktiv {
+  background-color: #513C55;
+  color: #FFF7F3;
+  border-color: #BB94AC;
+}
+
+.dark-mode .projekt .filter-knapp:hover:not(.aktiv) {
+  background-color: #354B65;
+}
+
+.dark-mode .projekt .projekt-filter-rensa {
+  color: #F0BDB8;
+}
+
+.dark-mode .projekt .projekt-filter-rensa:hover {
+  color: #FFDEDC;
+}
+
+/* ========================================
+   MOBIL
+======================================== */
 
 @media (max-width: 620px) {
   .projekt {
@@ -159,19 +359,34 @@
 
   .projekt-verktygsrad {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 14px;
   }
 
-  .projekt-filter {
-    justify-content: flex-start;
+  .projekt-filter-toggle {
+    width: 100%;
   }
 
-  .projekt-filter-wrap {
-    text-align: left;
+  .projekt-filter-panel {
+    padding: 20px 16px;
+  }
+
+  .projekt-sortering {
+    max-width: none;
   }
 
   .projekt-lista {
     grid-template-columns: 1fr;
     gap: 20px;
+  }
+}
+
+/* ========================================
+   MINSKA ANIMATIONER VID BEHOV
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .projekt-filter-toggle,
+  .filter-knapp {
+    transition: none;
   }
 }

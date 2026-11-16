@@ -4,26 +4,90 @@
   min-width: 0;
 }
 
-/* Sidans introduktion */
+/* ========================================
+   PROJEKTSIDANS INTRODUKTION
+======================================== */
 
 .projekt-sida-intro {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
   padding: 64px 32px 56px;
+
   background-color: #FFFAF5;
+
+  /* Mjuk färgtoning längst till höger */
+  background-image:
+    radial-gradient(
+      circle at 88% 45%,
+      rgba(227, 183, 179, 0.18),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 98% 95%,
+      rgba(137, 145, 186, 0.08),
+      transparent 30%
+    );
+
   text-align: left;
 }
 
+/* ========================================
+   WORK IN PROGRESS – GRAFISK SIGNATUR
+======================================== */
+
 .projekt-sida-etikett {
   margin: 0 0 16px;
+
   color: #365F87;
+
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.12em;
 }
 
+/* Stjärna och linje enbart i introduktionen */
+
+.projekt-sida-intro .projekt-sida-etikett {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.projekt-sida-intro .projekt-sida-etikett::before {
+  content: "✳";
+
+  color: #D59D9D;
+
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: normal;
+}
+
+.projekt-sida-intro .projekt-sida-etikett::after {
+  content: "";
+
+  width: 74px;
+  height: 2px;
+
+  border-radius: 999px;
+  background-color: #4C78A5;
+}
+
+/* ========================================
+   RUBRIK OCH BESKRIVNING
+======================================== */
+
 .projekt-sida-intro h1 {
+  position: relative;
+  z-index: 1;
+
   max-width: 650px;
   margin: 0 0 20px;
+
   color: #1C2027;
+
   font-family: "Outfit", sans-serif;
   font-size: clamp(32px, 5vw, 48px);
   font-weight: 700;
@@ -31,13 +95,185 @@
 }
 
 .projekt-sida-intro > p:last-child {
+  position: relative;
+  z-index: 1;
+
   max-width: 580px;
+  margin-bottom: 0;
+
   color: #4E5059;
+
   font-size: 18px;
   line-height: 1.7;
 }
 
-/* GitHub-sektionen */
+/* ========================================
+   LITEN KODILLUSTRATION
+======================================== */
+
+/*
+  Ett diskret dekorativt kort inspirerat
+  av kodrutan i originalillustrationen.
+
+  Det visas bara när det finns gott om plats
+  och är inte en klickbar funktion.
+*/
+
+@media (min-width: 1100px) {
+  .projekt-sida-intro::before {
+    content: "</>";
+
+    position: absolute;
+    top: 84px;
+    right: 8%;
+
+    display: grid;
+    place-items: center;
+
+    box-sizing: border-box;
+
+    width: 140px;
+    height: 108px;
+
+    padding-top: 18px;
+
+    background-color: #F5EFF3;
+
+    background-image:
+      radial-gradient(
+        circle,
+        #DFA5AD 0 3px,
+        transparent 3.5px
+      ),
+      radial-gradient(
+        circle,
+        #83A3C2 0 3px,
+        transparent 3.5px
+      ),
+      radial-gradient(
+        circle,
+        #B6A5C3 0 3px,
+        transparent 3.5px
+      );
+
+    background-position:
+      17px 13px,
+      31px 13px,
+      45px 13px;
+
+    background-size: 8px 8px;
+    background-repeat: no-repeat;
+
+    border: 2px solid #7995B0;
+    border-radius: 17px;
+
+    color: #365F87;
+
+    font-family: monospace;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.08em;
+
+    transform: rotate(7deg);
+
+    box-shadow:
+      7px 8px 0 rgba(227, 183, 179, 0.28);
+
+    pointer-events: none;
+  }
+}
+
+/* ========================================
+   LITEN ACCENT VID ÖVERGÅNGEN
+======================================== */
+
+.projekt-sida-intro::after {
+  content: "";
+
+  position: absolute;
+  bottom: 0;
+  left: 32px;
+
+  width: 160px;
+  height: 3px;
+
+  border-radius: 999px;
+
+  background: linear-gradient(
+    90deg,
+    #4C78A5,
+    #E3B7B3,
+    transparent
+  );
+
+  pointer-events: none;
+}
+
+/* ========================================
+   MÖRKERLÄGE – INTRODUKTIONEN
+======================================== */
+
+/*
+  Behåll den mörkblå basen.
+  Plommon och lampglöd används sparsamt.
+*/
+
+.dark-mode .projekt-sida-intro {
+  background-color: #1C2B40;
+
+  background-image:
+    radial-gradient(
+      circle at 86% 42%,
+      rgba(139, 83, 120, 0.25),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 99% 12%,
+      rgba(226, 171, 118, 0.07),
+      transparent 26%
+    );
+}
+
+.dark-mode
+.projekt-sida-intro
+.projekt-sida-etikett::before {
+  color: #F0BDB8;
+}
+
+.dark-mode
+.projekt-sida-intro
+.projekt-sida-etikett::after {
+  background-color: #C493AF;
+}
+
+.dark-mode .projekt-sida-intro::after {
+  background: linear-gradient(
+    90deg,
+    #C493AF,
+    #E3B7B3,
+    transparent
+  );
+}
+
+/* Kodrutan får plommonfärgad bakgrund */
+
+@media (min-width: 1100px) {
+  .dark-mode .projekt-sida-intro::before {
+    background-color: #393147;
+
+    border-color: #826984;
+
+    color: #F0BDB8;
+
+    box-shadow:
+      7px 8px 0 rgba(19, 16, 31, 0.28);
+  }
+}
+
+/* ========================================
+   GITHUB-SEKTIONEN
+   BEFINTLIG DESIGN BEHÅLLS
+======================================== */
 
 .projekt-github {
   padding: 56px 32px;
@@ -49,16 +285,22 @@
   justify-content: space-between;
   align-items: center;
   gap: 32px;
+
   padding: 32px;
+
   background-color: #F5F0F4;
+
   border: 1px solid #E7DFD9;
   border-radius: 20px;
+
   text-align: left;
 }
 
 .projekt-github-intro h2 {
   margin: 0 0 12px;
+
   color: #1C2027;
+
   font-family: "Outfit", sans-serif;
   font-size: 28px;
   font-weight: 700;
@@ -66,21 +308,28 @@
 
 .projekt-github-intro p:last-child {
   max-width: 440px;
+
   color: #4E5059;
   line-height: 1.6;
 }
 
 .projekt-github-knapp {
   flex-shrink: 0;
+
   min-height: 44px;
   padding: 12px 20px;
+
   border: none;
   border-radius: 8px;
+
   background-color: #365F87;
   color: #FFFFFF;
+
   font: inherit;
   font-weight: 600;
+
   cursor: pointer;
+
   transition: background-color 0.2s ease;
 }
 
@@ -95,9 +344,12 @@
 
 .projekt-github-innehall {
   margin-top: 24px;
+
   border: 1px solid #E7DFD9;
   border-radius: 18px;
+
   background-color: #F5F0F4;
+
   overflow: hidden;
 }
 
@@ -106,12 +358,16 @@
 .projekt-planerad {
   margin-top: auto;
   padding-top: 12px;
+
   color: #77717B;
+
   font-size: 14px;
   font-style: italic;
 }
 
-/* Mindre skärmar */
+/* ========================================
+   MINDRE SKÄRMAR
+======================================== */
 
 @media (max-width: 700px) {
   .projekt-sida-intro {
@@ -122,6 +378,16 @@
     font-size: 16px;
   }
 
+  .projekt-sida-intro::after {
+    left: 24px;
+    width: 115px;
+  }
+
+  .projekt-sida-intro
+  .projekt-sida-etikett::after {
+    width: 44px;
+  }
+
   .projekt-github {
     padding: 40px 20px;
   }
@@ -129,6 +395,7 @@
   .projekt-github-intro {
     flex-direction: column;
     align-items: flex-start;
+
     padding: 24px;
     gap: 24px;
   }

@@ -8,12 +8,15 @@ function ProjektKort({
   text,
   bild,
   lank,
+  demo,
   teknik,
   onValjTeknik
 }) {
   const underPlanering = teknik.includes("Under planering");
   const arGithub = lank?.includes("github.com");
   const internLank = lank?.startsWith("/");
+
+  const harDemo = demo === "todo" || demo === "vader";
 
   return (
     <article
@@ -43,7 +46,10 @@ function ProjektKort({
         )}
 
         <h3>{titel}</h3>
-        <p className="projekt-beskrivning">{text}</p>
+
+        <p className="projekt-beskrivning">
+          {text}
+        </p>
 
         {!underPlanering && (
           <>
@@ -77,7 +83,7 @@ function ProjektKort({
                 className="projekt-knapp"
                 to={`/projekt/${id}`}
               >
-                Läs mer
+                {harDemo ? "Prova funktionen" : "Läs mer"}
               </Link>
 
               {lank && (

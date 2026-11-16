@@ -30,7 +30,7 @@
     "id": 4,
     "titel": "Kattens ljusdimmer",
     "text": "En interaktiv ljusdimmer som styr kattens lampa och kvällsläge på startsidan.",
-    "bild": "Hero 4.webp",
+    "bild": "Hero 5.webp",
     "lank": "/",
     "teknik": ["React", "useState", "JavaScript"]
   }
