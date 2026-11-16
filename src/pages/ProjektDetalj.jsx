@@ -6,6 +6,7 @@ import projektLista from "../Data/Projekt.json";
 import Todo from "../components/Todo";
 import Vader from "../components/Vader";
 import CityWeather from "../components/CityWeather";
+import Statistik from "../components/Statistik";
 
 import "./ProjektDetalj.css";
 
@@ -48,6 +49,7 @@ function ProjektDetalj() {
       </p>
 
       {/* Kom ihåg-listan */}
+
       {demo === "todo" && (
         <div className="projekt-detalj-demo">
           <Todo />
@@ -55,6 +57,7 @@ function ProjektDetalj() {
       )}
 
       {/* Väderkollen */}
+
       {demo === "vader" && (
         <div className="projekt-detalj-demo projekt-detalj-vader">
 
@@ -110,7 +113,30 @@ function ProjektDetalj() {
         </div>
       )}
 
+      {/* Statistikövningen hör till Min sida */}
+
+      {projekt.id === 1 && (
+        <div className="projekt-detalj-statistik">
+          <p className="projekt-detalj-statistik-etikett">
+            BAKOM KULISSERNA
+          </p>
+
+          <h2>En liten statistikövning</h2>
+
+          <p className="projekt-detalj-statistik-beskrivning">
+            Den här funktionen räknar automatiskt
+            vilka tekniker som används i mina projekt.
+            Staplarna visar hur många projekt som
+            innehåller varje teknik, inte hur bra
+            jag är på den.
+          </p>
+
+          <Statistik />
+        </div>
+      )}
+
       {/* Tekniker som används */}
+
       <div className="projekt-detalj-teknik">
         <h2>Tekniker som används</h2>
 

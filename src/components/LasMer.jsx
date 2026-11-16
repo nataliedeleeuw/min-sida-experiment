@@ -29,10 +29,19 @@ function LasMer() {
           className="las-mer-innehall"
         >
           <p>
-            Jag gillar att förstå hur saker fungerar,
-            från människor till kod. Programmering ger
-            mig en ny plats att kombinera min nyfikenhet
-            med problemlösning och kreativitet.
+            Det jag tycker är särskilt roligt med
+            programmering är kombinationen av
+            problemlösning och kreativitet.
+            Jag vill inte bara förstå hur en funktion
+            fungerar, utan också fundera på hur
+            någon annan kommer att använda den.
+          </p>
+
+          <p>
+            Därför tycker jag om att arbeta med
+            både design, struktur och små detaljer
+            som gör en webbplats tydlig och trevlig
+            att använda.
           </p>
         </div>
       )}

@@ -1,118 +1,407 @@
+
+/* ========================================
+   OM MIG – SIDANS LAYOUT
+======================================== */
+
 .om-mig {
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: center;
-  gap: 32px;
-  padding: 48px 20px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 72px 36px 88px;
+
   background-color: #FCF5F6;
+  color: #1C2027;
 }
 
-.om-mig-card {
-  position: relative;
-  max-width: 800px;
+.om-mig-layout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.88fr)
+    minmax(0, 1.12fr);
+
+  grid-template-areas:
+    "portrait intro"
+    "portrait kurs";
+
+  align-items: start;
+
+  column-gap: 44px;
+  row-gap: 24px;
+
+  width: 100%;
+  max-width: 1020px;
   margin: 0 auto;
-  padding: 32px 28px;
+}
+
+/* ========================================
+   PRESENTATIONSKORTET
+======================================== */
+
+.om-mig-card {
+  grid-area: intro;
+
+  position: relative;
+  box-sizing: border-box;
+
+  width: 100%;
+  max-width: none;
+  margin: 0;
+
+  padding: 36px 42px;
+
   background-color: #FFFAF5;
-  border-radius: 18px;
-  box-shadow: 0 12px 32px rgba(28, 32, 39, 0.07);
+  border: 1px solid #E8DFDA;
+  border-radius: 20px;
+
+  box-shadow:
+    0 12px 30px rgba(28, 32, 39, 0.07);
+
   text-align: left;
   overflow: hidden;
 }
 
+/* Blå kant inspirerad av illustrationens konturer */
+
 .om-mig-card::before {
   content: "";
+
   position: absolute;
   top: 0;
   left: 0;
-  width: 7px;
+
+  width: 6px;
   height: 100%;
+
   background-color: #4C78A5;
 }
 
+/* En enda liten rosa detalj */
+
 .om-mig-card::after {
   content: "";
+
   position: absolute;
+  top: -56px;
+  right: -48px;
+
   width: 110px;
   height: 110px;
-  top: -60px;
-  right: -40px;
-  background-color: #E3B7B3;
+
   border-radius: 50%;
-  opacity: 0.55;
+  background-color: #E3B7B3;
+  opacity: 0.5;
+
   pointer-events: none;
 }
 
-.om-mig h2 {
-  color: #1C2027;
-  font-family: 'Outfit', sans-serif;
-  font-size: 28px;
+/* ========================================
+   RUBRIKER OCH TEXT
+======================================== */
+
+.om-mig .om-mig-etikett {
+  margin: 0 0 12px;
+
+  color: #365F87;
+
+  font-size: 12px;
   font-weight: 700;
-  margin: 0 0 24px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
-.om-mig p {
-  color: #4E5059;
-  font-size: 16px;
-  line-height: 1.8;
+.om-mig-card h1 {
+  position: relative;
+
+  margin: 0 0 22px;
+
+  color: #1C2027;
+
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(30px, 4vw, 38px);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.om-mig .om-mig-brodtext {
   margin: 0;
+
+  color: #4E5059;
+
+  font-size: 17px;
+  line-height: 1.75;
+  text-align: left;
+}
+
+.om-mig .om-mig-lastid {
+  margin: 14px 0 0;
+
+  color: #77717B;
+
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* ========================================
+   PORTRÄTTET
+======================================== */
+
+.om-mig-portratt {
+  grid-area: portrait;
+
+  position: relative;
+  isolation: isolate;
+
+  box-sizing: border-box;
+
+  width: 100%;
+  margin: 8px 0 0;
+  padding: 0 12px 0 0;
+
+  text-align: center;
+}
+
+/* Mjuk form bakom bilden */
+
+.om-mig-portratt::before {
+  content: "";
+
+  position: absolute;
+  top: -20px;
+  right: -4px;
+
+  width: 126px;
+  height: 126px;
+
+  border-radius: 50%;
+  background-color: #E3B7B3;
+
+  opacity: 0.65;
+  z-index: -1;
+
+  pointer-events: none;
 }
 
 .om-mig-bild {
   display: block;
+  box-sizing: border-box;
+
   width: 100%;
   height: auto;
+
+  border: 2px solid #365F87;
   border-radius: 18px;
+
+  box-shadow:
+    10px 10px 0 rgba(54, 95, 135, 0.14);
 }
 
-.om-mig h3 {
-  margin: 28px 0 16px;
-  color: #261f3a;
-  font-size: 20px;
+.om-mig .om-mig-bildtext {
+  margin: 22px 0 0;
+
+  color: #5C6070;
+
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
 }
+
+/* ========================================
+   KURSENS TEKNIKER
+======================================== */
+
+.om-mig-kurs {
+  grid-area: kurs;
+
+  box-sizing: border-box;
+  min-width: 0;
+
+  padding: 26px 30px;
+
+  background-color: #F3EFF1;
+
+  border: 1px solid #E7DFD9;
+  border-radius: 18px;
+
+  text-align: left;
+}
+
+.om-mig-kurs h2 {
+  margin: 0 0 8px;
+
+  color: #1C2027;
+
+  font-family: "Outfit", sans-serif;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.om-mig .om-mig-kurs-beskrivning {
+  margin: 0 0 20px;
+
+  color: #62616B;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Små tekniketiketter */
 
 .om-mig-lista {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  padding: 0;
+  gap: 10px;
+
   margin: 0;
+  padding: 0;
+
   list-style: none;
 }
 
 .om-mig-lista li {
-  padding: 8px 16px;
+  padding: 8px 14px;
+
+  background-color: #EDE9F6;
+  color: #7E2B60;
+
+  border: 1px solid #D9CBD9;
   border-radius: 999px;
-  background-color: #ede9f6;
-  color: #7e2b60;
+
+  font-size: 14px;
   font-weight: 600;
 }
-.om-mig .om-mig-lastid {
-  margin-top: 12px;
-  font-size: 14px;
-  color: #777777;
+
+/* ========================================
+   MÖRKERLÄGE
+======================================== */
+
+/* Sidans bakgrund styrs även av Tema.css */
+
+.dark-mode .om-mig-card {
+  background-color: #26374E;
+  border-color: #465872;
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.16);
 }
 
-@media (min-width: 601px) {
+.dark-mode .om-mig-card::before {
+  background-color: #83A9CD;
+}
+
+.dark-mode .om-mig-card::after {
+  background-color: #B98F9C;
+  opacity: 0.35;
+}
+
+.dark-mode .om-mig .om-mig-etikett {
+  color: #F0BDB8;
+}
+
+.dark-mode .om-mig-card h1 {
+  color: #FFF7F3;
+}
+
+.dark-mode .om-mig .om-mig-brodtext {
+  color: #E0E7F0;
+}
+
+.dark-mode .om-mig .om-mig-lastid {
+  color: #B8C6D8;
+}
+
+.dark-mode .om-mig-portratt::before {
+  background-color: #53617A;
+}
+
+.dark-mode .om-mig-bild {
+  border-color: #91A9C4;
+
+  box-shadow:
+    10px 10px 0 rgba(8, 18, 33, 0.45);
+}
+
+.dark-mode .om-mig .om-mig-bildtext {
+  color: #C8D3E2;
+}
+
+.dark-mode .om-mig-kurs {
+  background-color: #203149;
+  border-color: #465872;
+}
+
+.dark-mode .om-mig-kurs h2 {
+  color: #FFF7F3;
+}
+
+.dark-mode .om-mig .om-mig-kurs-beskrivning {
+  color: #CDD8E6;
+}
+
+.dark-mode .om-mig-lista li {
+  background-color: #493B53;
+  color: #F5D4E4;
+  border-color: #67536C;
+}
+
+/* ========================================
+   SURFPLATTA OCH MOBIL
+======================================== */
+
+/*
+  På smalare skärmar får texten hela bredden.
+  Presentation först, sedan porträtt och tekniker.
+*/
+
+@media (max-width: 860px) {
   .om-mig {
-    padding: 80px 32px;
+    padding: 44px 24px 64px;
+  }
+
+  .om-mig-layout {
+    grid-template-columns: minmax(0, 1fr);
+
+    grid-template-areas:
+      "intro"
+      "portrait"
+      "kurs";
+
+    row-gap: 32px;
+  }
+
+  .om-mig-portratt {
+    width: min(100%, 410px);
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 520px) {
+  .om-mig {
+    padding: 28px 18px 48px;
+  }
+
+  .om-mig-layout {
+    row-gap: 28px;
   }
 
   .om-mig-card {
-    padding: 32px 56px;
+    padding: 28px 25px;
   }
 
-  .om-mig h2 {
-    font-size: 32px;
+  .om-mig .om-mig-brodtext {
+    font-size: 16px;
+    line-height: 1.7;
   }
 
-  .om-mig p {
-    font-size: 18px;
+  .om-mig-portratt {
+    width: min(100%, 340px);
   }
-}
 
-@media (min-width: 801px) {
-  .om-mig {
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
+  .om-mig-kurs {
+    padding: 24px 22px;
+  }
+
+  .om-mig-kurs h2 {
+    font-size: 19px;
   }
 }

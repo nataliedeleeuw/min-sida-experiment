@@ -1,4 +1,8 @@
 
+/* ========================================
+   STATISTIK – GRUND
+======================================== */
+
 .statistik {
   margin-top: 32px;
 }
@@ -11,14 +15,18 @@
 
 .statistik-rad {
   width: 100%;
+  min-width: 0;
 }
 
 .statistik-info {
   display: flex;
   justify-content: space-between;
   gap: 16px;
+
   margin-bottom: 8px;
+
   color: #4E5059;
+
   font-size: 14px;
   font-weight: 600;
 }
@@ -26,13 +34,143 @@
 .statistik-stapel {
   width: 100%;
   height: 12px;
+
   background-color: #DDD7DC;
   border-radius: 999px;
+
   overflow: hidden;
 }
 
 .statistik-fyllning {
   height: 100%;
+
   background-color: #4C78A5;
   border-radius: 999px;
+}
+
+/* ========================================
+   STATISTIK PÅ MIN SIDA-PROJEKTET
+======================================== */
+
+.projekt-detalj-statistik {
+  margin: 36px 0 0;
+  padding: 28px;
+
+  background-color: #F5F0F4;
+
+  border: 1px solid #E7DFD9;
+  border-radius: 18px;
+
+  text-align: left;
+}
+
+.projekt-detalj-statistik-etikett {
+  margin: 0 0 10px;
+
+  color: #365F87;
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.projekt-detalj-statistik h2 {
+  margin: 0 0 12px;
+
+  color: #1C2027;
+
+  font-family: "Outfit", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.projekt-detalj-statistik-beskrivning {
+  max-width: 600px;
+  margin: 0;
+
+  color: #4E5059;
+
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.projekt-detalj-statistik .statistik {
+  margin-top: 28px;
+}
+
+.projekt-detalj-statistik .statistik h3 {
+  margin: 0 0 20px;
+
+  color: #1C2027;
+
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.projekt-detalj-statistik .statistik-lista {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 22px 28px;
+}
+
+/* ========================================
+   MÖRKERLÄGE
+======================================== */
+
+.dark-mode .projekt-detalj-statistik {
+  background-color: #30435C;
+  border-color: #536D8A;
+}
+
+.dark-mode .projekt-detalj-statistik-etikett {
+  color: #F0BDB8;
+}
+
+.dark-mode .projekt-detalj-statistik h2,
+.dark-mode .projekt-detalj-statistik .statistik h3 {
+  color: #FFF7F3;
+}
+
+.dark-mode .projekt-detalj-statistik-beskrivning {
+  color: #D0D9E6;
+}
+
+.dark-mode .projekt-detalj-statistik .statistik-info {
+  color: #D0D9E6;
+}
+
+.dark-mode .projekt-detalj-statistik .statistik-stapel {
+  background-color: #445671;
+}
+
+.dark-mode .projekt-detalj-statistik .statistik-fyllning {
+  background-color: #81A8CF;
+}
+
+/* ========================================
+   MOBIL
+======================================== */
+
+@media (max-width: 620px) {
+  .projekt-detalj-statistik {
+    padding: 22px 18px;
+  }
+
+  .projekt-detalj-statistik h2 {
+    font-size: 21px;
+  }
+
+  .projekt-detalj-statistik .statistik-lista {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 360px) {
+  .statistik-info {
+    gap: 8px;
+    font-size: 12px;
+  }
 }
