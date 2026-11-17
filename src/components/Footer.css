@@ -7,26 +7,12 @@
   box-sizing: border-box;
   width: 100%;
 
-  /* Mjuk, dämpad dusty blue */
-  background-color: #8FA7BE;
+  background-color: #365F87;
+  background-image: none;
 
-  background-image:
-    radial-gradient(
-      circle at 90% 18%,
-      rgba(236, 229, 235, 0.392),
-      transparent 38%
-    ),
-    linear-gradient(
-      110deg,
-      #2b4761 0%,
-      #69839c 48%,
-      #ffffff 78%,
-      #ffffff 100%
-    );
+  color: #FFFAF5;
 
-  color: #29384A;
-
-  border-top: 1px solid #8199B0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 /* ========================================
@@ -64,7 +50,7 @@
 .footer .footer-copyright {
   margin: 0;
 
-  color: #e4b8d1;
+  color: #FFFAF5;
 
   font-size: 13px;
   font-weight: 600;
@@ -74,7 +60,7 @@
 .footer .footer-react {
   margin: 0;
 
-  color: #dcb1c4;
+  color: #E2EAF2;
 
   font-size: 13px;
   font-weight: 400;
@@ -91,7 +77,6 @@
   justify-content: flex-end;
 
   gap: 22px;
-
   min-width: 0;
 }
 
@@ -108,7 +93,7 @@
 
   padding: 8px 0;
 
-  color: #274C73;
+  color: #FFFAF5;
 
   font-size: 13px;
   font-weight: 600;
@@ -121,12 +106,12 @@
 }
 
 .footer .footer-epost:hover {
-  color: #7B486C;
+  color: #F8D1D0;
   text-decoration: underline;
 }
 
 /* ========================================
-   SÄG HEJ – KNAPPEN
+   SÄG HEJ – CREME OCH DUSTY PINK
 ======================================== */
 
 .footer .footer-hej {
@@ -141,18 +126,20 @@
   min-height: 44px;
   padding: 10px 20px;
 
-  background-color: #f1bdc4;
-  color: #5172a4;
+  /* Varm cremefärgad knapp */
+  background-color: #FFFAF5;
+  color: #294563;
 
-  border: 1px solid #765575;
+  /* Tunn grafisk kontur */
+  border: 1.5px solid #243F5C;
   border-radius: 9px;
 
-  box-shadow:
-    0 3px 0 rgba(91, 57, 82, 0.15);
+  /* Tydlig rosa kant bakom knappen */
+  box-shadow: 4px 4px 0 #E3B7B3;
 
   font: inherit;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
 
   text-decoration: none;
   white-space: nowrap;
@@ -163,48 +150,43 @@
     transform 0.2s ease;
 }
 
+/* Den lilla pilen */
+
 .footer .footer-hej span {
-  color: #F6C8D0;
+  color: #AD748B;
 
   font-size: 19px;
   line-height: 1;
 }
 
+/* När man håller musen över knappen */
+
 .footer .footer-hej:hover {
-  background-color: #f7f0f6;
-  color: #FFFFFF;
+  background-color: #FFF4EF;
+  color: #294563;
 
-  box-shadow:
-    0 5px 14px rgba(105, 67, 99, 0.20);
+  /* Knappen rör sig mot skuggkanten */
+  transform: translate(2px, 2px);
 
-  transform: translateY(-2px);
+  box-shadow: 2px 2px 0 #E3B7B3;
+
   text-decoration: none;
 }
 
 /* ========================================
-   MÖRKERLÄGE – OFÖRÄNDRAT
+   MÖRKERLÄGE
 ======================================== */
 
 .dark-mode .footer {
   background-color: #111E31;
-
-  background-image:
-    radial-gradient(
-      circle at 83% 25%,
-      rgba(227, 183, 179, 0.10),
-      transparent 38%
-    ),
-    linear-gradient(
-      110deg,
-      #111E31 0%,
-      #20263B 55%,
-      #38273F 100%
-    );
+  background-image: none;
 
   color: #FFF7F3;
 
-  border-top-color: #46506B;
+  border-top-color: #35445A;
 }
+
+/* Text i mörkerläge */
 
 .dark-mode .footer .footer-copyright {
   color: #E4E9F1;
@@ -215,33 +197,34 @@
 }
 
 .dark-mode .footer .footer-epost {
-  color: #E6C7D8;
+  color: #F0C7D7;
 }
 
 .dark-mode .footer .footer-epost:hover {
   color: #FFE1E3;
 }
 
+/* Cremefärgad knapp även i mörker */
+
 .dark-mode .footer .footer-hej {
-  background-color: #493650;
-  color: #FFF7F3;
+  background-color: #F8F0EA;
+  color: #493B53;
 
-  border-color: #C39AAA;
+  border-color: #C9A4B5;
 
-  box-shadow:
-    0 3px 12px rgba(0, 0, 0, 0.12);
+  /* Dovare dusty pink */
+  box-shadow: 4px 4px 0 #A97994;
 }
 
 .dark-mode .footer .footer-hej span {
-  color: #F0BDB8;
+  color: #9D657F;
 }
 
 .dark-mode .footer .footer-hej:hover {
-  background-color: #674762;
-  color: #FFFFFF;
+  background-color: #FFF7F1;
+  color: #493B53;
 
-  box-shadow:
-    0 5px 18px rgba(185, 143, 156, 0.17);
+  box-shadow: 2px 2px 0 #A97994;
 }
 
 /* ========================================
@@ -249,8 +232,8 @@
 ======================================== */
 
 .footer a:focus-visible {
-  outline: 3px solid #654663;
-  outline-offset: 4px;
+  outline: 3px solid #FFE1DE;
+  outline-offset: 5px;
   border-radius: 5px;
 }
 
@@ -279,6 +262,7 @@
   .footer-contact {
     justify-content: center;
     flex-wrap: wrap;
+
     gap: 10px 20px;
   }
 }
@@ -298,5 +282,14 @@
   .footer .footer-hej,
   .footer .footer-epost {
     transition: none;
+  }
+
+  .footer .footer-hej:hover {
+    transform: none;
+    box-shadow: 4px 4px 0 #E3B7B3;
+  }
+
+  .dark-mode .footer .footer-hej:hover {
+    box-shadow: 4px 4px 0 #A97994;
   }
 }
